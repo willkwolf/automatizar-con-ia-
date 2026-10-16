@@ -452,6 +452,33 @@
       display: block;
     }
 
+    .module-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.65rem;
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .tech-tag.advanced {
+      border-color: rgba(197, 160, 89, 0.4);
+      background: rgba(197, 160, 89, 0.1);
+      color: #7d6328;
+    }
+
     /* Pricing Section */
     .pricing-grid {
       display: grid;
@@ -978,19 +1005,19 @@
       <div class="trust-badges">
         <div class="badge-item">
           <span class="badge-label">Duración</span>
-          <span class="badge-value">5 Semanas Guiadas</span>
+          <span class="badge-value">5 Semanas (15h en Vivo)</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Metodología</span>
-          <span class="badge-value">5 Soluciones Listas</span>
+          <span class="badge-label">Enfoque</span>
+          <span class="badge-value">Spec-Driven · Cero AI Slop</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Modalidad</span>
-          <span class="badge-value">100% en Vivo y Práctico</span>
+          <span class="badge-label">Exclusividad</span>
+          <span class="badge-value">18 Plazas por Cohorte</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Garantía</span>
-          <span class="badge-value">Retracto Legal (Ley 1480)</span>
+          <span class="badge-label">Entregable</span>
+          <span class="badge-value">5 Soluciones en Producción</span>
         </div>
       </div>
     </div>
@@ -1138,6 +1165,11 @@
           <div class="module-main">
             <h3>Asistente con Conocimiento Propio</h3>
             <p>Estructura instrucciones y bases documentales para que la IA responda sin alucinar y conozca las reglas exactas de tu negocio.</p>
+            <div class="module-tech-tags">
+              <span class="tech-tag">NotebookLM</span>
+              <span class="tech-tag">Claude</span>
+              <span class="tech-tag">Perplexity AI</span>
+            </div>
           </div>
           <div class="module-deliverable">
             <strong>Proyecto Tangible</strong>
@@ -1151,8 +1183,13 @@
             <span class="module-time">Productividad</span>
           </div>
           <div class="module-main">
-            <h3>CRM Invisible y Organización de Contactos</h3>
+            <h3>CRM Invisible y Captura de Contactos</h3>
             <p>Organiza automáticamente prospectos y conversaciones sin digitación manual, centralizando datos y acuerdos en segundos.</p>
+            <div class="module-tech-tags">
+              <span class="tech-tag">Telegram</span>
+              <span class="tech-tag">Claude (JSON)</span>
+              <span class="tech-tag">Hojas de Datos / CRM</span>
+            </div>
           </div>
           <div class="module-deliverable">
             <strong>Proyecto Tangible</strong>
@@ -1163,26 +1200,16 @@
         <div class="module-item">
           <div class="module-meta">
             <span class="module-number">Semana 03</span>
-            <span class="module-time">Automatización</span>
+            <span class="module-time">Interfaces</span>
           </div>
           <div class="module-main">
-            <h3>Automatización Confiable con Respaldo</h3>
-            <p>Construye flujos seguros con alertas tempranas, respaldo ante caídas y control humano para que nunca fallen a ciegas.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Sistema de automatización supervisado con notificación de excepciones y registro de auditoría.</span>
-          </div>
-        </div>
-
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 04</span>
-            <span class="module-time">Aplicaciones</span>
-          </div>
-          <div class="module-main">
-            <h3>Recepcionista Comercial Interactivo</h3>
-            <p>Despliega una herramienta web que responde preguntas frecuentes, califica prospectos en menos de 5 minutos y agenda citas.</p>
+            <h3>Interfaces y Soluciones Visuales</h3>
+            <p>Despliega miniaplicaciones visuales y formularios inteligentes para capturar prospectos y clientes sin programar interfaces complejas.</p>
+            <div class="module-tech-tags">
+              <span class="tech-tag">Lovable</span>
+              <span class="tech-tag">Google Stitch</span>
+              <span class="tech-tag">Gemini</span>
+            </div>
           </div>
           <div class="module-deliverable">
             <strong>Proyecto Tangible</strong>
@@ -1192,12 +1219,38 @@
 
         <div class="module-item">
           <div class="module-meta">
+            <span class="module-number">Semana 04</span>
+            <span class="module-time">Automatización</span>
+          </div>
+          <div class="module-main">
+            <h3>Automatización Confiable con Respaldo</h3>
+            <p>Construye flujos seguros con alertas tempranas, respaldo ante caídas y control humano para que nunca fallen a ciegas.</p>
+            <div class="module-tech-tags">
+              <span class="tech-tag advanced">n8n (Avanzado)</span>
+              <span class="tech-tag advanced">Hostinger VPS</span>
+              <span class="tech-tag">Telegram Alerts</span>
+            </div>
+          </div>
+          <div class="module-deliverable">
+            <strong>Proyecto Tangible</strong>
+            <span>Sistema de automatización supervisado con notificación de excepciones y registro de auditoría.</span>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <div class="module-meta">
             <span class="module-number">Semana 05</span>
             <span class="module-time">Integración</span>
           </div>
           <div class="module-main">
-            <h3>Equipo de Agentes por Roles Operativos</h3>
+            <h3>Recepcionista & Equipo de Agentes por Rol</h3>
             <p>Configura agentes organizados por funciones de trabajo (recepcionista, asesor y agendador) con derivación estricta a humanos.</p>
+            <div class="module-tech-tags">
+              <span class="tech-tag advanced">n8n</span>
+              <span class="tech-tag advanced">WhatsApp API</span>
+              <span class="tech-tag">Manus / Agentes</span>
+              <span class="tech-tag">Multi-Model</span>
+            </div>
           </div>
           <div class="module-deliverable">
             <strong>Proyecto Tangible</strong>
@@ -1310,17 +1363,27 @@
       <div class="faq-accordion-list">
         
         <details class="faq-accordion">
-          <summary class="faq-summary">¿Qué soluciones exactas construiré durante las 5 semanas?</summary>
+          <summary class="faq-summary">¿Qué herramientas y metodologías aprenderé a lo largo de las 5 semanas?</summary>
           <div class="faq-content">
-            Construirás 5 soluciones operativas basadas en demandas comprobadas de mercado:
-            <ul style="margin: 0.5rem 0 0.5rem 1.25rem; line-height: 1.6;">
-              <li><strong>Asistente con conocimiento propio:</strong> responde con exactitud documental sobre tu negocio sin alucinaciones.</li>
-              <li><strong>CRM invisible:</strong> captura y organiza clientes automáticamente desde conversaciones sin digitación manual.</li>
-              <li><strong>Automatización confiable:</strong> flujos con alertas tempranas, respaldo ante fallos y supervisión humana.</li>
-              <li><strong>Recepcionista comercial:</strong> portal web interactivo que responde preguntas frecuentes, califica prospectos en &lt; 5 minutos y agenda citas.</li>
-              <li><strong>Equipo de agentes por roles:</strong> asistentes coordinados como recepcionista, asesor y agendador con derivación a humanos (*Human-in-the-Loop*).</li>
+            Aprenderás una combinación de <strong>marcos conceptuales de ingeniería</strong> y una <strong>pila de herramientas progresivas</strong>, calibrada para no sobrecargarte desde el inicio:
+            <ul style="margin: 0.6rem 0 0.6rem 1.25rem; line-height: 1.65;">
+              <li><strong>Metodologías de Ingeniería Operativa:</strong>
+                <ul style="margin: 0.35rem 0 0.35rem 1.2rem;">
+                  <li><em>Teoría de Restricciones (TOC / Goldratt):</em> identificación estricta del cuello de botella real de tu operación antes de automatizar, evitando acelerar el caos.</li>
+                  <li><em>Spec-Driven Development:</em> desarrollo guiado por especificaciones claras en lenguaje natural y esquemas JSON, erradicando el <em>AI Slop</em> (chatarra sintética y código roto).</li>
+                  <li><em>Tree of Thoughts (ToT básico):</em> razonamiento estructurado y ramificado para prompts consistentes y toma de decisiones en tareas complejas.</li>
+                  <li><em>Human-in-the-Loop (HITL) y Consenso Multi-Modelo:</em> protocolos de validación cruzada entre modelos (Claude, Gemini, OpenAI) y puntos de aprobación humana antes de acciones críticas.</li>
+                </ul>
+              </li>
+              <li><strong>Pila Tecnológica Progresiva:</strong>
+                <ul style="margin: 0.35rem 0 0.35rem 1.2rem;">
+                  <li><em>Semanas 01 y 02 (Fundamentos y Verdad Operativa):</em> <strong>Google NotebookLM</strong>, <strong>Claude (Anthropic)</strong>, <strong>Google Gemini</strong> y <strong>Perplexity AI</strong> para curaduría documental sin alucinaciones y captura estructurada en bases de datos o CRM.</li>
+                  <li><em>Semana 03 (Interfaces y Soluciones Visuales):</em> <strong>Lovable</strong> y <strong>Google Stitch</strong> para desplegar miniaplicaciones y portales interactivos sin escribir código frontend.</li>
+                  <li><em>Semanas 04 y 05 (Orquestación Avanzada y Agentes):</em> Introducción formal a <strong>n8n</strong> (alojado en VPS propio), <strong>WhatsApp Business API</strong>, <strong>Telegram</strong> y coordinación de agentes por roles (<strong>Manus</strong> / <strong>OpenClaw</strong>) con manejo global de errores y recuperación automática.</li>
+                </ul>
+              </li>
             </ul>
-            <em>Nota:</em> Cada cohorte o participante puede adaptar o proponer un proyecto a la medida de su sector, siempre que se ajuste al alcance técnico del programa.
+            <em>Nota sobre n8n:</em> Consideramos n8n un componente de orquestación técnica avanzada. No te abrumamos con él al inicio: primero dominas la lógica operativa y la especificación en semanas 1 a 3, y en las semanas 4 y 5 lo utilizas para construir flujos integrales robustos.
           </div>
         </details>
 
