@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende a Automatizar con IA: De Asistentes a Flujos de Trabajo | Boutique Digital</title>
+  <meta name="description" content="Programa práctico de 5 semanas para profesionales y negocios sin conocimientos técnicos. Aprende a construir automatizaciones y miniaplicaciones con IA. Precios en Pesos Colombianos (COP).">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://willkwolf.github.io/automatizar-con-ia-/">
+  <link rel="author" href="https://github.com/willkwolf/automatizar-con-ia-">
+
+  <!-- OpenGraph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Boutique Digital">
+  <meta property="og:title" content="Aprende a Automatizar con IA: De Asistentes a Flujos de Trabajo Útiles">
+  <meta property="og:description" content="Pasa de usar ChatGPT básico a construir soluciones funcionales para tu trabajo o negocio. 5 semanas, 5 proyectos demostrables. Precios en COP.">
+  <meta property="og:url" content="https://willkwolf.github.io/automatizar-con-ia-/">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aprende a Automatizar con IA | Boutique Digital">
+  <meta name="twitter:description" content="Formación práctica guiada en IA y automatización para usuarios no técnicos.">
+
+  <!-- Tipografías (Crema Editorial / Lujo Industrial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --ink: #121614;
+      --card-bg: #ffffff;
+      --border: #e2dfd7;
+      --border-dark: #c8c4b7;
+      --muted: #636b66;
+      --accent: #1e293b;
+      --accent-soft: #edebe4;
+      --gold-subtle: #9c7b44;
+      --green-status: #1e5e3a;
+      
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      --container: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Layout */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(247, 246, 242, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-subtle);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--ink);
+      color: #ffffff !important;
+      padding: 0.55rem 1.1rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .nav-cta:hover {
+      background: #2b332e;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-subtle);
+      background: var(--accent-soft);
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-subtle);
+      font-weight: 400;
+    }
+
+    .hero-lead {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--ink);
+      color: #ffffff;
+      padding: 0.9rem 1.8rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #252e28;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border-dark);
+      padding: 0.9rem 1.8rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-soft);
+    }
+
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .badge-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* Section Headers */
+    .section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-subtle);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    /* Audience Grid */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .audience-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem;
+    }
+
+    .audience-card.positive {
+      border-top: 4px solid var(--green-status);
+    }
+
+    .audience-card.negative {
+      border-top: 4px solid #a33b3b;
+      background: #faf8f5;
+    }
+
+    .audience-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .audience-list {
+      list-style: none;
+    }
+
+    .audience-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.75rem;
+      position: relative;
+      font-size: 0.95rem;
+      color: #333d37;
+    }
+
+    .audience-card.positive .audience-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green-status);
+      font-weight: 700;
+    }
+
+    .audience-card.negative .audience-list li::before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      color: #a33b3b;
+      font-weight: 700;
+    }
+
+    /* Modules Accordion / Cards */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .module-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .module-card:hover {
+      border-color: var(--border-dark);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .module-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .module-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold-subtle);
+      background: var(--accent-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+    }
+
+    .module-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .module-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .detail-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--ink);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      right: 2rem;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .tier-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      min-height: 40px;
+    }
+
+    .tier-price {
+      margin-bottom: 1.5rem;
+    }
+
+    .price-cop {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .price-cop-regular {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+
+    .price-benchmark {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold-subtle);
+      margin-top: 0.35rem;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .tier-features li {
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      padding-left: 1.4rem;
+    }
+
+    .tier-features li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: var(--gold-subtle);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .btn-pricing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-pricing.primary {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .btn-pricing.primary:hover {
+      background: #2b332e;
+    }
+
+    .btn-pricing.secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border-dark);
+    }
+
+    .btn-pricing.secondary:hover {
+      background: var(--accent-soft);
+    }
+
+    /* FAQ Section */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+    }
+
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-answer {
+      font-size: 0.92rem;
+      color: #3b423e;
+      line-height: 1.6;
+    }
+
+    /* Footer & Legal */
+    footer {
+      background: #edeae2;
+      border-top: 1px solid var(--border-dark);
+      padding: 4rem 0 3rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links h5 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+
+    .footer-legal-bar {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .canonical-watermark {
+      font-size: 0.75rem;
+      opacity: 0.75;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .canonical-watermark a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .audience-grid, .faq-grid, .pricing-grid, .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .module-details {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOccupationalProgram",
+        "@id": "https://willkwolf.github.io/automatizar-con-ia-/#program",
+        "name": "AI Builder y Automatización con IA para Usuarios No Técnicos",
+        "description": "Programa práctico de 5 semanas para aprender a construir automatizaciones, miniaplicaciones y asistentes con IA sin programar.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Boutique Digital",
+          "url": "https://willkwolf.github.io/automatizar-con-ia-/",
+          "sameAs": [
+            "https://github.com/willkwolf/automatizar-con-ia-",
+            "https://github.com/willkwolf/Thinking-as-a-Service"
+          ]
+        },
+        "timeToComplete": "P5W",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Tier Basic — Preventa",
+            "price": "490000",
+            "priceCurrency": "COP",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://willkwolf.github.io/automatizar-con-ia-/#pricing"
+          },
+          {
+            "@type": "Offer",
+            "name": "Tier Pro — Preventa",
+            "price": "1290000",
+            "priceCurrency": "COP",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://willkwolf.github.io/automatizar-con-ia-/#pricing"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">
+        <span class="brand-title">Boutique Digital</span>
+        <span class="brand-sub">Extensión de Thinking-as-a-Service</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#metodologia">Metodología</a>
+        <a href="#programa">Programa (5 Semanas)</a>
+        <a href="#pricing">Precios (COP)</a>
+        <a href="#faqs">Preguntas</a>
+        <a href="#legal">Legal</a>
+      </nav>
+      <a href="https://wa.me/573002976815?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="nav-cta" target="_blank" rel="noopener">
+        <span>WhatsApp Directo</span> →
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">
+        <span>●</span> Formación Práctica y Servicios Boutique · Edición 2026
+      </div>
+      <h1 class="hero-title">
+        De utilizar IA básica a <em>construir flujos funcionales</em> para tu trabajo o negocio.
+      </h1>
+      <p class="hero-lead">
+        Aprende a automatizar tareas repetitivas, conectar herramientas y crear soluciones digitales operativas paso a paso, sin requerir formación previa como programador y bajo supervisión humana estricta.
+      </p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">Ver Planes y Precios en COP ↓</a>
+        <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-secondary" target="_blank" rel="noopener">
+          Consultoría Enterprise B2B →
+        </a>
+      </div>
+      <div class="trust-badges">
+        <div class="badge-item">
+          <span class="badge-label">Duración</span>
+          <span class="badge-value">5 Semanas Prácticas</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-label">Metodología</span>
+          <span class="badge-value">5 Proyectos Reales Verificables</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-label">Privacidad</span>
+          <span class="badge-value">Cero Rastreo / Zero-Cookies</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-label">Garantía Legal</span>
+          <span class="badge-value">Derecho de Retracto (Ley 1480)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience Section: For Whom / NOT for Whom -->
+  <section class="section" id="metodologia">
+    <div class="container">
+      <span class="section-eyebrow">Alineación y Claridad</span>
+      <h2 class="section-title">Para quién está diseñado este programa</h2>
+      <p class="section-desc">
+        No vendemos cursos teóricos para coleccionar diplomas. Filtramos con honestidad nuestro público para asegurar que cada participante obtenga valor económico real.
+      </p>
+      <div class="audience-grid">
+        <div class="audience-card positive">
+          <h3>Para quién SÍ es:</h3>
+          <ul class="audience-list">
+            <li><strong>Usuarios básicos de IA:</strong> Utilizan ChatGPT o Claude para tareas aisladas pero no saben convertir resultados en flujos repetibles.</li>
+            <li><strong>Profesionales y consultores:</strong> Desean eliminar horas de trabajo administrativo manual en finanzas, legal, marketing o gestión.</li>
+            <li><strong>Emprendedores y dueños de negocio:</strong> Quieren automatizar la captación de prospectos y cotizaciones sin contratar un equipo técnico costoso.</li>
+            <li><strong>Creadores de servicios:</strong> Buscan empaquetar soluciones digitales ligeras y cobrar por valor y no por tiempo.</li>
+          </ul>
+        </div>
+        <div class="audience-card negative">
+          <h3>Para quién NO es:</h3>
+          <ul class="audience-list">
+            <li><strong>Desarrolladores e ingenieros de software avanzados:</strong> Que buscan optimización de compiladores, CUDA o entrenamiento de redes neuronales desde cero.</li>
+            <li><strong>Buscadores de fórmulas mágicas:</strong> Que esperan "hacerse ricos en automático" o sustituir por completo el criterio humano.</li>
+            <li><strong>Corporaciones que requieren sistemas de misión crítica el día 1:</strong> Que demandan certificaciones ISO de nivel bancario antes de validar sus procesos de negocio.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Modules (5 Weeks) -->
+  <section class="section" id="programa">
+    <div class="container">
+      <span class="section-eyebrow">Estructura Curricular</span>
+      <h2 class="section-title">5 Semanas, 5 Entregables Operativos</h2>
+      <p class="section-desc">
+        Cada módulo resuelve un problema de negocio real, culmina con un proyecto funcional demonstrable y cuenta con un criterio objetivo de finalización (DoD).
+      </p>
+      <div class="modules-grid">
+        
+        <div class="module-card">
+          <div class="module-header">
+            <span class="module-tag">Semana 1 · Proceso [P1]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">Entregable 1</span>
+          </div>
+          <h3 class="module-title">Fundamentos, Anatomía del Prompt y Asistentes Especializados</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Aprende a dar contexto profundo, estructurar meta-prompts y crear asistentes de IA con memoria y contexto persistente adaptados a tu industria.
+          </p>
+          <div class="module-details">
+            <div class="detail-item">
+              <strong>Proyecto Práctico</strong>
+              <span>Asistente Consultivo Especializado (Custom GPT / Gema / Claude Skill) entrenado con tu base documental de negocio.</span>
+            </div>
+            <div class="detail-item">
+              <strong>Criterio de Éxito (DoD)</strong>
+              <span>Supera 5 pruebas de estrés respondiendo con precisión factual, sin alucinaciones y en el tono corporativo exacto.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <span class="module-tag">Semana 2 · Proceso [P2]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">Entregable 2</span>
+          </div>
+          <h3 class="module-title">Entorno de Trabajo con IA y Fábrica de Activos</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Centraliza la información dispersa de tu empresa mediante cuadernos de investigación profunda y producción automatizada de síntesis y carruseles.
+          </p>
+          <div class="module-details">
+            <div class="detail-item">
+              <strong>Proyecto Práctico</strong>
+              <span>Sistema de Inteligencia con Google NotebookLM que ingesta normativas o videos y produce activos listos para comunicar.</span>
+            </div>
+            <div class="detail-item">
+              <strong>Criterio de Éxito (DoD)</strong>
+              <span>Genera síntesis ejecutivas con hipervínculos de cita verificable directa a las fuentes documentales originales.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <span class="module-tag">Semana 3 · Proceso [P3]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">Entregable 3</span>
+          </div>
+          <h3 class="module-title">Automatización de Tareas Relevantes y Flujos Determinísticos</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Elimina el copiado manual entre herramientas. Diseña flujos lógicos con disparadores automáticos, reglas de validación y alertas inmediatas.
+          </p>
+          <div class="module-details">
+            <div class="detail-item">
+              <strong>Proyecto Práctico</strong>
+              <span>Flujo de captura y notificación automática (Formulario → IA estructuradora → WhatsApp/Slack → Hoja de cálculo / CRM).</span>
+            </div>
+            <div class="detail-item">
+              <strong>Criterio de Éxito (DoD)</strong>
+              <span>Procesamiento end-to-end de 3 registros reales en menos de 60 segundos con cero pérdida de campos estructurados.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <span class="module-tag">Semana 4 · Proceso [P4]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">Entregable 4</span>
+          </div>
+          <h3 class="module-title">Constructor de Miniaplicaciones y Páginas Web Funcionales</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Construye software interactivo mediante programación en lenguaje natural. Lanza calculadoras, cotizadores y portales web en horas.
+          </p>
+          <div class="module-details">
+            <div class="detail-item">
+              <strong>Proyecto Práctico</strong>
+              <span>Mini-aplicación web interactiva para captar clientes (Calculadora de ROI o diagnóstico interactivo de negocio).</span>
+            </div>
+            <div class="detail-item">
+              <strong>Criterio de Éxito (DoD)</strong>
+              <span>Aplicación pública desplegada en la web, responsiva en móvil y escritorio, con lógica de cálculo 100% operativa.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-card">
+          <div class="module-header">
+            <span class="module-tag">Semana 5 · Proceso [P5]</span>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">Entregable 5</span>
+          </div>
+          <h3 class="module-title">Chatbots Comerciales, Integraciones y Gobernanza Continua</h3>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Entrena un asistente conversacional capaz de atender clientes 24/7 sobre tu catálogo y transferir consultas críticas a un humano.
+          </p>
+          <div class="module-details">
+            <div class="detail-item">
+              <strong>Proyecto Práctico</strong>
+              <span>Chatbot Comercial para WhatsApp o Web conectado a base de conocimiento con protocolo Human-in-the-Loop.</span>
+            </div>
+            <div class="detail-item">
+              <strong>Criterio de Éxito (DoD)</strong>
+              <span>Responde correctamente a 10 preguntas frecuentes de clientes y escala de inmediato al agente humano ante intención de compra.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section (COP & Benchmark USD) -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <span class="section-eyebrow">Inversión y Matriz de Tiers</span>
+      <h2 class="section-title">Precios Claros en Pesos Colombianos (COP)</h2>
+      <p class="section-desc">
+        Modelo Tech/SaaS con tarifa preferencial de preventa por cohorte limitada (máximo 25 participantes) y respaldo de valor internacional.
+      </p>
+      
+      <div class="pricing-grid">
+        
+        <!-- Tier Basic -->
+        <div class="pricing-card">
+          <h3 class="tier-name">Plan Basic</h3>
+          <p class="tier-desc">Para profesionales que buscan autoaprendizaje guiado y dominio de herramientas esenciales.</p>
+          <div class="tier-price">
+            <span class="price-cop">$490.000 COP</span>
+            <span class="price-cop-regular">$790.000</span>
+            <div class="price-benchmark">Preventa: ~$124 USD · Regular: ~$200 USD</div>
+          </div>
+          <ul class="tier-features">
+            <li>Acceso a los 5 módulos prácticos completos</li>
+            <li>5 proyectos funcionales con código base</li>
+            <li>Grabaciones de todas las sesiones de por vida</li>
+            <li>Plantillas de prompts de alta densidad</li>
+            <li>Soporte asíncrono en comunidad (SLA 48h)</li>
+            <li>Certificado de portafolio completado</li>
+          </ul>
+          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20plan%20Basic%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing secondary" target="_blank" rel="noopener">
+            Inscribirme al Plan Basic →
+          </a>
+        </div>
+
+        <!-- Tier Pro (Featured) -->
+        <div class="pricing-card featured">
+          <span class="pricing-badge">Más Recomendado</span>
+          <h3 class="tier-name">Plan Pro</h3>
+          <p class="tier-desc">Para emprendedores y consultores que buscan acompañamiento en vivo y feedback directo.</p>
+          <div class="tier-price">
+            <span class="price-cop">$1.290.000 COP</span>
+            <span class="price-cop-regular">$1.890.000</span>
+            <div class="price-benchmark">Preventa: ~$326 USD · Regular: ~$478 USD</div>
+          </div>
+          <ul class="tier-features">
+            <li><strong>Todo lo incluido en el Plan Basic</strong></li>
+            <li>5 Sesiones semanales de mentoría técnica en vivo</li>
+            <li>Revisión personalizada de tus 5 proyectos por módulo</li>
+            <li>Librería prémium de flujos listos para n8n / Make</li>
+            <li>Soporte técnico prioritario (SLA &lt; 24h)</li>
+            <li>1 Sesión 1-a-1 de arquitectura de negocio para tu empresa</li>
+          </ul>
+          <a href="https://wa.me/573002976815?text=Hola%2C%20me%20gustar%C3%ADa%20postular%20al%20plan%20Pro%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing primary" target="_blank" rel="noopener">
+            Postular al Plan Pro →
+          </a>
+        </div>
+
+        <!-- Tier Enterprise (Land-and-Expand) -->
+        <div class="pricing-card">
+          <h3 class="tier-name">Enterprise / Ad-Hoc</h3>
+          <p class="tier-desc">Para empresas que requieren consultoría a medida, agentes en VPS privado y automatizaciones llave en mano.</p>
+          <div class="tier-price">
+            <span class="price-cop" style="font-size: 1.6rem;">A la Medida</span>
+            <div class="price-benchmark">Modelo Land-and-Expand · Diagnóstico Previo</div>
+          </div>
+          <ul class="tier-features">
+            <li>Auditoría completa de procesos (Cargos → Procesos)</li>
+            <li>Despliegue de empleados digitales en VPS privado</li>
+            <li>Flujos complejos en Make / n8n con APIs internas</li>
+            <li>Entrenamiento de modelos con datos propietarios</li>
+            <li>Políticas de gobernanza y ciberseguridad aislada</li>
+            <li>Canal exclusivo de WhatsApp / Slack corporativo</li>
+          </ul>
+          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-pricing secondary" target="_blank" rel="noopener">
+            Conversar Solución Enterprise →
+          </a>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 2.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted);">
+        * Precios calculados a Tasa Representativa de Mercado (TRM) oficial de $3.950 COP/USD. Tarifas sujetas a confirmación por cohorte.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section (GEO/AEO Structured) -->
+  <section class="section" id="faqs">
+    <div class="container">
+      <span class="section-eyebrow">Resolución de Dudas</span>
+      <h2 class="section-title">Preguntas Frecuentes y Garantías</h2>
+      <p class="section-desc">
+        Respuestas directas y transparentes para tomar una decisión informada.
+      </p>
+      <div class="faq-grid">
+        
+        <div class="faq-item">
+          <h4 class="faq-question">¿Realmente puedo aprender a automatizar sin saber programar?</h4>
+          <p class="faq-answer">
+            Sí. La evolución de los modelos fundacionales permite utilizar el <em>lenguaje natural como lenguaje de programación</em>. Aprenderás a estructurar entradas, reglas y salidas lógicas. No te enseñaremos a memorizar sintaxis compleja de código, sino a dirigir a las herramientas con precisión técnica.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">¿Tengo que pagar suscripciones costosas a otras herramientas?</h4>
+          <p class="faq-answer">
+            No. El 100% del programa está diseñado para completarse utilizando los planes gratuitos de las herramientas recomendadas (ChatGPT Free, Claude, NotebookLM, Make tier gratuito y Lovable/GitHub Pages). Quienes deseen contratar versiones prémium lo harán por conveniencia operativa, no por requisito formativo.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">¿Qué garantía de satisfacción o devolución ofrecen?</h4>
+          <p class="faq-answer">
+            Cumplimos estrictamente con el Artículo 47 del Estatuto del Consumidor de Colombia (Ley 1480 de 2011). Tienes derecho al retracto dentro de los primeros <strong>cinco (5) días hábiles</strong> tras tu compra. Si consideras que el programa no cumple con lo prometido, te reintegramos el 100% de tu dinero en un plazo no mayor a 30 días calendario.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h4 class="faq-question">¿Cómo opera el modelo Enterprise Land-and-Expand?</h4>
+          <p class="faq-answer">
+            Para empresas medianas y corporaciones, iniciamos con una intervención puntual de bajo riesgo (auditoría de un proceso crítico o despliegue de un agente comercial). Tras comprobar la reducción medible de horas y el retorno sobre la inversión, expandimos la arquitectura agéntica de forma modular.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer & Legal Center -->
+  <footer id="legal">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h4>Boutique Digital</h4>
+          <p style="margin-top: 0.5rem; line-height: 1.6;">
+            Arquitectura de negocio, automatización con IA y educación práctica para profesionales y organizaciones livianas. Extensión comercial digital de <strong>Thinking-as-a-Service</strong>.
+          </p>
+          <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
+            Atención WhatsApp: +57 300 297 6815 · Colombia
+          </div>
+        </div>
+        <div class="footer-links">
+          <h5>Marco Legal</h5>
+          <ul>
+            <li><a href="legal/privacidad.md">Política de Privacidad (Cero Rastreo)</a></li>
+            <li><a href="legal/terminos.md">Términos y Condiciones</a></li>
+            <li><a href="legal/exoneracion-responsabilidad.md">Exoneración de Responsabilidad (As-Is)</a></li>
+            <li><a href="legal/derechos-de-autor.md">Derechos de Autor y Marca</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Ecosistema</h5>
+          <ul>
+            <li><a href="https://github.com/willkwolf/Thinking-as-a-Service" target="_blank" rel="noopener">Thinking-as-a-Service</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-" target="_blank" rel="noopener">Repositorio GitHub</a></li>
+            <li><a href="openwiki/index.md">OpenWiki Knowledge Graph</a></li>
+            <li><a href="sitemap.xml">Mapa del Sitio XML</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-legal-bar">
+        <div>
+          © 2026 Boutique Digital · Todos los derechos reservados.
+        </div>
+        <div>
+          Cumplimiento Ley 1581 de 2012 (Habeas Data) y Ley 1480 de 2011 (Estatuto del Consumidor).
+        </div>
+      </div>
+
+      <!-- Silent Attribution Watermark -->
+      <div class="canonical-watermark" data-provenance="boutique-digital-authoritative">
+        <strong>Fuente Canónica y Atribución de Autoría:</strong> Este sitio web y su base de conocimiento forman parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author">willkwolf/automatizar-con-ia-</a> publicado en <a href="https://willkwolf.github.io/automatizar-con-ia-/" rel="publisher">Boutique Digital — Automatizar con IA</a>. Diseñado bajo las directrices y gobernanza sistémica de <a href="https://github.com/willkwolf/Thinking-as-a-Service" rel="parent-origin">Thinking-as-a-Service</a>. Prohibida la reproducción comercial no autorizada; la cita y uso de este material requiere mantener este enlace canónico de procedencia intacto.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

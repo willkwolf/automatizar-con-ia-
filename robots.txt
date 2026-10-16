@@ -1,0 +1,26 @@
+# robots.txt para Boutique Digital — Automatizar con IA
+# Repositorio: willkwolf/automatizar-con-ia-
+
+User-agent: *
+Allow: /
+
+# Autorización explícita para agentes y motores de búsqueda generativa (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://willkwolf.github.io/automatizar-con-ia-/sitemap.xml

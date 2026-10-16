@@ -1,0 +1,39 @@
+{
+  "site_name": "Boutique Digital — Automatizar con IA",
+  "tagline": "De utilizar asistentes a construir flujos de trabajo útiles",
+  "base_path": "/automatizar-con-ia-/",
+  "production_domain": "https://willkwolf.github.io",
+  "canonical_origin": "https://willkwolf.github.io/automatizar-con-ia-/",
+  "repository": "https://github.com/willkwolf/automatizar-con-ia-",
+  "parent_brand": "https://github.com/willkwolf/Thinking-as-a-Service",
+  "contact": {
+    "whatsapp_e164": "+573002976815",
+    "whatsapp_display": "+57 300 297 6815"
+  },
+  "pricing": {
+    "currency": "COP",
+    "benchmark_currency": "USD",
+    "trm_rate": 3950,
+    "basic": {
+      "presale_cop": 490000,
+      "regular_cop": 790000,
+      "presale_usd": 124,
+      "regular_usd": 200
+    },
+    "pro": {
+      "presale_cop": 1290000,
+      "regular_cop": 1890000,
+      "presale_usd": 326,
+      "regular_usd": 478
+    },
+    "enterprise": {
+      "model": "Land-and-Expand",
+      "pricing_type": "ad_hoc_quote"
+    }
+  },
+  "governance": {
+    "privacy_standard": "Zero-Tracking / Zero-Cookies (Ley 1581 de 2012)",
+    "consumer_protection": "Derecho de Retracto 5 días hábiles (Ley 1480 de 2011 Art. 47)",
+    "supervision": "Human-in-the-Loop Obligatorio"
+  }
+}
