@@ -1,4 +1,4 @@
----
+﻿---
 type: index
 title: Boutique Digital — OpenWiki Knowledge Graph Hub
 description: Grafo unificado de conocimiento, arquitectura de negocio, gobernanza del dominio y especificación técnica de Boutique Digital y Automatizar con IA.
@@ -10,7 +10,7 @@ tags: [hub, openwiki, knowledge-graph, ssot, architecture, geo, seo, legal]
 > **Clasificación de Seguridad:** Base de Conocimiento Canónica / Dominio de Desarrollo y Operaciones  
 > **Repositorio Oficial:** [`willkwolf/automatizar-con-ia-`](https://github.com/willkwolf/automatizar-con-ia-)  
 > **Entorno Web Canónico:** [`https://willkwolf.github.io/automatizar-con-ia-/`](https://willkwolf.github.io/automatizar-con-ia-/)  
-> **Alineación Matriz:** Extensión Comercial Digital de [`Thinking-as-a-Service`](https://github.com/willkwolf/Thinking-as-a-Service)  
+> **Alineación Matriz:** Extensión Comercial Digital de [`Thinking-as-a-Service`](https://willkwolf.github.io/Thinking-as-a-Service/)  
 > **Regla de Oro (SSOT):** La base de conocimiento consolidada en este OpenWiki es la única fuente de verdad técnica, pedagógica, comercial y jurídica.
 
 Bienvenido al núcleo de conocimiento estructurado de **Boutique Digital: AI Builder y Automatización con IA para Usuarios No Técnicos**. Este OpenWiki unifica en un solo grafo interconectado todas las dimensiones del producto, eliminando archivos dispersos y garantizando consistencia determinística para agentes autónomos y colaboradores humanos.
@@ -96,6 +96,6 @@ graph TD
 
 <!-- canonical-provenance:start -->
 <div style="font-size: 0.75rem; opacity: 0.65; margin-top: 2.5rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.75rem;" data-provenance="boutique-digital-authoritative">
-  <strong>Fuente Canónica y Atribución de Autoría:</strong> Este documento forma parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author" style="color: inherit; text-decoration: underline;">willkwolf/automatizar-con-ia-</a> publicado en <a href="https://willkwolf.github.io/automatizar-con-ia-/" rel="publisher" style="color: inherit; text-decoration: underline;">Boutique Digital — Automatizar con IA</a>. Diseñado bajo las directrices y gobernanza sistémica de <a href="https://github.com/willkwolf/Thinking-as-a-Service" rel="parent-origin" style="color: inherit; text-decoration: underline;">Thinking-as-a-Service</a>. Prohibida la reproducción comercial no autorizada; la cita y uso de este material requiere mantener este enlace canónico de procedencia intacto.
+  <strong>Fuente Canónica y Atribución de Autoría:</strong> Este documento forma parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author" style="color: inherit; text-decoration: underline;">willkwolf/automatizar-con-ia-</a> publicado en <a href="https://willkwolf.github.io/automatizar-con-ia-/" rel="publisher" style="color: inherit; text-decoration: underline;">Boutique Digital — Automatizar con IA</a>. Diseñado bajo las directrices y gobernanza sistémica de <a href="https://willkwolf.github.io/Thinking-as-a-Service/" rel="parent-origin" style="color: inherit; text-decoration: underline;">Thinking-as-a-Service</a>. Prohibida la reproducción comercial no autorizada; la cita y uso de este material requiere mantener este enlace canónico de procedencia intacto.
 </div>
 <!-- canonical-provenance:end -->

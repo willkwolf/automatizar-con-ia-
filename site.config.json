@@ -1,11 +1,11 @@
 {
-  "site_name": "Boutique Digital — Automatizar con IA",
-  "tagline": "De utilizar asistentes a construir flujos de trabajo útiles",
+  "site_name": "Automatización e IA Aplicada — Boutique Digital",
+  "tagline": "De utilizar asistentes a construir soluciones operativas con tus propias manos",
   "base_path": "/automatizar-con-ia-/",
   "production_domain": "https://willkwolf.github.io",
   "canonical_origin": "https://willkwolf.github.io/automatizar-con-ia-/",
   "repository": "https://github.com/willkwolf/automatizar-con-ia-",
-  "parent_brand": "https://github.com/willkwolf/Thinking-as-a-Service",
+  "parent_brand": "https://willkwolf.github.io/Thinking-as-a-Service/",
   "contact": {
     "whatsapp_e164": "+573002976815",
     "whatsapp_display": "+57 300 297 6815"
@@ -13,21 +13,27 @@
   "pricing": {
     "currency": "COP",
     "benchmark_currency": "USD",
-    "trm_rate": 3950,
+    "billing_unit": "por_silla",
+    "trm_rate": 3100,
+    "trm_base_date": "2026-10-16",
+    "trm_threshold_percent": 30,
     "basic": {
-      "presale_cop": 490000,
-      "regular_cop": 790000,
+      "name": "Taller Práctico Base",
+      "presale_cop": 385000,
+      "regular_cop": 620000,
       "presale_usd": 124,
       "regular_usd": 200
     },
     "pro": {
-      "presale_cop": 1290000,
-      "regular_cop": 1890000,
+      "name": "Entrenamiento Guiado (Coach Delivery)",
+      "presale_cop": 1010000,
+      "regular_cop": 1480000,
       "presale_usd": 326,
       "regular_usd": 478
     },
     "enterprise": {
-      "model": "Land-and-Expand",
+      "name": "Soluciones para Empresas",
+      "model": "Consultoría Boutique & Infraestructura Privada",
       "pricing_type": "ad_hoc_quote"
     }
   },

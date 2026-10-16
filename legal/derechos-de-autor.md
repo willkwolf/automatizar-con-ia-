@@ -1,4 +1,4 @@
-# Aviso de Derechos de Autor, Licencia y Atribución Canónica
+﻿# Aviso de Derechos de Autor, Licencia y Atribución Canónica
 > **Boutique Digital · Automatización e IA Aplicada**  
 > *Extensión Comercial Digital de Thinking-as-a-Service*
 
@@ -18,7 +18,7 @@ De conformidad con el archivo de licencia raíz [`LICENSE`](../LICENSE), todo us
 
 * **Repositorio Canónico:** [`https://github.com/willkwolf/automatizar-con-ia-`](https://github.com/willkwolf/automatizar-con-ia-)
 * **Sitio Web Publicado:** [`https://willkwolf.github.io/automatizar-con-ia-/`](https://willkwolf.github.io/automatizar-con-ia-/)
-* **Ecosistema Matriz:** [`https://github.com/willkwolf/Thinking-as-a-Service`](https://github.com/willkwolf/Thinking-as-a-Service)
+* **Ecosistema Matriz:** [`https://willkwolf.github.io/Thinking-as-a-Service/`](https://willkwolf.github.io/Thinking-as-a-Service/)
 * **Identificador Semántico de Procedencia:** `data-provenance="boutique-digital-authoritative"`
 
 ---
