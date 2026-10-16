@@ -38,9 +38,9 @@ Tarifas transparentes adaptadas a la región con benchmark de equivalencia inter
 |---|---|---|---|---|---|
 | **Tier Basic** | Autoaprendizaje guiado + grabaciones | **$490.000 COP** | $790.000 COP | ~$124 USD / ~$200 USD | [Inscribirme al Plan Basic](https://wa.me/573002976815?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20plan%20Basic%20de%20Automatizaci%C3%B3n%20con%20IA) |
 | **Tier Pro** | Mentoría en vivo + revisión de proyectos | **$1.290.000 COP** | $1.890.000 COP | ~$326 USD / ~$478 USD | [Postular al Plan Pro](https://wa.me/573002976815?text=Hola%2C%20me%20gustar%C3%ADa%20postular%20al%20plan%20Pro%20de%20Automatizaci%C3%B3n%20con%20IA) |
-| **Enterprise / Ad-Hoc** | Consultoría B2B Land-and-Expand + VPS | **A la Medida** | Cotización Privada | Proyectos desde $2.500 USD | [Conversar con un Consultor](https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida) |
+| **Soluciones Empresa** | Consultoría e implementación llave en mano | **A la Medida** | Cotización Privada | Proyectos desde $2.500 USD | [Conversar con un Consultor](https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida) |
 
-*Nota: Cifras catalogadas bajo gobernanza como `[pendiente_de_validacion]` por cohorte.*
+*Nota: Tarifas de preventa sujetas a confirmación por cohorte (máximo 25 plazas).*
 
 ---
 
