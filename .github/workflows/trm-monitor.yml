@@ -1,0 +1,22 @@
+name: Monitor TRM Semestral
+
+on:
+  schedule:
+    # Ejecución semanal (Lunes a las 12:00 UTC)
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-trm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar verificación de TRM
+        run: python scripts/check_trm.py
