@@ -1,0 +1,50 @@
+LICENCIA Y TÉRMINOS DE ATRIBUCIÓN CANÓNICA
+Boutique Digital — Automatización e IA Aplicada
+Extensión Comercial Digital de Thinking-as-a-Service
+
+Copyright (c) 2026 Boutique Digital / Thinking-as-a-Service.
+Todos los derechos reservados.
+
+========================================================================
+1. USO PERMITIDO Y DERECHOS DE CONSULTA
+========================================================================
+Se concede autorización a cualquier persona para consultar, navegar,
+interactuar y descargar este material exclusivamente para fines personales,
+educativos y de autoevaluación profesional, con sujeción a las siguientes
+condiciones:
+
+a) El software de la landing page, componentes CSS/HTML y utilidades de
+   automatización pueden ser analizados como referencia didáctica.
+b) Queda expresamente prohibida la redistribución comercial, reventa,
+   sublicenciamiento o publicación bajo marca propia de la estructura
+   pedagógica, plantillas de automatización o contenidos propietarios
+   sin el consentimiento previo y por escrito de Boutique Digital o
+   Thinking-as-a-Service.
+
+========================================================================
+2. CONDICIÓN DE ATRIBUCIÓN OBLIGATORIA (PROVENANCE & WHITE-LINKING)
+========================================================================
+Cualquier derivación autorizada, cita académica, extracción de datos por
+motores de búsqueda generativos (GEO/AEO) o referencia analítica en
+sistemas de terceros DEBE preservar la siguiente atribución canónica:
+
+  "Fuente original: Boutique Digital — Automatización e IA Aplicada
+   (https://willkwolf.github.io/automatizar-con-ia-/) bajo la gobernanza
+   de Thinking-as-a-Service (https://github.com/willkwolf/Thinking-as-a-Service)."
+
+Identificador de procedencia estructurada:
+  data-provenance="boutique-digital-authoritative"
+
+========================================================================
+3. EXONERACIÓN DE RESPONSABILIDAD (AS-IS)
+========================================================================
+ESTE MATERIAL, CÓDIGO Y GUÍAS SE PROPORCIONAN "TAL CUAL", SIN GARANTÍAS
+EXPRESAS O IMPLÍCITAS DE IDONEIDAD PARA UN PROPÓSITO PARTICULAR O LIBRE
+DE ERRORES EN APIS DE TERCEROS. EL USUARIO ASUME LA TOTAL RESPONSABILIDAD
+Y SUPERVISIÓN OPERATIVA (HUMAN-IN-THE-LOOP) AL APLICAR ESTOS FLUJOS.
+
+Para más información legal:
+  - Marco Legal Completo: legal/README.md
+  - Derechos de Autor: legal/derechos-de-autor.md
+  - Términos del Servicio: legal/terminos.md
+  - Privacidad Cero Rastreo: legal/privacidad.md

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprende a Automatizar con IA: De Asistentes a Flujos de Trabajo | Boutique Digital</title>
+  <title>Automatización e IA Aplicada: De Asistentes a Soluciones Operativas | Boutique Digital</title>
   <meta name="description" content="Formación práctica de 5 semanas para profesionales y negocios sin conocimientos técnicos. Construye automatizaciones y miniaplicaciones con IA. Inversión en Pesos Colombianos (COP).">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://willkwolf.github.io/automatizar-con-ia-/">
@@ -580,32 +580,162 @@
       background: var(--accent-soft);
     }
 
-    /* FAQ Section */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+    /* Isla de Tecnologías (Logo Marquee) */
+    .logo-marquee-section {
+      padding: 1.75rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      background: #faf8f5;
+      overflow: hidden;
+      position: relative;
     }
 
-    .faq-item {
+    .logo-marquee-title {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .marquee-wrapper {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      animation: scrollMarquee 35s linear infinite;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.95rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #2b332e;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .logo-pill:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .logo-pill svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Thinking System Highlight Pill */
+    .thinking-system-highlight {
+      margin: 0.75rem 0 1rem;
+      background: #faf6eb;
+      border: 1px solid #d4c29c;
+      border-radius: 4px;
+      padding: 0.4rem 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+    }
+
+    .thinking-system-highlight a {
+      color: #78581e;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .thinking-system-highlight a:hover {
+      text-decoration: underline;
+    }
+
+    /* FAQ Section (Interactive Dropdown List) */
+    .faq-accordion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-accordion {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.75rem;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
-    .faq-question {
+    .faq-accordion[open] {
+      border-color: var(--border-dark);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+
+    .faq-summary {
+      padding: 1.15rem 1.4rem;
       font-family: var(--font-display);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.65rem;
-      line-height: 1.35;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      color: var(--ink);
     }
 
-    .faq-answer {
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-summary::after {
+      content: "+";
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--gold-subtle);
+      transition: transform 0.2s ease;
+      line-height: 1;
+    }
+
+    .faq-accordion[open] .faq-summary::after {
+      content: "−";
+    }
+
+    .faq-content {
+      padding: 0.25rem 1.4rem 1.25rem;
       font-size: 0.9rem;
       color: #3b423e;
       line-height: 1.6;
+      border-top: 1px solid rgba(0,0,0,0.04);
     }
 
     /* Footer & Legal */
@@ -784,8 +914,8 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand">
-        <span class="brand-title">Boutique Digital</span>
-        <span class="brand-sub">Automatización e IA Aplicada</span>
+        <span class="brand-title">Automatización e IA Aplicada</span>
+        <span class="brand-sub">Boutique Digital para Profesionales No Técnicos</span>
       </a>
       <nav class="nav-links">
         <a href="#perfil">Perfil</a>
@@ -828,8 +958,8 @@
           <span class="badge-value">5 Soluciones Listas</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Privacidad</span>
-          <span class="badge-value">Cero Rastreo de Datos</span>
+          <span class="badge-label">Modalidad</span>
+          <span class="badge-value">100% en Vivo y Práctico</span>
         </div>
         <div class="badge-item">
           <span class="badge-label">Garantía</span>
@@ -839,30 +969,123 @@
     </div>
   </section>
 
+  <!-- Isla de Tecnologías (Logo Marquee Dinámico) -->
+  <section class="logo-marquee-section">
+    <div class="container">
+      <div class="logo-marquee-title">Pila Tecnológica y Ecosistema que Aprenderás a Orquestar</div>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- Primer set de logos -->
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-4-4A1.5 1.5 0 1 1 7.5 11 1.5 1.5 0 0 1 9 12.5zm8 0a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-5-4A1.5 1.5 0 1 1 10.5 7 1.5 1.5 0 0 1 12 8.5z"/></svg>
+          n8n
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.4v3.5c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.7 10.5 3 11.2 3 12s.7 1.5 1.5 1.5h3.6l-2.6 2.6c-.6.6-.6 1.5 0 2.1s1.5.6 2.1 0l2.6-2.6v3.6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-3.6l2.6 2.6c.6.6 1.5.6 2.1 0s.6-1.5 0-2.1l-2.6-2.6h3.6c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5h-3.6l2.6-2.6c.6-.6.6-1.5 0-2.1s-1.5-.6-2.1 0l-2.6 2.6V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v3.6l-2.6-2.6c-.6-.6-1.5-.6-2.1 0s-.6 1.5 0 2.1l2.6 2.6H4.5z"/></svg>
+          Claude (Anthropic)
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z"/></svg>
+          Google Gemini
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M22.3 9.4a5.9 5.9 0 0 0-.5-4.8 6 6 0 0 0-6.1-2.9 6 6 0 0 0-4.6-2 5.9 5.9 0 0 0-5.6 4A6 6 0 0 0 1.9 6.8a6 6 0 0 0 .5 6.7 5.9 5.9 0 0 0 .5 4.8 6 6 0 0 0 6.1 2.9A5.9 5.9 0 0 0 13.6 23a6 6 0 0 0 5.6-4 6 6 0 0 0 3.6-3.1 6 6 0 0 0-.5-6.5zm-8.8 12.3c-1.4 0-2.7-.5-3.8-1.3l.2-.1 3.8-2.2a1 1 0 0 0 .5-.9v-5.3l1.8 1v4.3a4.7 4.7 0 0 1-2.5 4.5zm-9.3-4.1a4.7 4.7 0 0 1-.6-2.7V10l.2.1 3.8 2.2a1 1 0 0 0 1 0l4.6-2.6v2.1l-3.7 2.1a4.7 4.7 0 0 1-5.3.8zm-1.8-8.2a4.7 4.7 0 0 1 2-2.1l.2.1 3.8 2.2a1 1 0 0 0 1 0L14 6.9V4.8l-3.7 2.2a4.7 4.7 0 0 1-6 1.8zm11.7-2.1L10.3 9.5a1 1 0 0 0-.5.9v5.3l-1.8-1V10.4a4.7 4.7 0 0 1 6.1-3.1zm4 9.4a4.7 4.7 0 0 1-.8 4.2l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L9.9 16.5v-2.1l3.7-2.2a4.7 4.7 0 0 1 6 1.6zm2.3-3.2a4.7 4.7 0 0 1-2 2.1l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L8 14.3v-2.1l3.7-2.1a4.7 4.7 0 0 1 6.1.2c.7.9 1 2 1 3.2z"/></svg>
+          ChatGPT (OpenAI)
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H7v-2h5zm5-4H7v-2h10zm0-4H7V7h10z"/></svg>
+          NotebookLM
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 3.6 1.9 6.8 4.8 8.5l-.8-2.5c2.4 1.3 5.1 1.7 7.8 1 3.8-1 6.7-4 7.7-7.8.9-3.4-.1-6.9-2.5-9.2C16.8 2.7 14.4 2 12 2zm3.5 12.5c-.8.8-2.2.8-3 0l-3-3a2.1 2.1 0 1 1 3-3l3 3c.8.8.8 2.2 0 3z"/></svg>
+          DeepSeek
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Lovable
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 10.5l5-3M8.5 13.5l5 3"/></svg>
+          Make
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2v8h8M12 22v-8h-8M2 12h8V4M22 12h-8v8"/></svg>
+          Perplexity AI
+        </span>
+        <!-- Duplicado para loop continuo -->
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-4-4A1.5 1.5 0 1 1 7.5 11 1.5 1.5 0 0 1 9 12.5zm8 0a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-5-4A1.5 1.5 0 1 1 10.5 7 1.5 1.5 0 0 1 12 8.5z"/></svg>
+          n8n
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.4v3.5c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.7 10.5 3 11.2 3 12s.7 1.5 1.5 1.5h3.6l-2.6 2.6c-.6.6-.6 1.5 0 2.1s1.5.6 2.1 0l2.6-2.6v3.6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-3.6l2.6 2.6c.6.6 1.5.6 2.1 0s.6-1.5 0-2.1l-2.6-2.6h3.6c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5h-3.6l2.6-2.6c.6-.6.6-1.5 0-2.1s-1.5-.6-2.1 0l-2.6 2.6V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v3.6l-2.6-2.6c-.6-.6-1.5-.6-2.1 0s-.6 1.5 0 2.1l2.6 2.6H4.5z"/></svg>
+          Claude (Anthropic)
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z"/></svg>
+          Google Gemini
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M22.3 9.4a5.9 5.9 0 0 0-.5-4.8 6 6 0 0 0-6.1-2.9 6 6 0 0 0-4.6-2 5.9 5.9 0 0 0-5.6 4A6 6 0 0 0 1.9 6.8a6 6 0 0 0 .5 6.7 5.9 5.9 0 0 0 .5 4.8 6 6 0 0 0 6.1 2.9A5.9 5.9 0 0 0 13.6 23a6 6 0 0 0 5.6-4 6 6 0 0 0 3.6-3.1 6 6 0 0 0-.5-6.5zm-8.8 12.3c-1.4 0-2.7-.5-3.8-1.3l.2-.1 3.8-2.2a1 1 0 0 0 .5-.9v-5.3l1.8 1v4.3a4.7 4.7 0 0 1-2.5 4.5zm-9.3-4.1a4.7 4.7 0 0 1-.6-2.7V10l.2.1 3.8 2.2a1 1 0 0 0 1 0l4.6-2.6v2.1l-3.7 2.1a4.7 4.7 0 0 1-5.3.8zm-1.8-8.2a4.7 4.7 0 0 1 2-2.1l.2.1 3.8 2.2a1 1 0 0 0 1 0L14 6.9V4.8l-3.7 2.2a4.7 4.7 0 0 1-6 1.8zm11.7-2.1L10.3 9.5a1 1 0 0 0-.5.9v5.3l-1.8-1V10.4a4.7 4.7 0 0 1 6.1-3.1zm4 9.4a4.7 4.7 0 0 1-.8 4.2l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L9.9 16.5v-2.1l3.7-2.2a4.7 4.7 0 0 1 6 1.6zm2.3-3.2a4.7 4.7 0 0 1-2 2.1l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L8 14.3v-2.1l3.7-2.1a4.7 4.7 0 0 1 6.1.2c.7.9 1 2 1 3.2z"/></svg>
+          ChatGPT (OpenAI)
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H7v-2h5zm5-4H7v-2h10zm0-4H7V7h10z"/></svg>
+          NotebookLM
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 3.6 1.9 6.8 4.8 8.5l-.8-2.5c2.4 1.3 5.1 1.7 7.8 1 3.8-1 6.7-4 7.7-7.8.9-3.4-.1-6.9-2.5-9.2C16.8 2.7 14.4 2 12 2zm3.5 12.5c-.8.8-2.2.8-3 0l-3-3a2.1 2.1 0 1 1 3-3l3 3c.8.8.8 2.2 0 3z"/></svg>
+          DeepSeek
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          Lovable
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8.5 10.5l5-3M8.5 13.5l5 3"/></svg>
+          Make
+        </span>
+        <span class="logo-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 2v8h8M12 22v-8h-8M2 12h8V4M22 12h-8v8"/></svg>
+          Perplexity AI
+        </span>
+      </div>
+    </div>
+  </section>
+
   <!-- Audience Profile Section -->
   <section class="section" id="perfil">
     <div class="container">
       <span class="section-eyebrow">Criterio de Admisión</span>
-      <h2 class="section-title">Diseñado para Resolver, no para Acumular Teoría</h2>
+      <h2 class="section-title">Ensúciate las Manos: Construye y Resuelve</h2>
       <p class="section-desc">
-        Enfoque 100% práctico para profesionales y negocios que necesitan automatizar tareas y recuperar horas de trabajo desde la primera semana.
+        Enfocado en ensuciarte las manos desde el primer día: construye tus propios flujos, arma soluciones reales y alfabetízate en IA construyendo, sin rodeos teóricos.
       </p>
       <div class="audience-grid">
         <div class="audience-card positive">
           <h3>Para quién es ideal:</h3>
           <ul class="audience-list">
-            <li><strong>Profesionales y consultores:</strong> Elimina tareas administrativas repetitivas en finanzas, legal, operaciones y marketing.</li>
-            <li><strong>Dueños de negocio:</strong> Automatiza cotizaciones, atención inicial y captura de clientes sin contratar desarrolladores.</li>
-            <li><strong>Usuarios de IA básica:</strong> Conecta aplicaciones y construye flujos de trabajo repetibles más allá de prompts aislados.</li>
-            <li><strong>Equipos operativos:</strong> Crea herramientas y tableros digitales ligeros con rapidez y autonomía técnica.</li>
+            <li><strong>Profesionales y consultores:</strong> Construye flujos que eliminen horas de gestión administrativa y documental en tu día a día.</li>
+            <li><strong>Dueños de negocio:</strong> Arma y prueba cotizaciones automáticas y atención de clientes con tus propias manos.</li>
+            <li><strong>Usuarios de IA básica:</strong> Pasa de redactar prompts aislados a ensamblar y orquestar herramientas conectadas.</li>
+            <li><strong>Equipos operativos:</strong> Construye tableros y miniaplicaciones funcionales con rapidez y autonomía técnica.</li>
           </ul>
         </div>
         <div class="audience-card negative">
           <h3>Cuándo no recomendamos inscribirte:</h3>
           <ul class="audience-list">
-            <li><strong>Desarrollo de software avanzado:</strong> No enseñamos algoritmos complejos ni entrenamiento de redes neuronales desde cero.</li>
-            <li><strong>Fórmulas de riqueza pasiva:</strong> Rechazamos la promesa de ingresos automáticos sin criterio ni supervisión humana.</li>
-            <li><strong>Sistemas bancarios críticos:</strong> Enfocado en agilidad operativa para PYMEs y profesionales, no en infraestructura corporativa masiva.</li>
+            <li><strong>Desarrollo de software avanzado:</strong> No enseñamos ingeniería de bajo nivel ni entrenamiento de modelos neuronales desde cero.</li>
+            <li><strong>Fórmulas de riqueza pasiva:</strong> Rechazamos falsas promesas; aquí se viene a trabajar, ensuciarse las manos y construir con criterio.</li>
+            <li><strong>Sistemas bancarios críticos:</strong> Enfocado en agilidad y resolución práctica para PYMEs y profesionales en ejercicio.</li>
           </ul>
         </div>
       </div>
@@ -965,69 +1188,74 @@
       <span class="section-eyebrow">Inversión y Modalidades</span>
       <h2 class="section-title">Elige el Nivel de Acompañamiento Adecuado</h2>
       <p class="section-desc">
-        Tarifas transparentes en Pesos Colombianos (COP). Cohortes reducidas a 25 plazas para garantizar revisión y seguimiento individual.
+        Tarifas transparentes en Pesos Colombianos (COP). Cohortes reducidas a 25 plazas para garantizar acompañamiento interactivo y resolución directa.
       </p>
       
       <div class="pricing-grid">
         
-        <!-- Plan Basic -->
+        <!-- Taller Base -->
         <div class="pricing-card">
-          <h3 class="tier-name">Plan Basic</h3>
-          <p class="tier-desc">Para profesionales que prefieren autoaprendizaje guiado a su propio ritmo con proyectos listos.</p>
+          <h3 class="tier-name">Taller Práctico Base</h3>
+          <p class="tier-desc">Para profesionales que buscan aprender construyendo en vivo con acompañamiento interactivo y resolución de dudas.</p>
           <div class="tier-price">
             <span class="price-cop">$490.000 COP</span>
             <span class="price-cop-regular">$790.000</span>
             <div class="price-benchmark">Tarifa preventa · Ahorro de $300.000 COP</div>
           </div>
           <ul class="tier-features">
-            <li><strong>5 Módulos prácticos:</strong> Acceso completo y de por vida a lecciones grabadas</li>
-            <li><strong>5 Proyectos base:</strong> Plantillas listas para adaptar a tu profesión o empresa</li>
-            <li><strong>Prompts probados:</strong> Biblioteca estructurada de instrucciones operativas</li>
-            <li><strong>Comunidad privada:</strong> Soporte continuo y resolución de dudas técnicas</li>
-            <li><strong>Certificación:</strong> Diploma de portafolio y proyectos completados</li>
+            <li><strong>100% en vivo:</strong> 5 sesiones interactivas con resolución de preguntas en tiempo real</li>
+            <li><strong>Aprende construyendo:</strong> Arma 5 soluciones operativas con acompañamiento paso a paso</li>
+            <li><strong>Grabación permitida:</strong> Se autoriza a cada participante grabar las sesiones para su estudio</li>
+            <li><strong>Plantillas y prompts:</strong> Instrucciones operativas probadas listas para adaptar</li>
+            <li><strong>Certificación oficial:</strong> Certificado de las sesiones y proyectos completados</li>
           </ul>
-          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20plan%20Basic%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing secondary" target="_blank" rel="noopener">
-            Inscribirme al Plan Basic →
+          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20Taller%20Base%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing secondary" target="_blank" rel="noopener">
+            Inscribirme al Taller Base →
           </a>
         </div>
 
-        <!-- Plan Pro (Featured) -->
+        <!-- Entrenamiento Guiado (Featured) -->
         <div class="pricing-card featured">
-          <span class="pricing-badge">Opción Más Elegida</span>
-          <h3 class="tier-name">Plan Pro</h3>
-          <p class="tier-desc">Para emprendedores y consultores que buscan mentoría técnica en vivo, feedback y personalización.</p>
+          <span class="pricing-badge">Coach Delivery Personalizado</span>
+          <h3 class="tier-name">Entrenamiento Guiado</h3>
+          <p class="tier-desc">Modalidad Coach Delivery como en un gimnasio de alto rendimiento: adaptamos y personalizamos cada flujo a la medida exacta de tu negocio.</p>
           <div class="tier-price">
             <span class="price-cop">$1.290.000 COP</span>
             <span class="price-cop-regular">$1.890.000</span>
             <div class="price-benchmark">Tarifa preventa · Ahorro de $600.000 COP</div>
           </div>
           <ul class="tier-features">
-            <li><strong>Todo el Plan Basic:</strong> Acceso vitalicio al contenido y plantillas base</li>
-            <li><strong>Mentoría en vivo:</strong> 5 sesiones semanales de implementación técnica guiada</li>
-            <li><strong>Revisión individual:</strong> Feedback detallado sobre tus 5 soluciones en marcha</li>
-            <li><strong>Librería avanzada:</strong> Flujos listos para importar en Make y n8n</li>
-            <li><strong>Sesión 1-a-1:</strong> Consultoría estratégica personalizada para tu negocio</li>
-            <li><strong>Soporte prioritario:</strong> Canal directo con respuesta en menos de 24 horas</li>
+            <li><strong>Todo el Taller Base:</strong> Acceso a todas las sesiones interactivas en vivo y plantillas</li>
+            <li><strong>Coach delivery en vivo:</strong> 5 sesiones intensivas de entrenamiento y adaptación técnica directa</li>
+            <li><strong>Comunidad en Telegram:</strong> Canal exclusivo para preguntas y respuestas asíncronas con feedback continuo</li>
+            <li><strong>Skills Asistentes Curadas:</strong> 2 Skills profesionales para Inteligencia de Decisión y Procesos de Ingeniería</li>
+            <li><strong>Sesión estratégica 1-a-1:</strong> Consultoría técnica personalizada para la arquitectura de tu negocio</li>
+            <li><strong>Revisión individual:</strong> Acompañamiento directo hasta dejar tus 5 soluciones en marcha</li>
           </ul>
-          <a href="https://wa.me/573002976815?text=Hola%2C%20me%20gustar%C3%ADa%20postular%20al%20plan%20Pro%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing primary" target="_blank" rel="noopener">
-            Postular al Plan Pro →
+          <a href="https://wa.me/573002976815?text=Hola%2C%20me%20gustar%C3%ADa%20postular%20al%20Entrenamiento%20Guiado%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing primary" target="_blank" rel="noopener">
+            Postular al Entrenamiento Guiado →
           </a>
         </div>
 
-        <!-- Enterprise / B2B -->
+        <!-- Soluciones para Empresas -->
         <div class="pricing-card">
-          <h3 class="tier-name">Soluciones Empresa</h3>
-          <p class="tier-desc">Para empresas que requieren consultoría, agentes dedicados en infraestructura privada y desarrollo a medida.</p>
+          <h3 class="tier-name">Soluciones para Empresas</h3>
+          <p class="tier-desc">Intervención de consultoría boutique, agentes dedicados en infraestructura privada y desarrollo a medida.</p>
           <div class="tier-price">
             <span class="price-cop" style="font-size: 1.6rem;">A la Medida</span>
             <div class="price-benchmark">Implementación Llave en Mano</div>
           </div>
+          <div class="thinking-system-highlight">
+            <a href="https://github.com/willkwolf/Thinking-as-a-Service" target="_blank" rel="noopener">
+              ★ Respaldado por la arquitectura de Thinking System ↗
+            </a>
+          </div>
           <ul class="tier-features">
-            <li><strong>Diagnóstico técnico:</strong> Auditoría de procesos y detección de cuellos de botella</li>
-            <li><strong>Desarrollo a medida:</strong> Creación de agentes integrados a tu CRM, ERP o bases de datos</li>
-            <li><strong>Infraestructura privada:</strong> Despliegue seguro en tus propios servidores o nube</li>
-            <li><strong>Capacitación de equipo:</strong> Formación in-company para tus colaboradores operativos</li>
-            <li><strong>Soporte corporativo:</strong> Acuerdos de nivel de servicio (SLA) y mantenimiento continuo</li>
+            <li><strong>Diagnóstico sistémico:</strong> Auditoría de procesos y diseño de Empresa Liviana</li>
+            <li><strong>Desarrollo a medida:</strong> Creación y despliegue de agentes conectados a tu CRM o ERP</li>
+            <li><strong>Infraestructura privada:</strong> Servidores y bases de datos aisladas bajo estricta gobernanza</li>
+            <li><strong>Capacitación in-company:</strong> Entrenamiento para que tu equipo opere con total autonomía</li>
+            <li><strong>SLA y Soporte dedicado:</strong> Mantenimiento continuo y garantía de disponibilidad</li>
           </ul>
           <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-pricing secondary" target="_blank" rel="noopener">
             Conversar con un Consultor →
@@ -1037,48 +1265,56 @@
       </div>
 
       <div style="margin-top: 2rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);">
-        * Equivalencia de referencia internacional: Plan Basic ~$124 USD · Plan Pro ~$326 USD (TRM $3.950 COP/USD). Cupos limitados a 25 plazas.
+        * Equivalencia de referencia internacional: Taller Base ~$124 USD · Entrenamiento Guiado ~$326 USD (TRM $3.950 COP/USD). Cupos limitados a 25 plazas.
       </div>
     </div>
   </section>
 
-  <!-- FAQs Section -->
+  <!-- FAQs Section (Interactive Dropdown List) -->
   <section class="section" id="faqs">
     <div class="container">
       <span class="section-eyebrow">Resolución de Dudas</span>
       <h2 class="section-title">Preguntas Frecuentes</h2>
       <p class="section-desc">
-        Respuestas directas y transparentes para tomar una decisión informada.
+        Respuestas directas y transparentes. Haz clic en cada consulta para desplegar los detalles.
       </p>
-      <div class="faq-grid">
+      
+      <div class="faq-accordion-list">
         
-        <div class="faq-item">
-          <h4 class="faq-question">¿Necesito conocimientos previos de programación?</h4>
-          <p class="faq-answer">
-            No. Aprenderás a utilizar lenguaje natural y herramientas visuales para estructurar automatizaciones y aplicaciones. El enfoque está en la lógica operativa y en saber dirigir las herramientas, no en memorizar sintaxis de código.
-          </p>
-        </div>
+        <details class="faq-accordion">
+          <summary class="faq-summary">¿Las sesiones son grabadas o en vivo?</summary>
+          <div class="faq-content">
+            Todo es <strong>100% en vivo e interactivo</strong>. Nada es pregrabado; resolvemos dudas y construimos en tiempo real durante cada sesión. Además, <strong>se permite a cada participante grabar las sesiones</strong> para su posterior consulta y estudio personal, y emitimos un certificado oficial al completar los proyectos.
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h4 class="faq-question">¿Tendré que pagar suscripciones costosas a otras herramientas?</h4>
-          <p class="faq-answer">
+        <details class="faq-accordion">
+          <summary class="faq-summary">¿Necesito conocimientos previos de programación?</summary>
+          <div class="faq-content">
+            No. Aprenderás a utilizar lenguaje natural y herramientas visuales para estructurar automatizaciones y aplicaciones. El enfoque está en ensuciarse las manos con la lógica operativa y en saber dirigir las herramientas, sin memorizar código tradicional.
+          </div>
+        </details>
+
+        <details class="faq-accordion">
+          <summary class="faq-summary">¿Tendré que pagar suscripciones costosas a otras herramientas?</summary>
+          <div class="faq-content">
             No es obligatorio. Todos los proyectos están diseñados para realizarse con las versiones gratuitas de las herramientas recomendadas. Si más adelante decides contratar planes de pago, será por conveniencia operativa y volumen de tu negocio.
-          </p>
-        </div>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h4 class="faq-question">¿Qué garantía de satisfacción ofrecen?</h4>
-          <p class="faq-answer">
-            Cumplimos con el Artículo 47 de la Ley 1480 de 2011 (Estatuto del Consumidor en Colombia). Tienes <strong>cinco (5) días hábiles</strong> tras tu inscripción para evaluar el programa. Si no cumple tus expectativas, te reembolsamos el 100% de tu dinero.
-          </p>
-        </div>
+        <details class="faq-accordion">
+          <summary class="faq-summary">¿Qué garantía de satisfacción ofrecen?</summary>
+          <div class="faq-content">
+            Cumplimos con el Artículo 47 de la Ley 1480 de 2011 (Estatuto del Consumidor en Colombia). Tienes <strong>cinco (5) días hábiles</strong> tras tu inscripción para evaluar el programa. Si no cumple tus expectativas, te reembolsamos el 100% de tu dinero sin objeciones.
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h4 class="faq-question">¿Cómo funcionan las soluciones e implementaciones para empresas?</h4>
-          <p class="faq-answer">
-            Iniciamos con una auditoría técnica y un proyecto piloto de alto impacto y bajo riesgo. Una vez comprobado el retorno de inversión y la eficiencia operativa, integramos soluciones más complejas en los servidores o herramientas de tu empresa.
-          </p>
-        </div>
+        <details class="faq-accordion">
+          <summary class="faq-summary">¿Cómo funcionan las soluciones e implementaciones para empresas?</summary>
+          <div class="faq-content">
+            Iniciamos con un diagnóstico operativo y un proyecto piloto de alto impacto y bajo riesgo. Una vez comprobado el retorno de inversión y la eficiencia operativa, integramos soluciones más complejas en los servidores o herramientas de tu empresa bajo la arquitectura sistémica de <a href="https://github.com/willkwolf/Thinking-as-a-Service" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.
+          </div>
+        </details>
 
       </div>
     </div>
@@ -1089,12 +1325,13 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <h4>Boutique Digital</h4>
+          <h4>Thinking as a Service</h4>
+          <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-subtle); margin-bottom: 0.5rem;">Ecosistema Matriz de Simplicidad Sistémica</span>
           <p style="margin-top: 0.5rem; line-height: 1.6;">
-            Arquitectura de negocio, automatización con IA y educación práctica para profesionales y organizaciones livianas. Desarrollado bajo los estándares de gobernanza de <strong>Thinking-as-a-Service</strong>.
+            <strong>Thinking as a Service</strong> es la firma de consultoría y modelado de complejidad sistémica para comités de dirección y organizaciones de alto impacto. <strong>Automatización e IA Aplicada</strong> es su boutique digital formativa y operativa, creada para que profesionales, consultores y empresas livianas construyan flujos de trabajo autónomos sin requerir formación previa en programación.
           </p>
           <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
-            Línea WhatsApp: +57 300 297 6815 · Colombia
+            Línea WhatsApp Directa: +57 300 297 6815 · Colombia
           </div>
         </div>
         <div class="footer-links">
@@ -1104,14 +1341,16 @@
             <li><a href="legal/terminos.md">Términos y Condiciones</a></li>
             <li><a href="legal/exoneracion-responsabilidad.md">Exoneración de Responsabilidad</a></li>
             <li><a href="legal/derechos-de-autor.md">Derechos de Autor y Licencia</a></li>
+            <li><a href="LICENSE">Licencia Oficial de Procedencia</a></li>
           </ul>
         </div>
         <div class="footer-links">
           <h5>Ecosistema</h5>
           <ul>
-            <li><a href="https://github.com/willkwolf/Thinking-as-a-Service" target="_blank" rel="noopener">Thinking-as-a-Service</a></li>
+            <li><a href="https://github.com/willkwolf/Thinking-as-a-Service" target="_blank" rel="noopener">Thinking-as-a-Service (Matriz)</a></li>
             <li><a href="https://github.com/willkwolf/automatizar-con-ia-" target="_blank" rel="noopener">Repositorio GitHub</a></li>
             <li><a href="openwiki/index.md">Base de Conocimiento OpenWiki</a></li>
+            <li><a href="openwiki/10-taxonomia-herramientas-boutique.md">Taxonomía de Herramientas</a></li>
             <li><a href="sitemap.xml">Mapa del Sitio XML</a></li>
           </ul>
         </div>
@@ -1119,16 +1358,16 @@
 
       <div class="footer-legal-bar">
         <div>
-          © 2026 Boutique Digital · Todos los derechos reservados.
+          © 2026 Thinking as a Service / Boutique Digital · Todos los derechos reservados.
         </div>
         <div>
           Cumplimiento Ley 1581 de 2012 (Habeas Data) y Ley 1480 de 2011 (Estatuto del Consumidor).
         </div>
       </div>
 
-      <!-- Silent Attribution Watermark -->
+      <!-- Formal Licensing & Provenance Notice -->
       <div class="canonical-watermark" data-provenance="boutique-digital-authoritative">
-        <strong>Fuente Canónica y Atribución de Autoría:</strong> Este sitio web y su base de conocimiento forman parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author">willkwolf/automatizar-con-ia-</a> publicado en <a href="https://willkwolf.github.io/automatizar-con-ia-/" rel="publisher">Boutique Digital — Automatizar con IA</a>. Diseñado bajo las directrices y gobernanza sistémica de <a href="https://github.com/willkwolf/Thinking-as-a-Service" rel="parent-origin">Thinking-as-a-Service</a>. Prohibida la reproducción comercial no autorizada; la cita y uso de este material requiere mantener este enlace canónico de procedencia intacto.
+        <strong>Marco Legal, Licencia y Atribución Canónica:</strong> Este sitio web y sus componentes forman parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author">willkwolf/automatizar-con-ia-</a> bajo los términos de la <a href="LICENSE">Licencia Oficial de Atribución</a> y la gobernanza de <a href="https://github.com/willkwolf/Thinking-as-a-Service" rel="parent-origin">Thinking-as-a-Service</a>. Consulta el <a href="legal/derechos-de-autor.md">Aviso de Derechos de Autor y Procedencia</a> para detalles sobre uso permitido y restricciones.
       </div>
     </div>
   </footer>

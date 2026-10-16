@@ -89,6 +89,8 @@ graph TD
   *Homologación estricta con el paquete legal de `Thinking-as-a-Service`: derechos de autor, exoneración de responsabilidad tecnológica, privacidad estricta bajo Ley 1581 de 2012 (cero cookies analíticas invasivas), derecho de retracto (Ley 1480 Art. 47) y modelo de confidencialidad NDA bilateral.*
 - [**08. Hoja de Ruta CPM, Matriz de Riesgos y Validación de Hipótesis**](08-roadmap-and-risks.md)  
   *Cronograma de 4 fases de despliegue, análisis de ruta crítica (CPM), matriz de 18 riesgos mitigados y registro de 13 hipótesis comerciales sujetas a validación empírica.*
+- [**10. Taxonomía de Herramientas y Pila Tecnológica**](10-taxonomia-herramientas-boutique.md)  
+  *Catálogo y SSOT de herramientas en los 5 procesos (P1 a P5): n8n, GitHub, Claude, Gemini, ChatGPT, NotebookLM, DeepSeek, Lovable, Make y Perplexity, con especificaciones para el banner interactivo.*
 
 ---
 
