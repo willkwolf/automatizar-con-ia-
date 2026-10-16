@@ -48,6 +48,8 @@ Tarifas transparentes con benchmark de equivalencia internacional a TRM de refer
 
 *Condiciones de cupo:* Cohortes limitadas a 25 plazas para garantizar acompañamiento interactivo y feedback de calidad. Descuento preventa ya aplicado; pago en cuota unica.
 
+*Proximo Batch de Lanzamiento:* Inicio el **Miercoles 25 de Noviembre de 2026** · Horario: **Miercoles de 7:00 PM a 10:00 PM (Hora Bogota, GMT-5)** · 3 horas de intensidad practica por sesion.
+
 ---
 
 ## Marco Legal, Licencias y Gobernanza
