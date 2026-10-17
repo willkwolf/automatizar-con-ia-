@@ -185,6 +185,7 @@
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.03em;
+      text-wrap: balance;
       max-width: 860px;
       margin-bottom: 1.25rem;
     }
@@ -302,6 +303,7 @@
       font-weight: 700;
       line-height: 1.25;
       letter-spacing: -0.02em;
+      text-wrap: balance;
       margin-bottom: 0.85rem;
     }
 
@@ -845,14 +847,37 @@
 
     @media (max-width: 768px) {
       .section {
-        padding: 3rem 0;
+        padding: 3.25rem 0;
       }
       .hero {
-        padding: 3rem 0 2.5rem;
+        padding: 3.25rem 0 2.5rem;
+        text-align: center;
+      }
+      .hero .eyebrow {
+        margin: 0 auto 1.25rem;
+      }
+      .hero-title {
+        font-size: clamp(1.95rem, 7.2vw, 2.45rem);
+        line-height: 1.22;
+        letter-spacing: -0.025em;
+        text-align: center;
+        text-wrap: balance;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-lead {
+        font-size: 1.02rem;
+        line-height: 1.6;
+        text-align: center;
+        text-wrap: pretty;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2rem;
       }
       .trust-badges {
         grid-template-columns: 1fr 1fr;
         gap: 1.25rem;
+        text-align: left;
       }
       .audience-grid, .faq-grid {
         grid-template-columns: 1fr;
@@ -872,22 +897,42 @@
       }
       .nav-wrapper {
         height: auto;
-        padding: 1.15rem 0;
-        justify-content: flex-start;
+        padding: 1.25rem 0 1rem;
+        justify-content: center;
+        text-align: center;
       }
       .brand {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
       .brand-title {
-        font-size: 1.18rem;
-        line-height: 1.22;
+        font-size: 1.22rem;
+        line-height: 1.25;
         letter-spacing: -0.015em;
+        text-align: center;
       }
       .brand-sub {
-        font-size: 0.62rem;
-        letter-spacing: 0.05em;
+        font-size: 0.64rem;
+        letter-spacing: 0.06em;
         margin-top: 0.25rem;
         line-height: 1.35;
+        text-align: center;
+      }
+      .section-eyebrow {
+        text-align: center;
+      }
+      .section-title {
+        text-align: center;
+        text-wrap: balance;
+      }
+      .section-desc {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-wrap: pretty;
       }
     }
   </style>
