@@ -475,6 +475,16 @@
     .pricing-card.featured {
       border: 2px solid var(--ink);
       box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      animation: featuredGlow 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes featuredGlow {
+      0% {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      }
+      100% {
+        box-shadow: 0 12px 35px rgba(138, 106, 53, 0.16), 0 0 0 1px rgba(138, 106, 53, 0.22);
+      }
     }
 
     .pricing-badge {
@@ -751,6 +761,225 @@
       border-top: 1px solid rgba(0,0,0,0.04);
     }
 
+    /* Final High-Urgency CTA Section (Closing Funnel) */
+    .section-cta-final {
+      padding: 4.5rem 0 5rem;
+      background: linear-gradient(180deg, var(--bg) 0%, #edeae2 100%);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .cta-final-card {
+      background: var(--card-bg);
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-subtle), var(--ink), var(--gold-subtle));
+    }
+
+    .cta-final-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-subtle);
+      background: var(--accent-soft);
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-final-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3.8vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    .cta-final-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.6;
+    }
+
+    .cta-final-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.15rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn-cta-pulse {
+      position: relative;
+      background: var(--ink);
+      color: #ffffff !important;
+      animation: pulseBtn 3s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0% { box-shadow: 0 0 0 0 rgba(18, 22, 20, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(18, 22, 20, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(18, 22, 20, 0); }
+    }
+
+    .cta-final-guarantees {
+      display: flex;
+      justify-content: center;
+      gap: 1.75rem;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    /* Floating WhatsApp Conversion Pill */
+    .floating-whatsapp-pill {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      background: var(--ink);
+      color: #ffffff !important;
+      padding: 0.68rem 1.15rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      z-index: 999;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .floating-whatsapp-pill:hover {
+      transform: translateY(-2px);
+      background: #252e28;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #25d366;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .pill-arrow {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      transition: transform 0.2s ease;
+    }
+
+    .floating-whatsapp-pill:hover .pill-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Subtle Scroll-Reveal Animation */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .marquee-track {
+        animation: none;
+      }
+      .btn-cta-pulse, .pulse-dot, .pricing-card.featured {
+        animation: none;
+      }
+    }
+
+    /* Chips and Scannable Badges */
+    .chip-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .chip-tag.green {
+      background: #eef6f1;
+      color: var(--green-status);
+      border: 1px solid #cce5d6;
+    }
+
+    .chip-tag.red {
+      background: #fdf2f2;
+      color: #9c4040;
+      border: 1px solid #f4d0d0;
+    }
+
+    .guarantee-ribbon {
+      background: #fcf9f2;
+      border: 1px dashed var(--gold-subtle);
+      border-radius: 6px;
+      padding: 0.75rem 1.25rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--ink);
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
     /* Footer & Legal */
     footer {
       background: #edeae2;
@@ -1003,10 +1232,10 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero reveal-on-scroll">
     <div class="container">
       <div class="eyebrow">
-        <span>●</span> Formación Práctica · Convocatoria 2026
+        <span class="pulse-dot"></span> Formación Práctica · Convocatoria Noviembre 2026
       </div>
       <h1 class="hero-title">
         De utilizar IA básica a <em>construir soluciones operativas</em> para tu trabajo o negocio.
@@ -1015,7 +1244,7 @@
         Aprende a automatizar procesos repetitivos, conectar aplicaciones y crear herramientas funcionales paso a paso, sin saber programar.
       </p>
       <div class="hero-actions">
-        <a href="#pricing" class="btn-primary">Ver Planes e Inversión ↓</a>
+        <a href="#pricing" class="btn-primary btn-cta-pulse">Ver Planes e Inversión ↓</a>
         <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-secondary" target="_blank" rel="noopener">
           Soluciones para Empresas ↗
         </a>
@@ -1144,29 +1373,31 @@
   </section>
 
   <!-- Audience Profile Section -->
-  <section class="section" id="perfil">
+  <section class="section reveal-on-scroll" id="perfil">
     <div class="container">
       <span class="section-eyebrow">Criterio de Admisión y Enfoque</span>
       <h2 class="section-title">De Cero Técnico a Vibe Coder Profesional</h2>
       <p class="section-desc">
-        Formación intensiva para contribuidores individuales y profesionales no técnicos. Aprende a construir herramientas operativas con rigor de ingeniería y elimina de raíz el <em>AI Slop</em> (la chatarra sintética y las pifias de código inservible).
+        Formación intensiva para profesionales y líderes no técnicos. Aprende a construir herramientas operativas con rigor de ingeniería y elimina de raíz el <em>AI Slop</em> (chatarra sintética y pifias).
       </p>
       <div class="audience-grid">
         <div class="audience-card positive">
-          <h3>Para quién es ideal:</h3>
+          <span class="chip-tag green">✔ Perfil Idóneo</span>
+          <h3>Para quién es este programa:</h3>
           <ul class="audience-list">
-            <li><strong>Contribuidores individuales y líderes operativos:</strong> Profesionales multidominio (logística, manufactura, operaciones, servicios, salud, finanzas o diseño) que quieren resolver cuellos de botella reales con flujos organizados y profesionales.</li>
-            <li><strong>No programadores con ambición de construir:</strong> Pasa de ser un espectador que copia prompts sueltos a convertirte en un auténtico <em>Vibe Coder</em> capaz de dirigir herramientas visuales y levantar soluciones funcionales.</li>
-            <li><strong>Profesionales cansados del "AI Slop":</strong> Si estás frustrado con código que no corre, alucinaciones y automatizaciones de juguete, aquí aprendes desarrollo guiado por especificaciones (<em>Spec-Driven</em>) para resultados reproducibles y robustos.</li>
-            <li><strong>Consultores y dueños de negocio:</strong> Construye y mantén con tus propias manos recepcionistas, CRM invisible y asistentes sin depender de agencias costosas ni memorizar sintaxis.</li>
+            <li><strong>Líderes y Contribuidores No Técnicos:</strong> Profesionales en operaciones, logística, finanzas, salud o servicios que buscan eliminar cuellos de botella manuales.</li>
+            <li><strong>De Copiar Prompts a Construir (Vibe Coder):</strong> Dirige herramientas visuales para crear soluciones que sí corren y aportan valor comercial real.</li>
+            <li><strong>Cero AI Slop (Spec-Driven):</strong> Metodología guiada por especificaciones para erradicar alucinaciones, código roto y automatizaciones de juguete.</li>
+            <li><strong>Consultores y Fundadores:</strong> Construye recepcionistas, CRM invisible y flujos autónomos con tus manos sin depender de agencias costosas.</li>
           </ul>
         </div>
         <div class="audience-card negative">
+          <span class="chip-tag red">✕ Perfil Excluido</span>
           <h3>Cuándo no recomendamos inscribirte:</h3>
           <ul class="audience-list">
-            <li><strong>Si ya eres Programador, Developer o Vibe Coder consolidado:</strong> Este programa está concebido desde cero para personas no expertas en desarrollo de software. Si ya dominas código tradicional o arquitectura técnica avanzada, este contenido te resultará redundante.</li>
-            <li><strong>Ingeniería de modelos o Fine-Tuning:</strong> No hacemos entrenamiento de redes neuronales desde cero ni ajuste de pesos matemáticos. Orquestamos IA Generativa aplicada mediante patrones sólidos de integración y desarrollo guiado por especificaciones (<em>Spec-Driven Development</em>).</li>
-            <li><strong>Problemas empresariales de alta complejidad multiequipo:</strong> Si tu organización requiere transformación a gran escala, gobernanza de múltiples dependencias o arquitectura corporativa compleja, ese alcance corresponde a nuestra consultoría matriz: <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.</li>
+            <li><strong>Programadores o Developers Consolidados:</strong> Si ya dominas código tradicional o arquitectura avanzada, este contenido práctico te resultará redundante.</li>
+            <li><strong>Entrenamiento de Modelos o Fine-Tuning:</strong> No ajustamos pesos matemáticos de redes neuronales; orquestamos modelos fundacionales vía APIs y herramientas visuales.</li>
+            <li><strong>Complejidad Empresarial Multiequipo:</strong> Si tu corporación requiere gobernanza a gran escala, ese alcance corresponde a nuestra consultoría matriz: <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.</li>
           </ul>
         </div>
       </div>
@@ -1174,7 +1405,7 @@
   </section>
 
   <!-- Curriculum / Modules Section -->
-  <section class="section" id="programa">
+  <section class="section reveal-on-scroll" id="programa">
     <div class="container">
       <span class="section-eyebrow">Plan de Aprendizaje</span>
       <h2 class="section-title">5 Semanas. 5 Soluciones Funcionales.</h2>
@@ -1264,7 +1495,7 @@
   </section>
 
   <!-- Pricing Section (Customer-Facing & Svelte) -->
-  <section class="section" id="pricing">
+  <section class="section reveal-on-scroll" id="pricing">
     <div class="container">
       <span class="section-eyebrow">Inversión y Modalidades</span>
       <h2 class="section-title">Elige el Nivel de Acompañamiento Adecuado</h2>
@@ -1346,14 +1577,18 @@
 
       </div>
 
-      <div style="margin-top: 2rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);">
+      <div class="guarantee-ribbon">
+        <span>🛡️ <strong>Garantía Total de Retracto (Ley 1480 Art. 47):</strong> 5 días hábiles para evaluar el programa sin riesgo. Reembolso del 100% de tu dinero sin objeciones.</span>
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);">
         * Equivalencia de referencia internacional: Taller Base ~$222 USD · Entrenamiento Guiado ~$480 USD (TRM $3.100 COP/USD). Inversión por cada silla · Cupos limitados estrictamente a 18 plazas.
       </div>
     </div>
   </section>
 
   <!-- FAQs Section (Interactive Dropdown List) -->
-  <section class="section" id="faqs">
+  <section class="section reveal-on-scroll" id="faqs">
     <div class="container">
       <span class="section-eyebrow">Resolución de Dudas</span>
       <h2 class="section-title">Preguntas Frecuentes</h2>
@@ -1465,6 +1700,32 @@
     </div>
   </section>
 
+  <!-- Final High-Urgency CTA Section (Closing Funnel) -->
+  <section class="section section-cta-final reveal-on-scroll" id="cierre">
+    <div class="container">
+      <div class="cta-final-card">
+        <span class="cta-final-eyebrow">● Convocatoria Noviembre 2026 · Cupos Limitados</span>
+        <h2 class="cta-final-title">¿Listo para transformar tareas manuales en sistemas autónomos?</h2>
+        <p class="cta-final-lead">
+          Pasa de usar chatbots sueltos a dirigir soluciones en producción con tus propias manos. 18 plazas exclusivas por cohorte con resolución interactiva en tiempo real.
+        </p>
+        <div class="cta-final-actions">
+          <a href="https://wa.me/573002976815?text=Hola%2C%20quiero%20asegurar%20mi%20cupo%20en%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-primary btn-cta-pulse" target="_blank" rel="noopener">
+            Asegurar Mi Plaza por WhatsApp ↗
+          </a>
+          <a href="#pricing" class="btn-secondary">
+            Comparar Planes e Inversión ↓
+          </a>
+        </div>
+        <div class="cta-final-guarantees">
+          <span>✔ Inversión en COP sin cobros ocultos</span>
+          <span>✔ Garantía 100% devolución 5 días (Ley 1480)</span>
+          <span>✔ Cero cookies ni rastreo invasivo (Ley 1581)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer & Legal Center -->
   <footer id="legal">
     <div class="container">
@@ -1516,6 +1777,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Sticky WhatsApp Conversion Pill -->
+  <a href="https://wa.me/573002976815?text=Hola%2C%20tengo%20una%20consulta%20r%C3%A1pida%20sobre%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="floating-whatsapp-pill" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+    <span class="pulse-dot"></span>
+    <span>WhatsApp Directo</span>
+    <span class="pill-arrow">↗</span>
+  </a>
+
+  <!-- Lightweight Vanilla Interaction Script (Zero external tracking, 100% native) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // IntersectionObserver for progressive scroll reveal
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for older browsers
+        document.querySelectorAll('.reveal-on-scroll').forEach(function(el) {
+          el.classList.add('is-revealed');
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
