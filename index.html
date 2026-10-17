@@ -1164,6 +1164,21 @@
         text-wrap: pretty;
       }
     }
+  
+    /* Accessibility: Complete Focus-Visible States (Anti-Slop Constraint 9 & WCAG 2.1 AA) */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible,
+    .btn-pricing:focus-visible,
+    .nav-cta:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible,
+    .whatsapp-btn-float:focus-visible {
+      outline: 2px solid var(--gold-subtle);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(138, 106, 53, 0.18);
+    }
   </style>
 
   <!-- Schema.org JSON-LD -->
@@ -1559,7 +1574,7 @@
           </div>
           <div class="thinking-system-highlight">
             <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener">
-              ★ Respaldado por la arquitectura de Thinking System ↗
+              Respaldado por la arquitectura de Thinking System ↗
             </a>
           </div>
           <ul class="tier-features">
@@ -1577,7 +1592,7 @@
       </div>
 
       <div class="guarantee-ribbon">
-        <span>🛡️ <strong>Garantía Total de Retracto (Ley 1480 Art. 47):</strong> 5 días hábiles para evaluar el programa sin riesgo. Reembolso del 100% de tu dinero sin objeciones.</span>
+        <span><svg class="icon-shield" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <strong>Garantía Total de Retracto (Ley 1480 Art. 47):</strong> 5 días hábiles para evaluar el programa sin riesgo. Reembolso del 100% de tu dinero sin objeciones.</span>
       </div>
 
       <div style="margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);">
