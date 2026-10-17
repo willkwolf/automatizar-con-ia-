@@ -1,4 +1,4 @@
-﻿---
+---
 type: commercial
 title: Motor Comercial, Pricing en COP y Conversión por WhatsApp
 description: Estructura del embudo de ventas, arquitectura de tiers en COP, modelo Enterprise Land-and-Expand y tracking sutil a WhatsApp.
@@ -42,9 +42,9 @@ Se adopta la estructura clásica de la industria de software moderno (*Tech Pric
 |---|---|---|---|
 | **Enfoque** | Autoaprendizaje guiado y fundamentos | Acompañamiento, feedback y certificación | Consultoría llave en mano y agentes dedicados |
 | **Público** | Profesionales independientes y principiantes | Emprendedores y consultores en crecimiento | Pequeñas y medianas empresas / Corporaciones |
-| **Precio Regular** | **$790.000 COP** `[pendiente_de_validacion]` | **$1.890.000 COP** `[pendiente_de_validacion]` | **Cotización a medida (Privado)** |
-| **Precio Preventa** | **$490.000 COP** `[pendiente_de_validacion]` | **$1.290.000 COP** `[pendiente_de_validacion]` | **Sesión diagnóstica de viabilidad** |
-| **Benchmark USD** | ~$124 USD preventa / ~$200 USD regular | ~$326 USD preventa / ~$478 USD regular | Proyectos desde $2.500 USD a $10.000 USD |
+| **Precio Regular** | **$980.000 COP** | **$2.190.000 COP** | **Cotización a medida (Privado)** |
+| **Precio Preventa** | **$690.000 COP** | **$1.490.000 COP** | **Sesión diagnóstica de viabilidad** |
+| **Benchmark USD** | ~$222 USD preventa / ~$316 USD regular (TRM 3.100) | ~$480 USD preventa / ~$706 USD regular (TRM 3.100) | Proyectos desde $2.500 USD a $10.000 USD |
 | **Acceso Módulos** | 5 módulos completos y grabaciones | 5 módulos + plantillas prémium + bonus | Solución instalada en infraestructura cliente |
 | **Soporte** | Asíncrono en comunidad (SLA 48h) | Sesiones semanales en vivo + SLA 24h | Canal privado dedicado (WhatsApp / Slack) |
 | **Canal de Compra** | Pasarela de pago web / Checkout | Pasarela de pago web / Financiación | Contacto directo vía WhatsApp |

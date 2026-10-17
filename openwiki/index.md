@@ -1,4 +1,4 @@
-﻿---
+---
 type: index
 title: Boutique Digital — OpenWiki Knowledge Graph Hub
 description: Grafo unificado de conocimiento, arquitectura de negocio, gobernanza del dominio y especificación técnica de Boutique Digital y Automatizar con IA.
@@ -82,7 +82,7 @@ graph TD
 ## 3. Estrategia Comercial, GEO y Gobernanza Legal
 
 - [**04. Motor Comercial, Pricing en COP y Conversión WhatsApp**](04-commercial-engine-and-pricing.md)  
-  *Embudo en 5 etapas (A a E), pricing SaaS/Tech en Pesos Colombianos (Basic: $490k / $790k COP; Pro: $1.29M / $1.89M COP), modelo consultivo B2B Land-and-Expand para Enterprise, benchmark internacional USD y matriz de URLs trazables a WhatsApp (`+573002976815`).*
+  *Embudo en 5 etapas (A a E), pricing SaaS/Tech en Pesos Colombianos (Basic: $690k / $980k COP; Pro: $1.49M / $2.19M COP), modelo consultivo B2B Land-and-Expand para Enterprise, benchmark internacional USD y matriz de URLs trazables a WhatsApp (`+573002976815`).*
 - [**05. Generative Engine Optimization (GEO) y Recuperación Semántica**](05-geo-and-information-retrieval.md)  
   *Ingeniería de contenidos para motores generativos (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) basada en el marco científico de Aggarwal et al. (KDD 2024): citabilidad, estadísticas empíricas, Answer Engine Optimization (AEO) y gobernanza de inputs.*
 - [**07. Marco Legal, Cumplimiento y Política Cero Rastreo**](07-legal-framework-and-compliance.md)  
