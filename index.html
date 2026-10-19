@@ -454,6 +454,112 @@
       display: block;
     }
 
+    /* Moat Metodológico (60% Práctica / 40% Teoría) */
+    .moat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .moat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.85rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .moat-card:hover {
+      border-color: var(--border-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .moat-tag {
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-subtle);
+      background: var(--accent-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .moat-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.65rem;
+      color: var(--ink);
+    }
+
+    .moat-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .moat-card strong {
+      color: var(--ink);
+    }
+
+    .moat-ratio-banner {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.75rem;
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .moat-ratio-text {
+      font-size: 0.92rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .moat-ratio-badge {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--card-bg);
+      padding: 0.45rem 0.9rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .roi-comparison-banner {
+      margin-top: 2rem;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.35rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .moat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Pricing Section */
     .pricing-grid {
       display: grid;
@@ -1235,6 +1341,7 @@
       </a>
       <nav class="nav-links">
         <a href="#perfil">Perfil</a>
+        <a href="#metodologia">Metodología</a>
         <a href="#programa">Programa</a>
         <a href="#pricing">Planes</a>
         <a href="#faqs">Preguntas</a>
@@ -1266,20 +1373,20 @@
       </div>
       <div class="trust-badges">
         <div class="badge-item">
-          <span class="badge-label">Duración</span>
-          <span class="badge-value">5 Semanas (15h en Vivo)</span>
+          <span class="badge-label">Formato</span>
+          <span class="badge-value">60% Práctica · 40% Teoría</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Enfoque</span>
-          <span class="badge-value">Spec-Driven · Cero AI Slop</span>
+          <span class="badge-label">Fundamento</span>
+          <span class="badge-value">ToC + Patrones de Automatización</span>
         </div>
         <div class="badge-item">
           <span class="badge-label">Exclusividad</span>
           <span class="badge-value">18 Plazas por Cohorte</span>
         </div>
         <div class="badge-item">
-          <span class="badge-label">Entregable</span>
-          <span class="badge-value">5 Soluciones en Producción</span>
+          <span class="badge-label">Resultado</span>
+          <span class="badge-value">De Bases a Vibecoding Real</span>
         </div>
       </div>
     </div>
@@ -1414,6 +1521,52 @@
             <li><strong>Entrenamiento de Modelos o Fine-Tuning:</strong> No ajustamos pesos matemáticos de redes neuronales; orquestamos modelos fundacionales vía APIs y herramientas visuales.</li>
             <li><strong>Complejidad Empresarial Multiequipo:</strong> Si tu corporación requiere gobernanza a gran escala, ese alcance corresponde a nuestra consultoría matriz: <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Moat Metodológico: 60% Práctica / 40% Teoría -->
+  <section class="section reveal-on-scroll" id="metodologia">
+    <div class="container">
+      <span class="section-eyebrow">Arquitectura de Formación y Foso Competitivo</span>
+      <h2 class="section-title">60% Práctica Hands-on · 40% Teoría Arquitectónica</h2>
+      <p class="section-desc">
+        La teoría no es relleno escolar: es tu mayor ventaja competitiva. Conectar nodos en una herramienta visual sin fundamentos es automatizar el caos. Aquí aprendes la arquitectura para diseñar sistemas que no fallen, y te ensucias las manos construyéndolos.
+      </p>
+
+      <div class="moat-grid">
+        <div class="moat-card">
+          <span class="moat-tag">Pilar 01 · Estrategia</span>
+          <h3>Teoría de Restricciones (ToC)</h3>
+          <p>
+            <strong>Encuentra el cuello de botella antes de mover una sola línea.</strong> Si automatizas un paso que no es la restricción del sistema, creas inventario oculto y estrés operativo. Aplicamos la ToC de Goldratt para identificar exactamente dónde intervenir para liberar EBITDA y horas hombre reales.
+          </p>
+        </div>
+
+        <div class="moat-card">
+          <span class="moat-tag">Pilar 02 · Arquitectura</span>
+          <h3>Patrones de Automatización e Idempotencia</h3>
+          <p>
+            <strong>Sistemas confiables que no se caen a ciegas.</strong> Herramientas como n8n o Make son solo vehículos de práctica; lo que perdura son los patrones: orquestación dirigida por eventos (<em>Event-driven</em>), reintentos idempotentes, manejo de límites de tasa y supervisión humana obligatoria (<em>Human-in-the-Loop</em>).
+          </p>
+        </div>
+
+        <div class="moat-card">
+          <span class="moat-tag">Pilar 03 · De Bases a Código</span>
+          <h3>De Fundamentos de LLMs a Vibecoding</h3>
+          <p>
+            <strong>Domina los entornos para dirigir la IA con criterio.</strong> Comprende la latencia, ventanas de contexto y modelos locales offline para privacidad estricta. Con esas bases, dominas el <em>Vibecoding</em>: crear software, mini-apps y portales en horas dirigiendo IAs generativas sin generar código roto ni <em>AI Slop</em>.
+          </p>
+        </div>
+      </div>
+
+      <div class="moat-ratio-banner">
+        <div class="moat-ratio-text">
+          <strong>El equilibrio exacto:</strong> Ni teoría académica sin código, ni tutoriales superficiales de "copiar y pegar sin entender". Aprenderás a pensar como arquitecto de sistemas y a ejecutar como constructor.
+        </div>
+        <div class="moat-ratio-badge">
+          Ratio: 60% Práctica / 40% Teoría
         </div>
       </div>
     </div>
@@ -1589,6 +1742,16 @@
           </a>
         </div>
 
+      </div>
+
+      <div class="roi-comparison-banner">
+        <div>
+          <strong style="font-family: var(--font-display); font-size: 1.05rem; display: block; margin-bottom: 0.25rem; color: var(--ink);">Retorno Operativo Inmediato (Ecuación de Payback)</strong>
+          <span style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Un asistente administrativo o analista en Colombia devenga entre $2.2M y $3.5M COP/mes con prestaciones. Si la automatización construida le ahorra a tu equipo de 10 a 15 horas semanales en tareas mecánicas, el Taller Base ($690.000 COP) se recupera en las primeras 2 semanas de trabajo operativo.</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; color: var(--gold-subtle); background: var(--card-bg); padding: 0.5rem 0.85rem; border-radius: 4px; border: 1px solid var(--border); white-space: nowrap;">
+          Payback estimado: &lt; 15 días
+        </div>
       </div>
 
       <div class="guarantee-ribbon">
