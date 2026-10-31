@@ -423,98 +423,92 @@
       align-items: center;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: var(--space-4);
-      padding-top: var(--space-6);
-      border-top: 1px solid var(--color-border-hairline);
-    }
-
-    .trust-card {
-      background: var(--color-surface-card);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-sm);
-      padding: var(--space-4);
-      box-shadow: var(--shadow-sm);
-      transition: border-color var(--duration-fast) var(--ease-interactive),
-                  transform var(--duration-fast) var(--ease-interactive);
-    }
-
-    .trust-card:hover {
-      border-color: var(--color-border-medium);
-      transform: translateY(-2px);
-    }
-
-    .trust-header {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-2xs);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-accent-gold);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-1);
-    }
-
-    .trust-title {
-      font-size: var(--text-sm);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-ink-primary);
-      margin-bottom: var(--space-1);
-    }
-
-    .trust-desc {
-      font-size: var(--text-xs);
-      color: var(--color-ink-muted);
-      line-height: 1.5;
-    }
-
-    /* Ecosystem Strip */
-    .ecosystem-section {
-      padding: var(--space-8) 0;
-      background: var(--color-surface-card-inset);
+    /* Client Logos Track (Single-Tone / Monochrome Inspired by Globant) */
+    .clients-section {
+      padding: var(--space-8) 0 var(--space-12);
       border-bottom: 1px solid var(--color-border-hairline);
+      background: var(--color-surface-canvas);
+      overflow: hidden;
     }
 
-    .ecosystem-inner {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
+    .clients-header {
+      text-align: center;
+      margin-bottom: var(--space-6);
     }
 
-    .ecosystem-label {
+    .clients-caption {
       font-family: var(--font-family-mono);
       font-size: var(--text-xs);
-      color: var(--color-ink-muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-align: center;
+      letter-spacing: 0.1em;
+      color: var(--color-ink-muted);
     }
 
-    .ecosystem-badges {
+    .mfeLogosSectionViewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+
+    .mfeLogosSectionTrack {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-3);
+      align-items: center;
+      width: max-content;
+      gap: var(--space-16);
+      animation: logosTrackScroll 30s linear infinite;
+      padding: var(--space-2) 0;
     }
 
-    .tech-pill {
+    .mfeLogosSectionTrack:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes logosTrackScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mfeLogosSectionTrack {
+        animation: none;
+        transform: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: var(--space-8);
+      }
+      .mfeLogosSectionViewport {
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+    }
+
+    .mfeLogosSectionLogo {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-2);
-      background: var(--color-surface-card);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-sm);
-      padding: 0.4rem 0.75rem;
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      color: var(--color-ink-secondary);
-      box-shadow: var(--shadow-sm);
+      justify-content: center;
+      height: 44px;
+      color: var(--color-ink-muted);
+      opacity: 0.72;
+      transition: opacity var(--duration-fast) var(--ease-interactive),
+                  color var(--duration-fast) var(--ease-interactive);
     }
 
-    .tech-pill svg {
-      width: 14px;
-      height: 14px;
+    .mfeLogosSectionLogo:hover {
+      opacity: 1;
+      color: var(--color-ink-primary);
+    }
+
+    .mfeLogosSectionLogo svg {
+      height: 36px;
+      width: auto;
+      max-width: 250px;
       fill: currentColor;
     }
 
@@ -679,46 +673,14 @@
       transform: translateY(-1px);
     }
 
-    /* ICP vs Buyer Personas */
-    .icp-banner {
-      background: var(--color-surface-card);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-md);
-      padding: var(--space-8);
-      margin-bottom: var(--space-8);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .icp-grid {
+    /* Metodología de Intervención */
+    .method-steps {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-      margin-top: var(--space-6);
-    }
-
-    .icp-col-title {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-accent-industrial);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: var(--space-2);
-    }
-
-    .icp-item-text {
-      font-size: var(--text-sm);
-      color: var(--color-ink-secondary);
-      line-height: var(--line-height-body);
-    }
-
-    .personas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: var(--space-6);
     }
 
-    .persona-card {
+    .step-card {
       background: var(--color-surface-card);
       border: 1px solid var(--color-border-hairline);
       border-radius: var(--radius-md);
@@ -730,71 +692,9 @@
                   transform var(--duration-fast) var(--ease-interactive);
     }
 
-    .persona-card:hover {
+    .step-card:hover {
       border-color: var(--color-border-medium);
       transform: translateY(-2px);
-    }
-
-    .persona-role {
-      font-family: var(--font-family-display);
-      font-size: var(--text-lg);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-ink-primary);
-      margin-bottom: var(--space-1);
-    }
-
-    .persona-badge {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-2xs);
-      color: var(--color-accent-gold);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-4);
-    }
-
-    .persona-block {
-      margin-bottom: var(--space-3);
-    }
-
-    .persona-label {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-2xs);
-      color: var(--color-ink-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .persona-content {
-      font-size: var(--text-sm);
-      color: var(--color-ink-secondary);
-      line-height: 1.5;
-    }
-
-    .persona-quote {
-      font-size: var(--text-xs);
-      color: var(--color-ink-primary);
-      font-style: italic;
-      background: var(--color-surface-card-inset);
-      padding: var(--space-3);
-      border-radius: var(--radius-xs);
-      border-left: 2px solid var(--color-border-medium);
-      margin-top: auto;
-    }
-
-    /* Metodología & Test Ácido */
-    .method-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: var(--space-4);
-      margin-bottom: var(--space-8);
-    }
-
-    .step-card {
-      background: var(--color-surface-card);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-sm);
-      padding: var(--space-6);
-      box-shadow: var(--shadow-sm);
     }
 
     .step-number {
@@ -802,6 +702,8 @@
       font-size: var(--text-xs);
       font-weight: var(--font-weight-bold);
       color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: var(--space-2);
     }
 
@@ -815,65 +717,7 @@
     .step-text {
       font-size: var(--text-xs);
       color: var(--color-ink-secondary);
-      line-height: 1.5;
-    }
-
-    .acid-box {
-      background: var(--color-surface-dark);
-      color: var(--color-ink-inverse);
-      border-radius: var(--radius-md);
-      padding: var(--space-8);
-    }
-
-    .acid-header {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #e5b974;
-      margin-bottom: var(--space-2);
-    }
-
-    .acid-title {
-      font-family: var(--font-family-display);
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--space-4);
-    }
-
-    .acid-desc {
-      font-size: var(--text-sm);
-      color: #c5c0b2;
-      max-width: var(--container-reading-width);
-      line-height: 1.6;
-      margin-bottom: var(--space-6);
-    }
-
-    .acid-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-4);
-    }
-
-    .acid-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xs);
-      padding: var(--space-4);
-    }
-
-    .acid-item-title {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      font-weight: var(--font-weight-semibold);
-      color: #f7f6f2;
-      margin-bottom: var(--space-1);
-    }
-
-    .acid-item-desc {
-      font-size: var(--text-2xs);
-      color: #a3aba5;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* Modelos de Contratación B2B */
@@ -1237,10 +1081,6 @@
       .knowledge-link {
         justify-self: start;
       }
-      .icp-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-      }
       .training-box {
         grid-template-columns: 1fr;
       }
@@ -1291,8 +1131,7 @@
 
       <nav aria-label="Navegación principal">
         <ul class="nav-menu">
-          <li><a href="#triada">Tríada de Capacidades</a></li>
-          <li><a href="#icp">Perfil & Roles</a></li>
+          <li><a href="#triada">Capacidades</a></li>
           <li><a href="#metodologia">Metodología</a></li>
           <li><a href="#modelos">Modelos B2B</a></li>
           <li><a href="#habilitacion">Habilitación</a></li>
@@ -1343,46 +1182,80 @@
           </a>
         </div>
 
-        <!-- 4 Atomic Trust Metrics -->
-        <div class="trust-grid">
-          <div class="trust-card">
-            <div class="trust-header">Soberanía Tecnológica</div>
-            <div class="trust-title">Código 100% Tuyo</div>
-            <div class="trust-desc">Repositorio propio, sin dependencias propietarias ni licencias cautivas.</div>
-          </div>
-          <div class="trust-card">
-            <div class="trust-header">Supervisión Determinista</div>
-            <div class="trust-title">Human-in-the-Loop</div>
-            <div class="trust-desc">Mecanismos de control donde las decisiones críticas requieren validación humana.</div>
-          </div>
-          <div class="trust-card">
-            <div class="trust-header">Enfoque de Ingeniería</div>
-            <div class="trust-title">Teoría de Restricciones</div>
-            <div class="trust-desc">Descongestionamos el cuello de botella real de tu operación según la Ley de Amdahl.</div>
-          </div>
-          <div class="trust-card">
-            <div class="trust-header">Privacidad Estricta</div>
-            <div class="trust-title">Doctrina Zero-Tracking</div>
-            <div class="trust-desc">Cero scripts analíticos de terceros ni fugas de datos (Ley 1581 / GDPR).</div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- Ecosistema Tecnológico de Ejecución -->
-    <section class="ecosystem-section" aria-label="Tecnologías y Estándares">
-      <div class="container ecosystem-inner">
-        <div class="ecosystem-label">Pila de Ingeniería & Estándares de Integración</div>
-        <div class="ecosystem-badges">
-          <span class="tech-pill">Python & Pydantic</span>
-          <span class="tech-pill">TypeScript & Node</span>
-          <span class="tech-pill">n8n Auto-Hospedado</span>
-          <span class="tech-pill">PostgreSQL & Redis</span>
-          <span class="tech-pill">Google Antigravity</span>
-          <span class="tech-pill">OpenWorker Harness</span>
-          <span class="tech-pill">Jira & ClickUp APIs</span>
-          <span class="tech-pill">Linear & Slack Webhooks</span>
-          <span class="tech-pill">GitHub Actions CI/CD</span>
+    <!-- Clientes y Organizaciones (Logos en Un Solo Tono - Estilo Globant) -->
+    <section class="clients-section" aria-label="Clientes y Organizaciones">
+      <div class="container">
+        <div class="clients-header">
+          <span class="clients-caption">Empresas e Instituciones con las que Colaboramos</span>
+        </div>
+      </div>
+      <div class="mfeLogosSectionViewport">
+        <div class="mfeLogosSectionTrack">
+          <!-- Set 1 -->
+          <div class="mfeLogosSectionLogo" title="Globant">
+            <svg viewBox="0 0 160 36" height="36" fill="currentColor" role="img" aria-label="Globant">
+              <g transform="translate(6, 6)">
+                <path d="M12 0L14.8 8.2L23 10L15.8 14.5L18 23L11.5 17.5L5.5 22.5L7.2 14.5L0.5 9.5L8.8 8.2Z" fill="currentColor"/>
+              </g>
+              <text x="38" y="24" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" letter-spacing="0.06em" fill="currentColor">GLOBANT</text>
+            </svg>
+          </div>
+          <div class="mfeLogosSectionLogo" title="Universidad Icesi">
+            <svg viewBox="0 0 210 36" height="36" fill="currentColor" role="img" aria-label="Universidad Icesi">
+              <g transform="translate(4, 3)">
+                <path d="M15 2 C23 2, 28 6, 28 14 C28 23, 20 28, 15 30 C10 28, 2 23, 2 14 C2 6, 7 2, 15 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 13 C11 10, 15 10, 15 14 C15 10, 19 10, 21 13" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="15" cy="8" r="2.5" fill="currentColor"/>
+              </g>
+              <text x="40" y="16" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" letter-spacing="0.14em" fill="currentColor">UNIVERSIDAD</text>
+              <text x="40" y="29" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="15" letter-spacing="0.08em" fill="currentColor">ICESI</text>
+            </svg>
+          </div>
+          <div class="mfeLogosSectionLogo" title="Gobernación del Valle del Cauca">
+            <svg viewBox="0 0 250 36" height="36" fill="currentColor" role="img" aria-label="Gobernación del Valle del Cauca">
+              <g transform="translate(4, 3)">
+                <path d="M15 1 L28 7 V17 C28 24 15 30 15 30 C15 30 2 24 2 17 V7 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="15" cy="11" r="3" fill="currentColor"/>
+                <path d="M7 21 C11 17, 19 17, 23 21" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </g>
+              <text x="38" y="15" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="11" letter-spacing="0.12em" fill="currentColor">GOBERNACIÓN</text>
+              <text x="38" y="28" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="600" font-size="12" letter-spacing="0.06em" fill="currentColor">VALLE DEL CAUCA</text>
+            </svg>
+          </div>
+          <!-- Set 2 (Duplicado para loop infinito continuo) -->
+          <div class="mfeLogosSectionLogo" aria-hidden="true">
+            <svg viewBox="0 0 160 36" height="36" fill="currentColor" role="img" aria-label="Globant">
+              <g transform="translate(6, 6)">
+                <path d="M12 0L14.8 8.2L23 10L15.8 14.5L18 23L11.5 17.5L5.5 22.5L7.2 14.5L0.5 9.5L8.8 8.2Z" fill="currentColor"/>
+              </g>
+              <text x="38" y="24" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" letter-spacing="0.06em" fill="currentColor">GLOBANT</text>
+            </svg>
+          </div>
+          <div class="mfeLogosSectionLogo" aria-hidden="true">
+            <svg viewBox="0 0 210 36" height="36" fill="currentColor" role="img" aria-label="Universidad Icesi">
+              <g transform="translate(4, 3)">
+                <path d="M15 2 C23 2, 28 6, 28 14 C28 23, 20 28, 15 30 C10 28, 2 23, 2 14 C2 6, 7 2, 15 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 13 C11 10, 15 10, 15 14 C15 10, 19 10, 21 13" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="15" cy="8" r="2.5" fill="currentColor"/>
+              </g>
+              <text x="40" y="16" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" letter-spacing="0.14em" fill="currentColor">UNIVERSIDAD</text>
+              <text x="40" y="29" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="15" letter-spacing="0.08em" fill="currentColor">ICESI</text>
+            </svg>
+          </div>
+          <div class="mfeLogosSectionLogo" aria-hidden="true">
+            <svg viewBox="0 0 250 36" height="36" fill="currentColor" role="img" aria-label="Gobernación del Valle del Cauca">
+              <g transform="translate(4, 3)">
+                <path d="M15 1 L28 7 V17 C28 24 15 30 15 30 C15 30 2 24 2 17 V7 Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="15" cy="11" r="3" fill="currentColor"/>
+                <path d="M7 21 C11 17, 19 17, 23 21" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </g>
+              <text x="38" y="15" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="11" letter-spacing="0.12em" fill="currentColor">GOBERNACIÓN</text>
+              <text x="38" y="28" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="600" font-size="12" letter-spacing="0.06em" fill="currentColor">VALLE DEL CAUCA</text>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
@@ -1392,63 +1265,63 @@
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-eyebrow">Arquitectura de Servicio</span>
-          <h2 class="section-title">La Tríada de Capacidades de Boutique Digital</h2>
+          <h2 class="section-title">Nuestras Capacidades Centrales</h2>
           <p class="section-subtitle">
-            No ofrecemos herramientas aisladas ni promesas vacías. Integramos ingeniería de software, excelencia operacional e investigación epistemológica en una estructura coordinada.
+            Integramos consultoría de software, excelencia operacional e investigación aplicada para dotar a tu organización de autonomía y solidez tecnológica.
           </p>
         </div>
 
         <div class="triad-grid">
           <!-- Capacidad 1: Software Consulting -->
           <article class="triad-card triad-card-main reveal-on-scroll">
-            <div class="card-tag">Pilar 01 · Ejecución Técnica</div>
+            <div class="card-tag">Pilar 01 · Ingeniería de Software</div>
             <h3 class="card-title">Consultoría de Software (Software Consulting)</h3>
             <p class="card-desc">
-              Desarrollamos soluciones a medida, microservicios e integraciones deterministas sobre la infraestructura propia de tu empresa.
+              Construimos plataformas, conectores e integraciones a medida que escalan la capacidad operativa de tu empresa sin generar deuda técnica.
             </p>
             <ul class="capability-list">
               <li class="capability-item">
                 <span class="capability-item-bullet">01</span>
-                <span>APIs robustas e integraciones bidireccionales con Jira, ClickUp, Linear, Slack y CRM.</span>
+                <span><strong>Arquitectura de Software & APIs:</strong> Conexión determinista entre tus plataformas de gestión, CRM y canales de comunicación.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">02</span>
-                <span>Pipelines de datos estructurados con validación estricta de esquemas (JSON Schema / Pydantic).</span>
+                <span><strong>Pipelines de Datos & Automatización:</strong> Flujos de datos seguros, estructurados y de alta disponibilidad con validación rigurosa.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">03</span>
-                <span>Arneses agénticos soberanos con sandboxes de ejecución y principio de mínimo privilegio.</span>
+                <span><strong>Sistemas Agénticos & IA Aplicada:</strong> Asistentes y agentes especializados que resuelven flujos complejos en entornos protegidos.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">04</span>
-                <span>Manejo de fallos parciales, colas de mensajes muertos (DLQ), idempotencia y backoff exponencial.</span>
+                <span><strong>Resiliencia & Soberanía del Código:</strong> Repositorio 100% de tu propiedad, tolerancia a fallos y despliegue en tu infraestructura.</span>
               </li>
             </ul>
           </article>
 
           <!-- Capacidad 2: Operations Consulting -->
           <article class="triad-card triad-card-main reveal-on-scroll">
-            <div class="card-tag">Pilar 02 · Eficiencia & Flujo</div>
+            <div class="card-tag">Pilar 02 · Excelencia en Operaciones</div>
             <h3 class="card-title">Consultoría de Operaciones (Operations Consulting)</h3>
             <p class="card-desc">
-              Rediseñamos la cadena de valor de tu agencia para acortar tiempos de ciclo, eliminar retrabajo manual y blindar el margen bruto.
+              Rediseñamos los flujos de trabajo de tu agencia para eliminar fricciones operativas, acortar tiempos de entrega y blindar el margen bruto.
             </p>
             <ul class="capability-list">
               <li class="capability-item">
                 <span class="capability-item-bullet">01</span>
-                <span>Mapeo AS-IS &rarr; TO-BE focalizado en el cuello de botella (Teoría de Restricciones).</span>
+                <span><strong>Diagnóstico de Flujos & Cuellos de Botella:</strong> Identificación precisa de las restricciones operativas que limitan tu crecimiento.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">02</span>
-                <span>Protocolos Human-in-the-Loop (HitL) con umbrales de certidumbre y detención humana.</span>
+                <span><strong>Gobernanza Human-in-the-Loop:</strong> Protocolos donde la IA asiste en tareas de soporte y el criterio humano aprueba decisiones críticas.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">03</span>
-                <span>Estandarización de criterios de aceptación (Definition of Done) para entregas sin fricción.</span>
+                <span><strong>Estandarización de Calidad & Entregables:</strong> Criterios unificados de aceptación (Definition of Done) para entregas consistentes.</span>
               </li>
               <li class="capability-item">
                 <span class="capability-item-bullet">04</span>
-                <span>Auditoría de capacidad y tiempos de entrega basada en la Ley de Little y Ley de Amdahl.</span>
+                <span><strong>Eficiencia y Capacidad de Escala:</strong> Mayor volumen de servicio sin sobrecargar al equipo ni incrementar proporcionalmente la nómina.</span>
               </li>
             </ul>
           </article>
@@ -1457,10 +1330,10 @@
           <article class="triad-card triad-card-knowledge reveal-on-scroll">
             <div class="knowledge-layout">
               <div>
-                <div class="card-tag">Pilar 03 · Epistemología & Gobernanza Upstream</div>
+                <div class="card-tag">Pilar 03 · Investigación & Pensamiento Sistémico</div>
                 <h3 class="card-title">Generación de Conocimiento (Knowledge / Research & Analytics)</h3>
                 <p class="card-desc" style="margin-bottom: 0;">
-                  Esta capacidad reside formalmente en nuestra Casa Matriz, <strong>Thinking-as-a-Service</strong>. Desde allí se investigan marcos de complejidad, evaluación de modelos de frontera (siguiendo publicaciones de Harvard HDSR/HBR 2026, Stanford y ACM) y protocolos adversariales que garantizan que las soluciones de Boutique Digital estén protegidas contra el hype y la obsolescencia.
+                  Esta capacidad reside formalmente en nuestra Casa Matriz, <strong>Thinking-as-a-Service</strong>. Desde allí se investigan modelos de frontera, marcos de complejidad y protocolos de evaluación empírica que garantizan que cada solución esté blindada contra el hype y la obsolescencia técnica.
                 </p>
               </div>
               <div>
@@ -1475,179 +1348,44 @@
       </div>
     </section>
 
-    <!-- Perfil de Cliente Ideal (ICP) vs Buyer Personas -->
-    <section id="icp" class="section">
-      <div class="container">
-        <div class="section-header reveal-on-scroll">
-          <span class="section-eyebrow">Alineación de Negocio</span>
-          <h2 class="section-title">Para Quién Diseñamos: ICP & Roles Clave</h2>
-          <p class="section-subtitle">
-            Diferenciamos formalmente el tipo de organización al que servimos de los roles directivos y operativos que lideran la transformación.
-          </p>
-        </div>
-
-        <!-- ICP Organizacional -->
-        <div class="icp-banner reveal-on-scroll">
-          <div class="card-tag">Perfil de Cliente Ideal (ICP Organizacional)</div>
-          <h3 class="card-title" style="font-size: 1.35rem;">Empresas Livianas & Agencias de Servicios Profesionales</h3>
-          <div class="icp-grid">
-            <div>
-              <div class="icp-col-title">Organizaciones Objetivo</div>
-              <p class="icp-item-text">
-                Agencias digitales de software, diseño de producto, UX/UI y marketing de <strong>15 a 150 colaboradores</strong>, así como consultoras y firmas profesionales intensivas en conocimiento que facturan por proyectos o retainers mensuales.
-              </p>
-            </div>
-            <div>
-              <div class="icp-col-title">El Problema Estructural</div>
-              <p class="icp-item-text">
-                Erosión de margen bruto porque los perfiles más calificados consumen entre el 30% y el 45% de sus horas en coordinación manual, reportes repetitivos y persecución de aprobaciones en lugar de trabajo facturable de alto valor.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Buyer Personas -->
-        <div class="personas-grid">
-          <!-- Persona 1: COO -->
-          <div class="persona-card reveal-on-scroll">
-            <div class="persona-role">Director de Operaciones / COO</div>
-            <div class="persona-badge">Comprador Económico</div>
-            <div class="persona-block">
-              <div class="persona-label">Dolor Principal</div>
-              <div class="persona-content">Fricción en cronogramas, descontrol de horas y margen erosionado por retrabajo.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">Métrica Clave</div>
-              <div class="persona-content">EBITDA por empleado, utilización facturable y cumplimiento de SLAs.</div>
-            </div>
-            <div class="persona-quote">
-              "Optimizamos el cuello de botella de tu flujo actual protegiendo el margen sin interrumpir tus cuentas activas."
-            </div>
-          </div>
-
-          <!-- Persona 2: DPM -->
-          <div class="persona-card reveal-on-scroll">
-            <div class="persona-role">Digital Project Manager / Delivery Lead</div>
-            <div class="persona-badge">Campeón del Dolor Cotidiano</div>
-            <div class="persona-block">
-              <div class="persona-label">Dolor Principal</div>
-              <div class="persona-content">Sobrecarga de tareas manuales, persecución de aprobaciones por Slack y scope creep.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">Métrica Clave</div>
-              <div class="persona-content">Entregas a tiempo, velocidad del equipo y reducción de horas de reporte.</div>
-            </div>
-            <div class="persona-quote">
-              "Sistemas supervisados con alertas tempranas y respaldo humano que jamás ejecutan acciones a ciegas."
-            </div>
-          </div>
-
-          <!-- Persona 3: Tech Lead -->
-          <div class="persona-card reveal-on-scroll">
-            <div class="persona-role">Tech Lead / CTO</div>
-            <div class="persona-badge">Guardián Técnico</div>
-            <div class="persona-block">
-              <div class="persona-label">Dolor Principal</div>
-              <div class="persona-content">Deuda técnica por automatizaciones no-code frágiles, alucinaciones y fuga de datos.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">Métrica Clave</div>
-              <div class="persona-content">Disponibilidad, idempotencia de APIs, seguridad y código auditable.</div>
-            </div>
-            <div class="persona-quote">
-              "Arquitectura guiada por especificación, código desacoplado y despliegue en tu propia infraestructura."
-            </div>
-          </div>
-
-          <!-- Persona 4: CEO -->
-          <div class="persona-card reveal-on-scroll">
-            <div class="persona-role">Managing Partner / CEO</div>
-            <div class="persona-badge">Aprobador Estratégico</div>
-            <div class="persona-block">
-              <div class="persona-label">Dolor Principal</div>
-              <div class="persona-content">Necesidad de contratar linealmente más personas para poder aumentar la facturación.</div>
-            </div>
-            <div class="persona-block">
-              <div class="persona-label">Métrica Clave</div>
-              <div class="persona-content">Crecimiento desacoplado de la nómina y reputación intachable de entrega.</div>
-            </div>
-            <div class="persona-quote">
-              "Te convertimos en una Empresa Liviana con la capacidad de entrega de una firma con el triple de tamaño."
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Metodología de Intervención & Test Ácido -->
+    <!-- Metodología de Intervención -->
     <section id="metodologia" class="section">
       <div class="container">
         <div class="section-header reveal-on-scroll">
-          <span class="section-eyebrow">Rigor de Ingeniería</span>
-          <h2 class="section-title">Cómo Trabajamos: Del Diagnóstico al Test Ácido</h2>
+          <span class="section-eyebrow">Rigor de Entrega</span>
+          <h2 class="section-title">Cómo Trabajamos: Del Diagnóstico a la Producción</h2>
           <p class="section-subtitle">
-            Un proceso disciplinado que sustituye la improvisación y el ensayo-error por especificaciones formales y validación adversarial.
+            Un marco estructurado y predecible que sustituye el ensayo y error por especificaciones claras, control continuo y verificación rigurosa.
           </p>
         </div>
 
         <div class="method-steps">
           <div class="step-card reveal-on-scroll">
             <div class="step-number">FASE 01</div>
-            <div class="step-title">Sprint de Diagnóstico & ToC</div>
+            <div class="step-title">Sprint de Diagnóstico</div>
             <div class="step-text">
-              2 semanas de auditoría operativa. Mapeo AS-IS, identificación del cuello de botella real y definición de contratos de solución.
+              2 semanas de inmersión en tus operaciones. Mapeamos tus flujos de valor, identificamos la restricción principal y definimos la arquitectura TO-BE.
             </div>
           </div>
           <div class="step-card reveal-on-scroll">
             <div class="step-number">FASE 02</div>
             <div class="step-title">Selección Proporcional</div>
             <div class="step-text">
-              Elegimos la arquitectura mínima necesaria: reglas deterministas &rarr; pipelines &rarr; LLMs &rarr; agentes autónomos solo donde se justifica.
+              Elegimos la solución mínima y eficaz: reglas deterministas, pipelines de integración o agentes de IA únicamente donde generan ventaja real.
             </div>
           </div>
           <div class="step-card reveal-on-scroll">
             <div class="step-number">FASE 03</div>
             <div class="step-title">Construcción Supervisada</div>
             <div class="step-text">
-              Implementación en tu propio repositorio con arnés controlado, manejo de fallos parciales y compuertas Human-in-the-Loop.
+              Desarrollo iterativo en tus propios repositorios con entornos protegidos, protocolos Human-in-the-Loop y tolerancia a fallos.
             </div>
           </div>
           <div class="step-card reveal-on-scroll">
             <div class="step-number">FASE 04</div>
-            <div class="step-title">Validación Adversarial</div>
+            <div class="step-title">Verificación & Transferencia</div>
             <div class="step-text">
-              Sometemos el sistema al Test Ácido en 5 dimensiones antes de promover cualquier flujo a producción.
-            </div>
-          </div>
-        </div>
-
-        <!-- Protocolo del Test Ácido -->
-        <div class="acid-box reveal-on-scroll">
-          <div class="acid-header">Protocolo Transversal de Seguridad & Calidad</div>
-          <h3 class="acid-title">Las 5 Dimensiones del Test Ácido</h3>
-          <p class="acid-desc">
-            Antes de autorizar la entrega de cualquier desarrollo, el sistema debe superar una batería exhaustiva de desafíos adversariales:
-          </p>
-          <div class="acid-grid">
-            <div class="acid-item">
-              <div class="acid-item-title">1. Epistemológico</div>
-              <div class="acid-item-desc">¿Las afirmaciones están respaldadas por fuentes primarias verificables? Cero alucinaciones sin pruebas.</div>
-            </div>
-            <div class="acid-item">
-              <div class="acid-item-title">2. Arquitectónico</div>
-              <div class="acid-item-desc">¿Cumple los límites de latencia, coste y throughput? Respeto a la Ley de Amdahl.</div>
-            </div>
-            <div class="acid-item">
-              <div class="acid-item-title">3. Resiliencia & Fallos</div>
-              <div class="acid-item-desc">¿Qué ocurre ante caídas de API o webhooks duplicados? Idempotencia y colas de mensajes muertos.</div>
-            </div>
-            <div class="acid-item">
-              <div class="acid-item-title">4. Gobernanza & HitL</div>
-              <div class="acid-item-desc">¿Quién asume la responsabilidad operativa? Mínimo privilegio y revisión humana obligatoria.</div>
-            </div>
-            <div class="acid-item">
-              <div class="acid-item-title">5. Anti-Outcome Bias</div>
-              <div class="acid-item-desc">Criterios de éxito registrados antes de las pruebas. Prohibido ajustar métricas a posteriori.</div>
+              Certificación de calidad, pruebas de resiliencia y entrega soberana del 100% del código con documentación y capacitación operativa.
             </div>
           </div>
         </div>
