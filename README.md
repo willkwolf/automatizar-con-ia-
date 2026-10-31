@@ -65,11 +65,13 @@ Boutique Digital opera bajo las politicas de alta direccion heredadas de **Think
 
 ---
 
-## Base de Conocimiento Central (OpenWiki)
+## Documentación Central y Grafo de Conocimiento (OpenWiki)
 
 El grafo de conocimiento unificado para colaboradores, agentes de desarrollo e investigadores se encuentra centralizado en:
-* [OpenWiki Master Hub](openwiki/index.md)
-* [Taxonomia de Herramientas y Pila Tecnologica](openwiki/10-taxonomia-herramientas-boutique.md)
+* [Portal Maestro de Documentación](docs/index.md)
+* [OpenWiki Master Hub](docs/openwiki/index.md)
+* [Taxonomía de Herramientas y Pila Tecnológica](docs/openwiki/10-taxonomia-herramientas-boutique.md)
+* [Especificación Canónica del Programa (SPEC-2026)](docs/specs/Spec_Programa_Automatizacion_IA_Agentes_2026.md)
 
 ---
 
