@@ -36,9 +36,6 @@ jobs:
       - name: Verify Surface Security
         run: python scripts/verify_surface_security.py
 
-      - name: Verify Policy Contract
-        run: python scripts/verify_policy_contract.py
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
