@@ -1,0 +1,30 @@
+{
+  "name": "boutique-digital",
+  "version": "1.0.0",
+  "description": "Boutique Digital - Software & Operations Consulting",
+  "main": "index.html",
+  "scripts": {
+    "test:unit": "node tests/unit/vibium-capabilities.test.js",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willkwolf/automatizar-con-ia-.git"
+  },
+  "keywords": [
+    "consulting",
+    "software",
+    "operations",
+    "automation",
+    "vibium",
+    "playwright"
+  ],
+  "author": "Boutique Digital",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@playwright/test": "^1.49.1",
+    "vibium": "^26.8.21"
+  }
+}
