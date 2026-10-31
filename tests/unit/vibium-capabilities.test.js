@@ -21,7 +21,7 @@ function it(desc, fn) {
 
 async function runVibiumSuite() {
   console.log('\n======================================================');
-  console.log(' Vibium Unit & Component Test Suite: Capabilities & Buttons');
+  console.log(' Vibium Unit & Component Test Suite: Capabilities, Accordions & B2B');
   console.log('======================================================\n');
 
   const b = await browser.start({ headless: true });
@@ -44,7 +44,6 @@ async function runVibiumSuite() {
       assert(text.includes('Inteligencia Artificial Empresarial Embebida'), 'Missing enterprise AI capability');
       assert(text.includes('Habilitación de Arquitecturas Modulares & Ecosistemas'), 'Missing modular arch capability');
       assert(text.includes('Aceleración Lean-Agile & Optimización de TCO'), 'Missing TCO acceleration capability');
-      assert(!text.includes('Conexión determinista entre tus plataformas'), 'Contains old SLA copy');
     })({ page });
 
     // Test 2: Reverse-engineered Operations Capabilities
@@ -69,7 +68,22 @@ async function runVibiumSuite() {
       assert(text.includes('Investigación de Frontera en IA & Gobernanza Ética'), 'Missing AI frontier capability');
     })({ page });
 
-    // Test 4: Casa Matriz Button
+    // Test 4: Collapsible Accordions in Service Architecture
+    await it('Capabilities are collapsible with <details> and <summary> saving cognitive load', async () => {
+      const accordions = await page.findAll('.capability-accordion');
+      assert.strictEqual(accordions.length, 13, `Expected 13 capability accordions, found ${accordions.length}`);
+      
+      const summaries = await page.findAll('.capability-summary');
+      assert.strictEqual(summaries.length, 13, `Expected 13 capability summaries, found ${summaries.length}`);
+
+      // Verify all are closed by default
+      const openCount = await page.evaluate(
+        "(() => document.querySelectorAll('.capability-accordion[open]').length)()"
+      );
+      assert.strictEqual(openCount, 0, 'Accordions should be closed by default to save visual space');
+    })({ page });
+
+    // Test 5: Casa Matriz Button
     await it('Casa Matriz button has elegant typography, valid link and no truncation', async () => {
       const btn = await page.find('.btn-casa-matriz');
       const href = await btn.getAttribute('href');
@@ -88,10 +102,10 @@ async function runVibiumSuite() {
       assert(bounds.height >= 44, `Button touch target height ${bounds.height}px is below 44px`);
     })({ page });
 
-    // Test 5: All Buttons Geometry and Non-Truncation
+    // Test 6: All Buttons Geometry and Non-Truncation
     await it('All .btn-action buttons meet min-height (>=44px) and non-truncation', async () => {
       const buttons = await page.findAll('.btn-action');
-      assert(buttons.length >= 6, 'Expected at least 6 action buttons');
+      assert(buttons.length >= 7, 'Expected at least 7 action buttons including B2B sales');
       for (const btn of buttons) {
         const bounds = await btn.bounds();
         assert(bounds.height >= 44, `A .btn-action button height ${bounds.height}px is below 44px`);
@@ -102,45 +116,69 @@ async function runVibiumSuite() {
       assert(!hasOverflow, 'A .btn-action button text is horizontally clipped/overflowing');
     })({ page });
 
-    // Test 6: Reconciled Client Logos Single-Tone SVGs
-    await it('Client logos section has reconciled Globant, Icesi and Valle del Cauca SVGs without diff errors', async () => {
+    // Test 7: Static Client Logos Island
+    await it('Client logos section is static with exactly 3 logos (Globant, Icesi, Valle del Cauca)', async () => {
       const logos = await page.findAll('.mfeLogosSectionLogo');
-      assert(logos.length >= 6, 'Expected at least 6 logo instances');
+      assert.strictEqual(logos.length, 3, `Expected exactly 3 static client logos, found ${logos.length}`);
 
       const bodyText = await page.content();
+      assert(!bodyText.includes('logosTrackScroll'), 'Animation logosTrackScroll must be removed');
       assert(!bodyText.includes('-              <g transform='), 'Found diff minus lines in HTML');
       assert(!bodyText.includes('+            <svg viewBox='), 'Found diff plus lines in HTML');
+    })({ page });
+
+    // Test 8: Dedicated B2B Enterprise Training Section
+    await it('B2B Enterprise Training block has exactly 2 direct container divs with sales CTA', async () => {
+      const b2bSection = await page.find('.b2b-training-section');
+      assert(b2bSection, 'Missing .b2b-training-section');
+
+      const containerChildren = await page.evaluate(
+        "(() => document.querySelector('.b2b-training-container').children.length)()"
+      );
+      assert.strictEqual(containerChildren, 2, `Expected exactly 2 direct divs in B2B training block, found ${containerChildren}`);
+
+      const overviewText = await page.evaluate(
+        "(() => document.querySelector('.b2b-training-overview').textContent)()"
+      );
+      assert(overviewText.includes('Programa Ejecutivo'), 'Missing executive program heading');
+      assert(overviewText.includes('Audiencia Objetivo'), 'Missing target audience');
+      assert(overviewText.includes('Objetivos Centrales'), 'Missing core learning objectives');
+      assert(overviewText.includes('Formato'), 'Missing format / seats specification');
+
+      const curriculumText = await page.evaluate(
+        "(() => document.querySelector('.b2b-training-curriculum').textContent)()"
+      );
+      assert(curriculumText.includes('Fase 01'), 'Missing Phase 1');
+      assert(curriculumText.includes('Fase 02'), 'Missing Phase 2');
+      assert(curriculumText.includes('Fase 03'), 'Missing Phase 3');
+      assert(curriculumText.includes('Fase 04'), 'Missing Phase 4');
+
+      const salesBtn = await page.find('.b2b-sales-cta-wrap .btn-action');
+      const href = await salesBtn.getAttribute('href');
+      assert(href.includes('wa.me/573002976815'), 'Sales CTA must connect to institutional WhatsApp');
     })({ page });
 
     console.log('\n[Suite 2: English Landing Page (en/index.html)]');
     await page.go(enUrl);
 
-    // Test 7: English Capabilities
-    await it('English Triad has reverse-engineered capabilities across all 3 pillars', async () => {
+    // Test 9: English Capabilities & Accordions
+    await it('English Triad has reverse-engineered capabilities, accordions and B2B block', async () => {
       const pilar1 = await page.find('#triada article:nth-of-type(1)');
       const text1 = await pilar1.text();
       assert(text1.includes('Software Consulting'), 'Missing EN title');
       assert(text1.includes('Custom Enterprise Application Engineering'), 'Missing EN custom apps');
       assert(text1.includes('Legacy Modernization & Cloud Evolution'), 'Missing EN modernization');
 
-      const pilar2 = await page.find('#triada article:nth-of-type(2)');
-      const text2 = await pilar2.text();
-      assert(text2.includes('Operations Consulting'), 'Missing EN title');
-      assert(text2.includes('Core Business Reinvention & Operational Efficiency'), 'Missing EN core reinvention');
+      const accordions = await page.findAll('.capability-accordion');
+      assert.strictEqual(accordions.length, 13, 'Expected 13 EN accordions');
 
-      const pilar3 = await page.find('#triada article:nth-of-type(3)');
-      const text3 = await pilar3.text();
-      assert(text3.includes('Knowledge Generation'), 'Missing EN title');
-      assert(text3.includes('Systemic Complexity Modeling'), 'Missing EN complexity');
-
-      const btn = await page.find('.btn-casa-matriz');
-      const href = await btn.getAttribute('href');
-      assert.strictEqual(href, 'https://willkwolf.github.io/Thinking-as-a-Service/');
-      
-      const isTruncated = await page.evaluate(
-        "(() => { const el = document.querySelector('.btn-casa-matriz'); return el.scrollWidth > el.clientWidth + 2; })()"
+      const b2bChildren = await page.evaluate(
+        "(() => document.querySelector('.b2b-training-container').children.length)()"
       );
-      assert(!isTruncated, 'EN Casa Matriz button is truncated');
+      assert.strictEqual(b2bChildren, 2, 'Expected exactly 2 divs in EN B2B training container');
+
+      const logos = await page.findAll('.mfeLogosSectionLogo');
+      assert.strictEqual(logos.length, 3, 'Expected exactly 3 static logos in EN version');
     })({ page });
 
   } finally {

@@ -59,6 +59,26 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     await expect(pillar3).toContainText('Investigación de Frontera en IA');
   });
 
+  test('Collapsible Capability Accordions - Expand & Collapse Interaction', async ({ page }) => {
+    await page.goto('/');
+    
+    const firstAccordion = page.locator('.capability-accordion').first();
+    const firstSummary = firstAccordion.locator('.capability-summary');
+    const firstBody = firstAccordion.locator('.capability-body');
+
+    // Closed by default
+    await expect(firstAccordion).not.toHaveAttribute('open', '');
+    
+    // Click summary to expand
+    await firstSummary.click();
+    await expect(firstAccordion).toHaveAttribute('open', '');
+    await expect(firstBody).toBeVisible();
+
+    // Click summary again to collapse
+    await firstSummary.click();
+    await expect(firstAccordion).not.toHaveAttribute('open', '');
+  });
+
   test('Casa Matriz Button - Non-Truncation, Styling & Attributes', async ({ page }) => {
     await page.goto('/');
     const casaMatrizBtn = page.locator('.btn-casa-matriz');
@@ -103,7 +123,7 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     await expect(clientsSection).toBeVisible();
 
     const logos = page.locator('.mfeLogosSectionLogo');
-    expect(await logos.count()).toBeGreaterThanOrEqual(6); // 3 original + 3 loop duplicate
+    expect(await logos.count()).toBe(3); // Exactly 3 static logos without duplicates
 
     // Check SVG presence and valid viewBox
     const globantLogo = page.locator('.mfeLogosSectionLogo[title="Globant"] svg');
@@ -116,5 +136,34 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
 
     const valleLogo = page.locator('.mfeLogosSectionLogo[title="Gobernación del Valle del Cauca"] svg');
     await expect(valleLogo).toBeVisible();
+    await expect(valleLogo).toHaveAttribute('viewBox', '0 0 330 64');
+  });
+
+  test('Dedicated B2B Enterprise Training Section - 2-Div Architecture & Sales CTA', async ({ page }) => {
+    await page.goto('/');
+    const b2bSection = page.locator('.b2b-training-section');
+    await expect(b2bSection).toBeVisible();
+
+    const container = page.locator('.b2b-training-container');
+    const directDivs = container.locator('> div');
+    expect(await directDivs.count()).toBe(2);
+
+    // Div 1: Overview
+    const overview = page.locator('.b2b-training-overview');
+    await expect(overview).toBeVisible();
+    await expect(overview).toContainText('Programa Ejecutivo');
+    await expect(overview).toContainText('Audiencia Objetivo');
+
+    // Div 2: Curriculum & CTA
+    const curriculum = page.locator('.b2b-training-curriculum');
+    await expect(curriculum).toBeVisible();
+    await expect(curriculum).toContainText('Fase 01');
+    await expect(curriculum).toContainText('Fase 04');
+
+    const salesBtn = curriculum.locator('.btn-action');
+    await expect(salesBtn).toBeVisible();
+    await expect(salesBtn).toHaveAttribute('href', /wa\.me\/573002976815/);
+    const box = await salesBtn.boundingBox();
+    expect(box.height).toBeGreaterThanOrEqual(44);
   });
 });
