@@ -28,6 +28,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify Surface Security
+        run: python scripts/verify_surface_security.py
+
+      - name: Verify Policy Contract
+        run: python scripts/verify_policy_contract.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

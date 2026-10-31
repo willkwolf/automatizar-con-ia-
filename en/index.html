@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique Digital — Software, Operations & AI Agent Consulting</title>
+  <meta name="description" content="Engineering consultancy providing custom software, workflow optimization, and sovereign AI agents for digital agencies and professional services firms.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://willkwolf.github.io/automatizar-con-ia-/en/">
+  <link rel="alternate" hreflang="es" href="https://willkwolf.github.io/automatizar-con-ia-/">
+  <link rel="alternate" hreflang="en" href="https://willkwolf.github.io/automatizar-con-ia-/en/">
+  <link rel="alternate" hreflang="x-default" href="https://willkwolf.github.io/automatizar-con-ia-/">
+  <link rel="author" href="https://github.com/willkwolf/automatizar-con-ia-">
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Boutique Digital">
+  <meta property="og:title" content="Boutique Digital — Software, Operations & AI Agent Consulting">
+  <meta property="og:description" content="Custom software engineering, AI workflow redesign, and sovereign capability transfer for growing digital agencies and professional services firms.">
+  <meta property="og:url" content="https://willkwolf.github.io/automatizar-con-ia-/en/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Boutique Digital — Software & Operations Consulting">
+  <meta name="twitter:description" content="Software engineering and operational optimization for lightweight enterprises and digital agencies.">
+
+  <!-- Typography Tokens (Editorial Cream / Industrial Luxury) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CANONICAL DESIGN TOKENS (DESIGN.md · Editorial Cream / Industrial Luxury)
+       ========================================================================== */
+    :root {
+      /* Base Surfaces */
+      --color-surface-canvas:       #f7f6f2; /* Primary paper cream (Canvas) */
+      --color-surface-subtle:       #edeae2; /* Warm cream for secondary areas and chips */
+      --color-surface-card:         #ffffff; /* Pure white for elevated cards */
+      --color-surface-card-inset:   #faf8f5; /* Subtle tint for nested sections */
+      --color-surface-dark:         #121614; /* Pure ink / Inverted dark surface */
+      --color-surface-dark-subtle:  #1c221f; /* Elevated ink for dark hovers */
+
+      /* Ink & Typography */
+      --color-ink-primary:          #121614; /* 16.82:1 ratio against canvas (AAA) */
+      --color-ink-secondary:        #38423d; /* 8.20:1 ratio against canvas (AAA) */
+      --color-ink-muted:            #5e6661; /* 5.47:1 ratio against canvas (AA) */
+      --color-ink-inverse:          #f7f6f2; /* Light ink on dark backgrounds (16.82:1) */
+
+      /* Borders & Dividers */
+      --color-border-hairline:      #e4e1d8; /* Subtle 1px structural border */
+      --color-border-medium:        #c5c0b2; /* Emphasized border for inputs & hover cards */
+      --color-border-dark:          #121614; /* Firm industrial border for accents */
+
+      /* Semantic Accents (Calibrated for WCAG 2.1 AA) */
+      --color-accent-gold:          #745423; /* Dark old gold (5.5:1 contrast against cream) */
+      --color-accent-industrial:    #1e293b; /* Industrial slate for architecture tags */
+      --color-status-success:       #1e5e3a; /* Regulated forest green (7.15:1 ratio) */
+      --color-status-error:         #8c2e2e; /* Dark terracotta for exceptions */
+
+      /* Typography Scale (Minor Third 1.20) */
+      --font-family-display:        'Fraunces', Georgia, serif;
+      --font-family-body:           'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-family-mono:           'IBM Plex Mono', 'SF Mono', monospace;
+
+      --font-display:               'Fraunces', Georgia, serif;
+      --font-body:                  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono:                  'IBM Plex Mono', monospace;
+
+      --text-2xs:                   0.6875rem; /* 11px */
+      --text-xs:                    0.75rem;   /* 12px */
+      --text-sm:                    0.875rem;  /* 14px */
+      --text-base:                  1.00rem;   /* 16px */
+      --text-lg:                    1.125rem;  /* 18px */
+      --text-xl:                    1.25rem;   /* 20px */
+      --text-2xl:                   1.50rem;   /* 24px */
+      --text-3xl:                   clamp(1.75rem, 3.0vw, 2.25rem); /* 28-36px */
+      --text-4xl:                   clamp(2.25rem, 4.2vw, 3.25rem); /* 36-52px */
+
+      --line-height-tight:          1.15;
+      --line-height-heading:        1.25;
+      --line-height-body:           1.60;
+
+      --font-weight-regular:        400;
+      --font-weight-medium:         500;
+      --font-weight-semibold:       600;
+      --font-weight-bold:           700;
+
+      /* Spacing Scale */
+      --space-1:                    0.25rem;  /* 4px */
+      --space-2:                    0.50rem;  /* 8px */
+      --space-3:                    0.75rem;  /* 12px */
+      --space-4:                    1.00rem;  /* 16px */
+      --space-6:                    1.50rem;  /* 24px */
+      --space-8:                    2.00rem;  /* 32px */
+      --space-12:                   3.00rem;  /* 48px */
+      --space-16:                   4.00rem;  /* 64px */
+      --space-20:                   5.00rem;  /* 80px */
+      --space-24:                   6.00rem;  /* 96px */
+
+      --container-max-width:        1140px;
+      --container-reading-width:    760px;
+
+      /* Disciplined Radii */
+      --radius-xs:                  2px;
+      --radius-sm:                  4px;
+      --radius-md:                  6px;
+      --radius-lg:                  8px;
+      --radius-pill:                9999px;
+
+      /* Warm Layered Elevations */
+      --shadow-sm:                  0 1px 2px rgba(18, 22, 20, 0.04);
+      --shadow-md:                  0 4px 12px rgba(18, 22, 20, 0.05), 0 1px 3px rgba(18, 22, 20, 0.02);
+      --shadow-lg:                  0 12px 28px rgba(18, 22, 20, 0.07), 0 2px 6px rgba(18, 22, 20, 0.03);
+
+      /* Motion Tokens (Emil Kowalski) */
+      --ease-entrance:              cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-exit:                  cubic-bezier(0.7, 0, 0.84, 0);
+      --ease-interactive:           cubic-bezier(0.2, 0, 0, 1);
+
+      --duration-instant:           75ms;
+      --duration-fast:              150ms;
+      --duration-normal:            250ms;
+      --duration-entrance:          280ms;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-surface-canvas);
+      color: var(--color-ink-primary);
+      font-family: var(--font-family-body);
+      font-size: var(--text-base);
+      line-height: var(--line-height-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Accessible Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform var(--duration-fast) var(--ease-interactive);
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    /* Navigation & Header */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 246, 242, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border-hairline);
+      z-index: 100;
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--color-ink-primary);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-family: var(--font-family-display);
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+      line-height: var(--line-height-tight);
+      font-optical-sizing: auto;
+    }
+
+    .brand-sub {
+      font-family: var(--font-family-mono);
+      font-size: 0.65rem;
+      color: var(--color-ink-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: var(--space-6);
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--color-ink-secondary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-medium);
+      transition: color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+      display: inline-block;
+    }
+
+    .nav-menu a:hover {
+      color: var(--color-ink-primary);
+      transform: translateY(-1px);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-shrink: 0;
+    }
+
+    /* Accessible Language Switcher */
+    .lang-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      background: var(--color-surface-subtle);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-hairline);
+    }
+
+    .lang-current {
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+    }
+
+    .lang-divider {
+      color: var(--color-ink-muted);
+      user-select: none;
+    }
+
+    .lang-switch {
+      color: var(--color-ink-muted);
+      text-decoration: none;
+      font-weight: var(--font-weight-medium);
+      transition: color var(--duration-fast) var(--ease-interactive);
+    }
+
+    .lang-switch:hover {
+      color: var(--color-ink-primary);
+    }
+
+    /* Persistent Mobile CTA (No display:none on mobile) */
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid var(--color-surface-dark);
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-surface-dark-subtle);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta:active, .btn-action:active {
+      transform: translateY(1px) scale(0.985);
+      transition-duration: var(--duration-instant);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* Action Buttons */
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive),
+                  color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive);
+    }
+
+    .btn-primary {
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      border: 1px solid var(--color-surface-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-surface-dark-subtle);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface-card);
+      color: var(--color-ink-primary);
+      border: 1px solid var(--color-border-medium);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-subtle);
+      border-color: var(--color-ink-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: var(--space-16) 0 var(--space-12);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--color-surface-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--color-border-hairline);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-4xl);
+      line-height: var(--line-height-tight);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.03em;
+      color: var(--color-ink-primary);
+      max-width: 980px;
+      margin-bottom: var(--space-6);
+      font-optical-sizing: auto;
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-lg);
+      line-height: var(--line-height-body);
+      color: var(--color-ink-secondary);
+      max-width: var(--container-reading-width);
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+      align-items: center;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--space-4);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .trust-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .trust-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .trust-header {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-1);
+    }
+
+    .trust-title {
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .trust-desc {
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* Ecosystem Strip */
+    .ecosystem-section {
+      padding: var(--space-8) 0;
+      background: var(--color-surface-card-inset);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .ecosystem-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .ecosystem-label {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+    }
+
+    .ecosystem-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.75rem;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Shared Section Layout */
+    .section {
+      padding: var(--space-16) 0;
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-12);
+      max-width: var(--container-reading-width);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-3xl);
+      line-height: var(--line-height-heading);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-4);
+      font-optical-sizing: auto;
+    }
+
+    .section-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+    }
+
+    /* Capabilities Triad */
+    .triad-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-6);
+    }
+
+    .triad-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .triad-card:hover {
+      border-color: var(--color-border-medium);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .triad-card-main {
+      grid-column: span 6;
+    }
+
+    .triad-card-knowledge {
+      grid-column: span 12;
+      background: var(--color-surface-card-inset);
+      border: 1px solid var(--color-border-medium);
+      padding: var(--space-8);
+    }
+
+    .card-tag {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-2);
+    }
+
+    .card-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
+      line-height: var(--line-height-heading);
+    }
+
+    .card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-6);
+      flex-grow: 1;
+    }
+
+    .capability-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .capability-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-ink-primary);
+    }
+
+    .capability-item-bullet {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .knowledge-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    .knowledge-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-medium);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+      justify-self: end;
+    }
+
+    .knowledge-link:hover {
+      background: var(--color-surface-canvas);
+      border-color: var(--color-ink-primary);
+      transform: translateY(-1px);
+    }
+
+    /* ICP vs Buyer Personas */
+    .icp-banner {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .icp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+    }
+
+    .icp-col-title {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-industrial);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-2);
+    }
+
+    .icp-item-text {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+    }
+
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .persona-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .persona-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .persona-role {
+      font-family: var(--font-family-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .persona-badge {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .persona-block {
+      margin-bottom: var(--space-3);
+    }
+
+    .persona-label {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .persona-content {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: 1.5;
+    }
+
+    .persona-quote {
+      font-size: var(--text-xs);
+      color: var(--color-ink-primary);
+      font-style: italic;
+      background: var(--color-surface-card-inset);
+      padding: var(--space-3);
+      border-radius: var(--radius-xs);
+      border-left: 2px solid var(--color-border-medium);
+      margin-top: auto;
+    }
+
+    /* Methodology & Acid Test */
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .step-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-2);
+    }
+
+    .step-title {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .step-text {
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      line-height: 1.5;
+    }
+
+    .acid-box {
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+    }
+
+    .acid-header {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5b974;
+      margin-bottom: var(--space-2);
+    }
+
+    .acid-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-4);
+    }
+
+    .acid-desc {
+      font-size: var(--text-sm);
+      color: #c5c0b2;
+      max-width: var(--container-reading-width);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+
+    .acid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .acid-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xs);
+      padding: var(--space-4);
+    }
+
+    .acid-item-title {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: #f7f6f2;
+      margin-bottom: var(--space-1);
+    }
+
+    .acid-item-desc {
+      font-size: var(--text-2xs);
+      color: #a3aba5;
+      line-height: 1.5;
+    }
+
+    /* B2B Engagement Models */
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .engagement-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .engagement-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .engagement-card.featured {
+      border: 2px solid var(--color-ink-primary);
+      position: relative;
+    }
+
+    .engagement-eyebrow {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+
+    .engagement-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .engagement-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-6);
+    }
+
+    .engagement-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      flex-grow: 1;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .deliverable-item {
+      display: flex;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--color-ink-primary);
+      line-height: 1.5;
+    }
+
+    .deliverable-item::before {
+      content: "✓";
+      color: var(--color-status-success);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .disclaimer-footnote {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+      margin-top: var(--space-4);
+    }
+
+    /* On-Demand Corporate Enablement */
+    .training-box {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-8);
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .training-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .training-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-4);
+    }
+
+    .training-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .training-chip {
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-xs);
+      padding: 0.25rem 0.5rem;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-secondary);
+    }
+
+    /* FAQs Accordion */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 860px;
+    }
+
+    .faq-item {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: border-color var(--duration-fast) var(--ease-interactive);
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-border-medium);
+    }
+
+    .faq-summary {
+      padding: var(--space-5) var(--space-6);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+    }
+
+    .faq-summary::after {
+      content: "+";
+      font-family: var(--font-family-mono);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-accent-gold);
+      transition: transform var(--duration-fast) var(--ease-interactive);
+      margin-left: var(--space-4);
+    }
+
+    .faq-item[open] .faq-summary::after {
+      content: "−";
+    }
+
+    .faq-content {
+      padding: 0 var(--space-6) var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      border-top: 1px solid var(--color-surface-subtle);
+      padding-top: var(--space-4);
+    }
+
+    /* Final Conversion Call to Action */
+    .cta-final-section {
+      padding: var(--space-20) 0;
+      background: var(--color-surface-card-inset);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .cta-final-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .cta-final-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-4);
+      font-optical-sizing: auto;
+    }
+
+    .cta-final-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-ink-secondary);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      line-height: var(--line-height-body);
+    }
+
+    .cta-final-actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: var(--space-12) 0 var(--space-8);
+      background: var(--color-surface-canvas);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-2);
+    }
+
+    .footer-brand-desc {
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .footer-links a {
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-interactive);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-ink-primary);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+    }
+
+    /* Scroll Reveal (Emil Kowalski <= 280ms) */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity var(--duration-entrance) var(--ease-entrance),
+                  transform var(--duration-entrance) var(--ease-entrance);
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Accessibility: Complete Focus-Visible States (Anti-Slop Constraint 9 & WCAG 2.1 AA) */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible,
+    .btn-action:focus-visible,
+    .nav-cta:focus-visible,
+    .lang-switch:focus-visible,
+    .knowledge-link:focus-visible {
+      outline: 2px solid var(--color-accent-gold);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 4px rgba(116, 84, 35, 0.18);
+    }
+
+    /* Reduced Motion Mode */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 120ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-on-scroll {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: opacity 120ms ease-out !important;
+      }
+      .btn-action:active, .nav-cta:active {
+        transform: none !important;
+      }
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 860px) {
+      .nav-menu {
+        display: none;
+      }
+      .triad-card-main {
+        grid-column: span 12;
+      }
+      .knowledge-layout {
+        grid-template-columns: 1fr;
+      }
+      .knowledge-link {
+        justify-self: start;
+      }
+      .icp-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      .training-box {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .hero-title {
+        font-size: 2.15rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-wrapper {
+        height: 64px;
+      }
+      .brand-title {
+        font-size: 1.1rem;
+      }
+      .brand-sub {
+        display: none;
+      }
+      .nav-cta {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.7rem;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-action {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header & Navigation -->
+  <header class="nav-header">
+    <div class="container nav-wrapper">
+      <a href="./" class="brand" aria-label="Boutique Digital - Home">
+        <span class="brand-title">Boutique Digital</span>
+        <span class="brand-sub">Software & Operations Consulting</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#triad">Capabilities Triad</a></li>
+          <li><a href="#icp">ICP & Roles</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+          <li><a href="#engagements">B2B Engagements</a></li>
+          <li><a href="#enablement">Enablement</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Accessible Language Switcher -->
+        <nav class="lang-nav" aria-label="Language selection">
+          <a href="../" class="lang-switch" hreflang="es" lang="es" aria-label="Cambiar a versión en Español">ES</a>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <span class="lang-current" aria-current="page" lang="en">EN</span>
+        </nav>
+
+        <!-- Persistent CTA (Preserved on Desktop and Mobile) -->
+        <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="nav-cta" target="_blank" rel="noopener">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Diagnostic</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="eyebrow">
+          <span>Software & Operations Consulting · Lightweight Enterprises</span>
+        </div>
+
+        <h1 class="hero-title">
+          Software engineering and workflow optimization for agencies scaling without inflating payroll.
+        </h1>
+
+        <p class="hero-subtitle">
+          We help digital agencies and professional services firms unlock throughput by resolving real delivery bottlenecks with custom software, robust data pipelines, and supervised agents governed by Human-in-the-Loop controls.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="btn-action btn-primary" target="_blank" rel="noopener">
+            <span>Schedule Operational Diagnostic (2-Week Sprint)</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="#triad" class="btn-action btn-secondary">
+            <span>Explore Capabilities Triad</span>
+          </a>
+        </div>
+
+        <!-- 4 Atomic Trust Metrics -->
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-header">Sovereign Architecture</div>
+            <div class="trust-title">100% Owned Code</div>
+            <div class="trust-desc">Deployed directly into your repositories with zero captive lock-in.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-header">Deterministic Supervision</div>
+            <div class="trust-title">Human-in-the-Loop</div>
+            <div class="trust-desc">Explicit control gates where high-impact decisions mandate human review.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-header">Engineering Rigor</div>
+            <div class="trust-title">Theory of Constraints</div>
+            <div class="trust-desc">Decongesting the system's actual bottleneck based on Amdahl's Law.</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-header">Strict Privacy</div>
+            <div class="trust-title">Zero-Tracking Doctrine</div>
+            <div class="trust-desc">Zero third-party telemetry, trackers, or data leakages (GDPR / Law 1581).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Execution Technology Ecosystem -->
+    <section class="ecosystem-section" aria-label="Technologies and Standards">
+      <div class="container ecosystem-inner">
+        <div class="ecosystem-label">Engineering Stack & Integration Standards</div>
+        <div class="ecosystem-badges">
+          <span class="tech-pill">Python & Pydantic</span>
+          <span class="tech-pill">TypeScript & Node</span>
+          <span class="tech-pill">Self-Hosted n8n</span>
+          <span class="tech-pill">PostgreSQL & Redis</span>
+          <span class="tech-pill">Google Antigravity</span>
+          <span class="tech-pill">OpenWorker Harness</span>
+          <span class="tech-pill">Jira & ClickUp APIs</span>
+          <span class="tech-pill">Linear & Slack Webhooks</span>
+          <span class="tech-pill">GitHub Actions CI/CD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Triad -->
+    <section id="triad" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Service Architecture</span>
+          <h2 class="section-title">The Boutique Digital Capabilities Triad</h2>
+          <p class="section-subtitle">
+            We reject isolated tools and empty promises. We integrate software engineering, operational excellence, and epistemological research into one coordinated architecture.
+          </p>
+        </div>
+
+        <div class="triad-grid">
+          <!-- Pillar 1: Software Consulting -->
+          <article class="triad-card triad-card-main reveal-on-scroll">
+            <div class="card-tag">Pillar 01 · Technical Execution</div>
+            <h3 class="card-title">Software Consulting</h3>
+            <p class="card-desc">
+              We engineer custom solutions, microservices, and deterministic integrations deployed securely on your own infrastructure.
+            </p>
+            <ul class="capability-list">
+              <li class="capability-item">
+                <span class="capability-item-bullet">01</span>
+                <span>Robust APIs and bi-directional integrations across Jira, ClickUp, Linear, Slack, and CRMs.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">02</span>
+                <span>Structured data pipelines with rigorous schema enforcement (JSON Schema / Pydantic).</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">03</span>
+                <span>Sovereign agent harnesses with sandboxed execution and least-privilege security.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">04</span>
+                <span>Partial failure isolation, Dead-Letter Queues (DLQ), idempotency, and exponential jittered backoff.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Pillar 2: Operations Consulting -->
+          <article class="triad-card triad-card-main reveal-on-scroll">
+            <div class="card-tag">Pillar 02 · Efficiency & Flow</div>
+            <h3 class="card-title">Operations Consulting</h3>
+            <p class="card-desc">
+              We reconfigure agency value chains to shorten cycle times, eradicate manual rework, and protect gross margins.
+            </p>
+            <ul class="capability-list">
+              <li class="capability-item">
+                <span class="capability-item-bullet">01</span>
+                <span>AS-IS &rarr; TO-BE bottleneck mapping focused on the system constraint (Theory of Constraints).</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">02</span>
+                <span>Human-in-the-Loop (HitL) protocols with clear certainty thresholds and escalation paths.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">03</span>
+                <span>Standardized Definition of Done (DoD) to eliminate ambiguity in client handoffs.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">04</span>
+                <span>Throughput and queueing audits grounded in Little's Law and Amdahl's Law.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Pillar 3: Knowledge (Resides in Casa Matriz) -->
+          <article class="triad-card triad-card-knowledge reveal-on-scroll">
+            <div class="knowledge-layout">
+              <div>
+                <div class="card-tag">Pillar 03 · Epistemology & Upstream Governance</div>
+                <h3 class="card-title">Knowledge Generation (Research & Analytics)</h3>
+                <p class="card-desc" style="margin-bottom: 0;">
+                  This capability formally resides in our upstream parent organization, <strong>Thinking-as-a-Service</strong>. It provides systems complexity frameworks, frontier model evaluations (drawing from Harvard HDSR/HBR 2026, Stanford, and ACM research), and adversarial auditing protocols that safeguard Boutique Digital implementations against hype and obsolescence.
+                </p>
+              </div>
+              <div>
+                <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" class="knowledge-link">
+                  <span>Explore Casa Matriz: Thinking-as-a-Service</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ideal Customer Profile (ICP) vs Buyer Personas -->
+    <section id="icp" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Business Alignment</span>
+          <h2 class="section-title">Who We Build For: ICP & Key Buyer Personas</h2>
+          <p class="section-subtitle">
+            We formally separate the organizational profile we serve from the individual executive and operational roles leading the transformation.
+          </p>
+        </div>
+
+        <!-- Organizational ICP -->
+        <div class="icp-banner reveal-on-scroll">
+          <div class="card-tag">Ideal Customer Profile (Organizational ICP)</div>
+          <h3 class="card-title" style="font-size: 1.35rem;">Lightweight Enterprises & Professional Services Firms</h3>
+          <div class="icp-grid">
+            <div>
+              <div class="icp-col-title">Target Organizations</div>
+              <p class="icp-item-text">
+                Growing digital agencies specializing in custom software, product design, UX/UI, and performance marketing with <strong>15 to 150 team members</strong>, as well as knowledge-intensive consultancies billing via retainers or project milestones.
+              </p>
+            </div>
+            <div>
+              <div class="icp-col-title">The Structural Friction</div>
+              <p class="icp-item-text">
+                Gross margin erosion caused by top-tier talent spending 30% to 45% of their billable capacity chasing updates, generating manual status reports, and coordinating handoffs across disjointed tools.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Buyer Personas -->
+        <div class="personas-grid">
+          <!-- Persona 1: COO -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Chief Operating Officer / COO</div>
+            <div class="persona-badge">Economic Buyer</div>
+            <div class="persona-block">
+              <div class="persona-label">Primary Pain</div>
+              <div class="persona-content">Schedule friction, unbilled coordination hours, and margin erosion due to delivery rework.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Key Metric</div>
+              <div class="persona-content">EBITDA per employee, billable utilization rates, and SLA compliance.</div>
+            </div>
+            <div class="persona-quote">
+              "We resolve the constraint in your workflow, defending gross margins without disrupting active accounts."
+            </div>
+          </div>
+
+          <!-- Persona 2: DPM -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Digital Project Manager / Delivery Lead</div>
+            <div class="persona-badge">Daily Pain Champion</div>
+            <div class="persona-block">
+              <div class="persona-label">Primary Pain</div>
+              <div class="persona-content">Manual administrative overload, chasing approvals across Slack, and scope creep.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Key Metric</div>
+              <div class="persona-content">On-time delivery, team throughput velocity, and reduction of reporting friction.</div>
+            </div>
+            <div class="persona-quote">
+              "Supervised workflows with early warnings and human oversight that never execute critical actions blindly."
+            </div>
+          </div>
+
+          <!-- Persona 3: Tech Lead -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Tech Lead / CTO</div>
+            <div class="persona-badge">Technical Gatekeeper</div>
+            <div class="persona-block">
+              <div class="persona-label">Primary Pain</div>
+              <div class="persona-content">Technical debt from fragile no-code setups, hallucinations, and data governance risks.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Key Metric</div>
+              <div class="persona-content">System uptime, API idempotency, verifiable security, and clean auditable code.</div>
+            </div>
+            <div class="persona-quote">
+              "Contract-driven architecture, decoupled codebases, and deployment strictly inside your sovereign cloud."
+            </div>
+          </div>
+
+          <!-- Persona 4: CEO -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Managing Partner / CEO</div>
+            <div class="persona-badge">Strategic Approver</div>
+            <div class="persona-block">
+              <div class="persona-label">Primary Pain</div>
+              <div class="persona-content">Linear hiring traps: needing more headcount just to sustain incremental billings.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Key Metric</div>
+              <div class="persona-content">Growth decoupled from headcount expansion and an uncompromised delivery reputation.</div>
+            </div>
+            <div class="persona-quote">
+              "We transition your firm into a Lightweight Enterprise with the delivery capacity of a firm triple its size."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology & The Acid Test -->
+    <section id="methodology" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Engineering Rigor</span>
+          <h2 class="section-title">How We Work: From Constraint Diagnostic to The Acid Test</h2>
+          <p class="section-subtitle">
+            A disciplined engineering process that replaces guesswork and trial-and-error with formal contracts and adversarial verification.
+          </p>
+        </div>
+
+        <div class="method-steps">
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">PHASE 01</div>
+            <div class="step-title">Diagnostic Sprint & ToC</div>
+            <div class="step-text">
+              2-week operational audit. AS-IS mapping, bottleneck isolation, and formal specification contracts.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">PHASE 02</div>
+            <div class="step-title">Proportional Architecture</div>
+            <div class="step-text">
+              Selecting the simplest sufficient pattern: deterministic rules &rarr; pipelines &rarr; LLMs &rarr; agents only when justified.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">PHASE 03</div>
+            <div class="step-title">Supervised Construction</div>
+            <div class="step-text">
+              Implementation in your private repositories with a controlled harness, partial failure handling, and HitL gates.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">PHASE 04</div>
+            <div class="step-title">Adversarial Validation</div>
+            <div class="step-text">
+              Submitting the system to the 5 dimensions of the Acid Test before promoting any workflow into production.
+            </div>
+          </div>
+        </div>
+
+        <!-- The Acid Test Protocol -->
+        <div class="acid-box reveal-on-scroll">
+          <div class="acid-header">Cross-Cutting Security & Quality Protocol</div>
+          <h3 class="acid-title">The 5 Dimensions of the Acid Test</h3>
+          <p class="acid-desc">
+            Before signing off on any production delivery, the architecture must withstand a battery of adversarial evaluations:
+          </p>
+          <div class="acid-grid">
+            <div class="acid-item">
+              <div class="acid-item-title">1. Epistemological</div>
+              <div class="acid-item-desc">Are all claims backed by verifiable primary sources? Zero unchecked hallucinations.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">2. Architectural</div>
+              <div class="acid-item-desc">Does the system meet latency, cost, and throughput boundaries? Respect for Amdahl's Law.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">3. Resilience & Failure</div>
+              <div class="acid-item-desc">What happens during API timeouts or duplicate webhooks? Strict idempotency and DLQs.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">4. Governance & HitL</div>
+              <div class="acid-item-desc">Who owns operational accountability? Least privilege and mandatory human escalation.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">5. Anti-Outcome Bias</div>
+              <div class="acid-item-desc">Acceptance criteria documented prior to testing. Retroactive metric adjustments prohibited.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B2B Engagement Models -->
+    <section id="engagements" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Engagement Frameworks</span>
+          <h2 class="section-title">Transparent B2B Engagement Models</h2>
+          <p class="section-subtitle">
+            Predictable engagement structures tailored to your operational maturity, backed by verifiable deliverables and full code ownership.
+          </p>
+        </div>
+
+        <div class="engagement-grid">
+          <!-- Model 1 -->
+          <div class="engagement-card reveal-on-scroll">
+            <div class="engagement-eyebrow">Diagnostic & Strategy</div>
+            <h3 class="engagement-title">Operational Diagnostic Sprint</h3>
+            <p class="engagement-desc">
+              An intensive 2-week engagement to audit your agency delivery bottlenecks and design the TO-BE architecture.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">AS-IS process mapping with measured cycle times and constraint analysis.</li>
+              <li class="deliverable-item">Proportional pattern decision matrix (Rules vs. Pipelines vs. Agents).</li>
+              <li class="deliverable-item">Architecture Decision Record (ADR) and technical specification contracts.</li>
+              <li class="deliverable-item">Working proof-of-concept to validate feasibility within your stack.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20request%20an%20Operational%20Diagnostic%20Sprint" class="btn-action btn-secondary" target="_blank" rel="noopener">
+              Request 2-Week Sprint
+            </a>
+          </div>
+
+          <!-- Model 2 -->
+          <div class="engagement-card featured reveal-on-scroll">
+            <div class="engagement-eyebrow">Turnkey Engineering</div>
+            <h3 class="engagement-title">Custom Systems Implementation</h3>
+            <p class="engagement-desc">
+              End-to-end development of custom agentic harnesses and data pipelines, deployed directly into your sovereign cloud infrastructure.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">Development of custom microservices and connectors in Python / TypeScript.</li>
+              <li class="deliverable-item">Agentic harness with security guardrails and Human-in-the-Loop gates.</li>
+              <li class="deliverable-item">Automated test suites and Acid Test certification.</li>
+              <li class="deliverable-item">Complete source code ownership and technical handover documentation.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20quote%20a%20Custom%20Systems%20Implementation" class="btn-action btn-primary" target="_blank" rel="noopener">
+              Scope Custom Project
+            </a>
+          </div>
+
+          <!-- Model 3 -->
+          <div class="engagement-card reveal-on-scroll">
+            <div class="engagement-eyebrow">Continuous Optimization</div>
+            <h3 class="engagement-title">Alliance Retainer & Kaizen</h3>
+            <p class="engagement-desc">
+              Dedicated monthly engineering support to monitor, audit, maintain, and continuously refine your production workflows.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">Proactive telemetry monitoring for system uptime, SLAs, and token spend.</li>
+              <li class="deliverable-item">Adaptive maintenance for model upgrades and third-party API deprecations.</li>
+              <li class="deliverable-item">Monthly Kaizen sprints focusing on incremental cycle-time reduction.</li>
+              <li class="deliverable-item">Priority direct access to senior engineering for incident resolution.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20inquire%20about%20the%20Alliance%20Retainer" class="btn-action btn-secondary" target="_blank" rel="noopener">
+              Check Retainer Availability
+            </a>
+          </div>
+        </div>
+
+        <p class="disclaimer-footnote">
+          * International reference equivalent provided for indicative purposes for cross-border contracts. Official engagements executed under formal professional services contracts with agreed statement of work.
+        </p>
+      </div>
+    </section>
+
+    <!-- On-Demand Corporate Enablement -->
+    <section id="enablement" class="section">
+      <div class="container">
+        <div class="training-box reveal-on-scroll">
+          <div>
+            <div class="card-tag">In-Company Corporate Enablement</div>
+            <h2 class="training-title">Process Mining with AI Agents</h2>
+            <p class="training-desc">
+              We deliver tailored on-demand corporate training and sovereign capability transfer (*Capability Handover*) so your internal operations and engineering teams can design, audit, and govern their own automations autonomously.
+            </p>
+            <div class="training-features">
+              <span class="training-chip">1 to 2-week intensive in-company sprint</span>
+              <span class="training-chip">Tailored for delivery leads, operators, and developers</span>
+              <span class="training-chip">Centered on live client delivery bottlenecks</span>
+              <span class="training-chip">Framework derived from Casa Matriz TaaS</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20information%20about%20In-Company%20Corporate%20Enablement" class="btn-action btn-secondary" style="width: 100%; text-align: center;" target="_blank" rel="noopener">
+              Request In-Company Program &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions (FAQs) -->
+    <section id="faqs" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Clear Answers</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Direct answers to the common questions raised by COOs and engineering directors before beginning a collaboration.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">Who owns the code and intellectual property of the systems built?</summary>
+            <div class="faq-content">
+              Your company retains 100% exclusive ownership of all source code, configurations, and documentation produced. Everything is deployed directly to your own repositories and cloud accounts (AWS, GCP, private VPS, or self-hosted stacks). We enforce zero vendor lock-in and zero proprietary licensing dependencies.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">How do you prevent AI hallucinations or unexpected mistakes in critical workflows?</summary>
+            <div class="faq-content">
+              We engineer under strict Human-in-the-Loop (HitL) protocols. Agents handle preparatory tasks (schema validation, data structuring, drafted responses), but any irreversible, client-facing, or financial action requires affirmative human authorization through a low-friction interface.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">How does Boutique Digital differ from agencies offering generic no-code automations?</summary>
+            <div class="faq-content">
+              We apply formal software engineering standards: strict type safety, automated regression testing, version control, partial failure isolation, API idempotency, and sandboxed least-privilege execution. We build decoupled, resilient infrastructure that withstands production volume.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">How does Boutique Digital collaborate with Casa Matriz Thinking-as-a-Service?</summary>
+            <div class="faq-content">
+              Thinking-as-a-Service acts as our upstream epistemological and research hub. It provides systems complexity frameworks, anti-slop guidelines, adversarial auditing methodologies (The Acid Test), and academic synthesis from Harvard, Stanford, and ACM research, ensuring our technical delivery rests on durable foundations.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">What is the recommended first step to evaluate if our agency qualifies?</summary>
+            <div class="faq-content">
+              The ideal starting point is our 2-week Operational Diagnostic Sprint. We examine your current delivery flow, pinpoint the primary constraint, and deliver a comprehensive TO-BE roadmap with technical specifications, giving you complete clarity before committing to major implementations.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Conversion Call to Action -->
+    <section class="cta-final-section">
+      <div class="container">
+        <div class="cta-final-card reveal-on-scroll">
+          <span class="section-eyebrow">Start the Conversation</span>
+          <h2 class="cta-final-title">Let's engineer an operational workflow that protects your margins</h2>
+          <p class="cta-final-subtitle">
+            Let's discuss your agency's delivery constraints and evaluate whether a 2-week Operational Diagnostic Sprint is the right next step for your team.
+          </p>
+          <div class="cta-final-actions">
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="btn-action btn-primary" target="_blank" rel="noopener">
+              <span>Schedule Diagnostic on WhatsApp</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Legal & Provenance Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">Boutique Digital</div>
+          <p class="footer-brand-desc">
+            Software and operations consultancy for digital agencies and lightweight enterprises. Structurally linked to <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--color-ink-primary); font-weight: 600;">Thinking-as-a-Service</a> for epistemological research and systems governance.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Capabilities</div>
+          <ul class="footer-links">
+            <li><a href="#triad">Software Consulting</a></li>
+            <li><a href="#triad">Operations Consulting</a></li>
+            <li><a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener">Knowledge (Thinking-as-a-Service)</a></li>
+            <li><a href="#enablement">In-Company Enablement</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Governance & Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/privacidad.md" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/terminos.md" target="_blank" rel="noopener">Terms of Service</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/exoneracion-responsabilidad.md" target="_blank" rel="noopener">Liability Disclaimer</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/derechos-de-autor.md" target="_blank" rel="noopener">Copyright Notice</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Boutique Digital · All rights reserved.
+        </div>
+        <div>
+          Zero-Tracking Doctrine · Privacy by design (GDPR / Law 1581)
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Minimal Scroll Reveal Script (Emil Kowalski <= 280ms) -->
+  <script>
+    (function () {
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+          el.classList.add('is-revealed');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

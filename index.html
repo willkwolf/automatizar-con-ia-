@@ -3,77 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automatización e IA Aplicada: De Asistentes a Soluciones Operativas | Boutique Digital</title>
-  <meta name="description" content="Formación práctica de 5 semanas para profesionales y negocios sin conocimientos técnicos. Construye automatizaciones y miniaplicaciones con IA. Inversión en Pesos Colombianos (COP).">
+  <title>Boutique Digital — Consultoría de Software, Operaciones & Agentes de IA</title>
+  <meta name="description" content="Firma de ingeniería de software, automatización de operaciones y agentes de IA para agencias digitales y empresas de servicios profesionales. Soluciones soberanas con gobernanza Human-in-the-Loop.">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://willkwolf.github.io/automatizar-con-ia-/">
+  <link rel="alternate" hreflang="es" href="https://willkwolf.github.io/automatizar-con-ia-/">
+  <link rel="alternate" hreflang="en" href="https://willkwolf.github.io/automatizar-con-ia-/en/">
+  <link rel="alternate" hreflang="x-default" href="https://willkwolf.github.io/automatizar-con-ia-/">
   <link rel="author" href="https://github.com/willkwolf/automatizar-con-ia-">
 
   <!-- OpenGraph / Redes Sociales -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Boutique Digital">
-  <meta property="og:title" content="Aprende a Automatizar con IA: De Asistentes a Flujos de Trabajo Útiles">
-  <meta property="og:description" content="Pasa de usar ChatGPT básico a construir soluciones funcionales para tu trabajo o negocio. 5 semanas, 5 proyectos demostrables.">
+  <meta property="og:title" content="Boutique Digital — Consultoría de Software, Operaciones & Agentes de IA">
+  <meta property="og:description" content="Ingeniería de software a medida, rediseño de operaciones con IA y transferencia de capacidades soberanas para agencias digitales y firmas profesionales.">
   <meta property="og:url" content="https://willkwolf.github.io/automatizar-con-ia-/">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aprende a Automatizar con IA | Boutique Digital">
-  <meta name="twitter:description" content="Formación práctica guiada en IA y automatización para usuarios no técnicos.">
+  <meta name="twitter:title" content="Boutique Digital — Software & Operations Consulting">
+  <meta name="twitter:description" content="Ingeniería de software y optimización operativa para empresas livianas y agencias digitales.">
 
-  <!-- Tipografías (Crema Editorial / Lujo Industrial) -->
+  <!-- Tipografías Canónicas (Crema Editorial / Lujo Industrial) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ==========================================================================
+       TOKENS DE DISEÑO CANÓNICOS (DESIGN.md · Crema Editorial / Lujo Industrial)
+       ========================================================================== */
     :root {
-      --bg: #f7f6f2;
-      --ink: #121614;
-      --card-bg: #ffffff;
-      --border: #e4e1d8;
-      --border-dark: #c5c0b2;
-      --muted: #5e6661;
-      --accent: #1e293b;
-      --accent-soft: #edeae2;
-      --gold-subtle: #8a6a35;
-      --green-status: #1e5e3a;
-      
-      --font-display: 'Fraunces', Georgia, serif;
-      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-mono: 'IBM Plex Mono', monospace;
+      /* Superficies Base */
+      --color-surface-canvas:       #f7f6f2; /* Crema papel principal (Lienzo) */
+      --color-surface-subtle:       #edeae2; /* Crema cálido para fondos secundarios y chips */
+      --color-surface-card:         #ffffff; /* Blanco puro para tarjetas elevadas */
+      --color-surface-card-inset:   #faf8f5; /* Fondo tenue para áreas anidadas y contrastes */
+      --color-surface-dark:         #121614; /* Tinta pura / Superficie oscura invertida */
+      --color-surface-dark-subtle:  #1c221f; /* Tinta suave elevada para hovers oscuros */
 
-      --container: 1080px;
+      /* Tinta y Tipografía */
+      --color-ink-primary:          #121614; /* Ratio 16.82:1 sobre canvas (AAA) */
+      --color-ink-secondary:        #38423d; /* Ratio 8.20:1 sobre canvas (AAA) */
+      --color-ink-muted:            #5e6661; /* Ratio 5.47:1 sobre canvas (AA) */
+      --color-ink-inverse:          #f7f6f2; /* Tinta clara sobre fondos oscuros (16.82:1) */
+
+      /* Bordes y Divisiones */
+      --color-border-hairline:      #e4e1d8; /* Borde estructural sutil de 1px */
+      --color-border-medium:        #c5c0b2; /* Borde enfatizado de inputs y tarjetas hover */
+      --color-border-dark:          #121614; /* Borde industrial firme para acentos */
+
+      /* Acentos Semánticos Sobrios (Calibrados para WCAG 2.1 AA) */
+      --color-accent-gold:          #745423; /* Dorado viejo oscuro (Contraste 5.5:1 sobre crema) */
+      --color-accent-industrial:    #1e293b; /* Pizarra industrial para badges de arquitectura */
+      --color-status-success:       #1e5e3a; /* Verde bosque regulado (Ratio 7.15:1) */
+      --color-status-error:         #8c2e2e; /* Terracota oscuro para excepciones */
+
+      /* Tipografía (Minor Third 1.20) */
+      --font-family-display:        'Fraunces', Georgia, serif;
+      --font-family-body:           'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-family-mono:           'IBM Plex Mono', 'SF Mono', monospace;
+
+      --font-display:               'Fraunces', Georgia, serif;
+      --font-body:                  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono:                  'IBM Plex Mono', monospace;
+
+      --text-2xs:                   0.6875rem; /* 11px */
+      --text-xs:                    0.75rem;   /* 12px */
+      --text-sm:                    0.875rem;  /* 14px */
+      --text-base:                  1.00rem;   /* 16px */
+      --text-lg:                    1.125rem;  /* 18px */
+      --text-xl:                    1.25rem;   /* 20px */
+      --text-2xl:                   1.50rem;   /* 24px */
+      --text-3xl:                   clamp(1.75rem, 3.0vw, 2.25rem); /* 28-36px */
+      --text-4xl:                   clamp(2.25rem, 4.2vw, 3.25rem); /* 36-52px */
+
+      --line-height-tight:          1.15;
+      --line-height-heading:        1.25;
+      --line-height-body:           1.60;
+
+      --font-weight-regular:        400;
+      --font-weight-medium:         500;
+      --font-weight-semibold:       600;
+      --font-weight-bold:           700;
+
+      /* Escala Espacial */
+      --space-1:                    0.25rem;  /* 4px */
+      --space-2:                    0.50rem;  /* 8px */
+      --space-3:                    0.75rem;  /* 12px */
+      --space-4:                    1.00rem;  /* 16px */
+      --space-6:                    1.50rem;  /* 24px */
+      --space-8:                    2.00rem;  /* 32px */
+      --space-12:                   3.00rem;  /* 48px */
+      --space-16:                   4.00rem;  /* 64px */
+      --space-20:                   5.00rem;  /* 80px */
+      --space-24:                   6.00rem;  /* 96px */
+
+      --container-max-width:        1140px;
+      --container-reading-width:    760px;
+
+      /* Radios Disciplinados */
+      --radius-xs:                  2px;
+      --radius-sm:                  4px;
+      --radius-md:                  6px;
+      --radius-lg:                  8px;
+      --radius-pill:                9999px;
+
+      /* Elevaciones y Sombras Cálidas */
+      --shadow-sm:                  0 1px 2px rgba(18, 22, 20, 0.04);
+      --shadow-md:                  0 4px 12px rgba(18, 22, 20, 0.05), 0 1px 3px rgba(18, 22, 20, 0.02);
+      --shadow-lg:                  0 12px 28px rgba(18, 22, 20, 0.07), 0 2px 6px rgba(18, 22, 20, 0.03);
+
+      /* Motion Tokens (Emil Kowalski) */
+      --ease-entrance:              cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-exit:                  cubic-bezier(0.7, 0, 0.84, 0);
+      --ease-interactive:           cubic-bezier(0.2, 0, 0, 1);
+
+      --duration-instant:           75ms;
+      --duration-fast:              150ms;
+      --duration-normal:            250ms;
+      --duration-entrance:          280ms;
     }
 
-    * {
+    /* Reset & Base */
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: var(--bg);
-      color: var(--ink);
-      font-family: var(--font-body);
-      line-height: 1.6;
+      background-color: var(--color-surface-canvas);
+      color: var(--color-ink-primary);
+      font-family: var(--font-family-body);
+      font-size: var(--text-base);
+      line-height: var(--line-height-body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    /* Enlace de Salto Accesible */
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      left: 16px;
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      padding: var(--space-2) var(--space-4);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      border-radius: var(--radius-sm);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform var(--duration-fast) var(--ease-interactive);
+    }
+    .skip-link:focus {
+      top: 16px;
     }
 
-    /* Header & Navigation */
-    header {
-      border-bottom: 1px solid var(--border);
-      background: rgba(247, 246, 242, 0.98);
-      position: relative; /* Sin persistencia sticky para lectura sin friccion */
+    /* Contenedor */
+    .container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    /* Navegación y Cabecera */
+    .nav-header {
+      position: sticky;
+      top: 0;
+      background: rgba(247, 246, 242, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border-hairline);
       z-index: 100;
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive);
     }
 
     .nav-wrapper {
@@ -81,949 +191,999 @@
       justify-content: space-between;
       align-items: center;
       height: 72px;
+      gap: var(--space-4);
     }
 
     .brand {
       display: flex;
       flex-direction: column;
       text-decoration: none;
-      color: var(--ink);
-      transition: opacity 0.2s ease;
-    }
-
-    .brand:hover {
-      opacity: 0.85;
+      color: var(--color-ink-primary);
+      flex-shrink: 0;
     }
 
     .brand-title {
-      font-family: var(--font-display);
-      font-size: 1.28rem;
-      font-weight: 700;
+      font-family: var(--font-family-display);
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-bold);
       letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: var(--ink);
+      line-height: var(--line-height-tight);
+      font-optical-sizing: auto;
     }
 
     .brand-sub {
-      font-family: var(--font-mono);
+      font-family: var(--font-family-mono);
       font-size: 0.65rem;
-      color: var(--muted);
-      letter-spacing: 0.07em;
+      color: var(--color-ink-muted);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-top: 2px;
     }
 
-    .nav-links {
+    .nav-menu {
       display: flex;
-      gap: 1.85rem;
+      gap: var(--space-6);
       align-items: center;
+      list-style: none;
     }
 
-    .nav-links a {
-      color: var(--muted);
+    .nav-menu a {
+      color: var(--color-ink-secondary);
       text-decoration: none;
-      font-size: 0.86rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      transition: color 0.2s ease, transform 0.15s ease;
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-medium);
+      transition: color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
       display: inline-block;
     }
 
-    .nav-links a:hover {
-      color: var(--ink);
+    .nav-menu a:hover {
+      color: var(--color-ink-primary);
       transform: translateY(-1px);
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-shrink: 0;
+    }
+
+    /* Selector de Idioma Accesible */
+    .lang-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      background: var(--color-surface-subtle);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-hairline);
+    }
+
+    .lang-current {
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+    }
+
+    .lang-divider {
+      color: var(--color-ink-muted);
+      user-select: none;
+    }
+
+    .lang-switch {
+      color: var(--color-ink-muted);
+      text-decoration: none;
+      font-weight: var(--font-weight-medium);
+      transition: color var(--duration-fast) var(--ease-interactive);
+    }
+
+    .lang-switch:hover {
+      color: var(--color-ink-primary);
+    }
+
+    /* Botón CTA Persistente */
     .nav-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      background: var(--ink);
-      color: #ffffff !important;
-      padding: 0.52rem 1.1rem;
-      border-radius: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      gap: var(--space-2);
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-medium);
+      letter-spacing: 0.03em;
       text-decoration: none;
       white-space: nowrap;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--color-surface-dark);
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive);
     }
 
     .nav-cta:hover {
-      background: #2b332e;
+      background: var(--color-surface-dark-subtle);
+      box-shadow: var(--shadow-md);
       transform: translateY(-1px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-cta:active, .btn-action:active {
+      transform: translateY(1px) scale(0.985);
+      transition-duration: var(--duration-instant);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* Botones y Acciones */
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive),
+                  color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive);
+    }
+
+    .btn-primary {
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      border: 1px solid var(--color-surface-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-surface-dark-subtle);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface-card);
+      color: var(--color-ink-primary);
+      border: 1px solid var(--color-border-medium);
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-surface-subtle);
+      border-color: var(--color-ink-primary);
+      transform: translateY(-1px);
     }
 
     /* Hero Section */
-    .hero {
-      padding: 4.5rem 0 3.5rem;
-      border-bottom: 1px solid var(--border);
+    .hero-section {
+      padding: var(--space-16) 0 var(--space-12);
+      border-bottom: 1px solid var(--color-border-hairline);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
+      gap: var(--space-2);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-accent-gold);
       letter-spacing: 0.08em;
-      color: var(--gold-subtle);
-      background: var(--accent-soft);
-      padding: 0.25rem 0.65rem;
-      border-radius: 3px;
-      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      background: var(--color-surface-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--color-border-hairline);
+      margin-bottom: var(--space-6);
     }
 
     .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4.8vw, 3.6rem);
-      font-weight: 700;
-      line-height: 1.15;
+      font-family: var(--font-family-display);
+      font-size: var(--text-4xl);
+      line-height: var(--line-height-tight);
+      font-weight: var(--font-weight-bold);
       letter-spacing: -0.03em;
-      text-wrap: balance;
-      max-width: 860px;
-      margin-bottom: 1.25rem;
+      color: var(--color-ink-primary);
+      max-width: 980px;
+      margin-bottom: var(--space-6);
+      font-optical-sizing: auto;
     }
 
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold-subtle);
-      font-weight: 400;
+    .hero-subtitle {
+      font-size: var(--text-lg);
+      line-height: var(--line-height-body);
+      color: var(--color-ink-secondary);
+      max-width: var(--container-reading-width);
+      margin-bottom: var(--space-8);
     }
 
-    .hero-lead {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 720px;
-      line-height: 1.6;
-      margin-bottom: 2.25rem;
-    }
-
-    .hero-actions {
+    .hero-cta-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
       align-items: center;
-      margin-bottom: 2.5rem;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--ink);
-      color: #ffffff;
-      padding: 0.85rem 1.6rem;
-      border-radius: 4px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: #252e28;
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--border-dark);
-      padding: 0.85rem 1.6rem;
-      border-radius: 4px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-secondary:hover {
-      background: var(--accent-soft);
-    }
-
-    .trust-badges {
+    .trust-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid var(--border);
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--space-4);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-hairline);
     }
 
-    .badge-item {
+    .trust-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .trust-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .trust-header {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-1);
+    }
+
+    .trust-title {
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .trust-desc {
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+    }
+
+    /* Ecosystem Strip */
+    .ecosystem-section {
+      padding: var(--space-8) 0;
+      background: var(--color-surface-card-inset);
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .ecosystem-inner {
       display: flex;
       flex-direction: column;
+      gap: var(--space-4);
     }
 
-    .badge-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--muted);
+    .ecosystem-label {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.2rem;
+      letter-spacing: 0.08em;
+      text-align: center;
     }
 
-    .badge-value {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.3;
+    .ecosystem-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
     }
 
-    /* Sections */
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 0.4rem 0.75rem;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tech-pill svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* Sections Shared Layout */
     .section {
-      padding: 4.5rem 0;
-      border-bottom: 1px solid var(--border);
+      padding: var(--space-16) 0;
+      border-bottom: 1px solid var(--color-border-hairline);
+    }
+
+    .section-header {
+      margin-bottom: var(--space-12);
+      max-width: var(--container-reading-width);
     }
 
     .section-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-accent-gold);
       letter-spacing: 0.08em;
-      color: var(--gold-subtle);
-      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
       display: block;
     }
 
     .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3.5vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.25;
+      font-family: var(--font-family-display);
+      font-size: var(--text-3xl);
+      line-height: var(--line-height-heading);
+      font-weight: var(--font-weight-bold);
       letter-spacing: -0.02em;
-      text-wrap: balance;
-      margin-bottom: 0.85rem;
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-4);
+      font-optical-sizing: auto;
     }
 
-    .section-desc {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 660px;
-      margin-bottom: 2.75rem;
-      line-height: 1.6;
+    .section-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
     }
 
-    /* Audience Grid */
-    .audience-grid {
+    /* Tríada de Capacidades */
+    .triad-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.75rem;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-6);
     }
 
-    .audience-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.25rem 2rem;
-    }
-
-    .audience-card.positive {
-      border-top: 3px solid var(--green-status);
-    }
-
-    .audience-card.negative {
-      border-top: 3px solid #9c4040;
-      background: #faf8f5;
-    }
-
-    .audience-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .audience-list {
-      list-style: none;
-    }
-
-    .audience-list li {
-      margin-bottom: 0.9rem;
-      padding-left: 1.6rem;
-      position: relative;
-      font-size: 0.92rem;
-      color: #333d37;
-      line-height: 1.5;
-    }
-
-    .audience-card.positive .audience-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--green-status);
-      font-weight: 700;
-    }
-
-    .audience-card.negative .audience-list li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: #9c4040;
-      font-weight: 700;
-    }
-
-    /* Modules List (Svelte & Low Cognitive Load) */
-    .modules-list {
+    .triad-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  box-shadow var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
     }
 
-    .module-item {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem 2rem;
-      display: grid;
-      grid-template-columns: 140px 1fr 1fr;
-      gap: 1.5rem;
-      align-items: center;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .module-item:hover {
-      border-color: var(--border-dark);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-    }
-
-    .module-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .module-number {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--gold-subtle);
-    }
-
-    .module-time {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .module-main h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      line-height: 1.3;
-    }
-
-    .module-main p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .module-deliverable {
-      background: var(--accent-soft);
-      padding: 1rem 1.25rem;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-
-    .module-deliverable strong {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--ink);
-      margin-bottom: 0.25rem;
-    }
-
-    .module-deliverable span {
-      color: #2e3832;
-      line-height: 1.4;
-      display: block;
-    }
-
-    /* Moat Metodológico (60% Práctica / 40% Teoría) */
-    .moat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .moat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.85rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    }
-
-    .moat-card:hover {
-      border-color: var(--border-dark);
+    .triad-card:hover {
+      border-color: var(--color-border-medium);
+      box-shadow: var(--shadow-md);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     }
 
-    .moat-tag {
-      align-self: flex-start;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
+    .triad-card-main {
+      grid-column: span 6;
+    }
+
+    .triad-card-knowledge {
+      grid-column: span 12;
+      background: var(--color-surface-card-inset);
+      border: 1px solid var(--color-border-medium);
+      padding: var(--space-8);
+    }
+
+    .card-tag {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-semibold);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--gold-subtle);
-      background: var(--accent-soft);
-      padding: 0.2rem 0.6rem;
-      border-radius: 3px;
-      margin-bottom: 1rem;
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-2);
     }
 
-    .moat-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 0.65rem;
-      color: var(--ink);
+    .card-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
+      line-height: var(--line-height-heading);
     }
 
-    .moat-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .moat-card strong {
-      color: var(--ink);
-    }
-
-    .moat-ratio-banner {
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.25rem 1.75rem;
-      margin-top: 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .moat-ratio-text {
-      font-size: 0.92rem;
-      color: var(--ink);
-      line-height: 1.5;
-    }
-
-    .moat-ratio-badge {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--ink);
-      background: var(--card-bg);
-      padding: 0.45rem 0.9rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    .roi-comparison-banner {
-      margin-top: 2rem;
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.35rem 1.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 900px) {
-      .moat-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Pricing Section */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-
-    .pricing-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2.25rem 1.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .pricing-card.featured {
-      border: 2px solid var(--ink);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-      animation: featuredGlow 5s ease-in-out infinite alternate;
-    }
-
-    @keyframes featuredGlow {
-      0% {
-        box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-      }
-      100% {
-        box-shadow: 0 12px 35px rgba(138, 106, 53, 0.16), 0 0 0 1px rgba(138, 106, 53, 0.22);
-      }
-    }
-
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      right: 1.5rem;
-      background: var(--ink);
-      color: #ffffff;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.25rem 0.65rem;
-      border-radius: 3px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .tier-name {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-    }
-
-    .tier-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-      min-height: 48px;
-      line-height: 1.45;
-    }
-
-    .tier-price {
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .price-cop {
-      font-family: var(--font-display);
-      font-size: 2.1rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .price-cop-regular {
-      font-size: 0.88rem;
-      color: var(--muted);
-      text-decoration: line-through;
-      margin-left: 0.4rem;
-    }
-
-    .price-benchmark {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--gold-subtle);
-      margin-top: 0.35rem;
-    }
-
-    .tier-features {
-      list-style: none;
-      margin-bottom: 1.75rem;
+    .card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-6);
       flex-grow: 1;
     }
 
-    .tier-features li {
-      font-size: 0.85rem;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      position: relative;
-      padding-left: 1.25rem;
-      color: #2b332e;
-    }
-
-    .tier-features li::before {
-      content: "•";
-      position: absolute;
-      left: 0.1rem;
-      color: var(--gold-subtle);
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-
-    .btn-pricing {
+    .capability-list {
+      list-style: none;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .capability-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-ink-primary);
+    }
+
+    .capability-item-bullet {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .knowledge-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-8);
       align-items: center;
-      gap: 0.4rem;
-      width: 100%;
-      text-align: center;
-      padding: 0.8rem 1rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 600;
-      transition: all 0.2s;
     }
 
-    .btn-pricing.primary {
-      background: var(--ink);
-      color: #ffffff;
-    }
-
-    .btn-pricing.primary:hover {
-      background: #2b332e;
-    }
-
-    .btn-pricing.secondary {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--border-dark);
-    }
-
-    .btn-pricing.secondary:hover {
-      background: var(--accent-soft);
-    }
-
-    /* Isla de Tecnologías (Logo Marquee) */
-    .logo-marquee-section {
-      padding: 1.75rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-      background: #faf8f5;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .logo-marquee-title {
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .marquee-wrapper {
-      display: flex;
-      width: 100%;
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      animation: scrollMarquee 35s linear infinite;
-      white-space: nowrap;
-      will-change: transform;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes scrollMarquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .logo-pill {
+    .knowledge-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      padding: 0.45rem 0.95rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: #2b332e;
-      transition: border-color 0.2s, transform 0.2s;
+      gap: var(--space-2);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-medium);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: background-color var(--duration-fast) var(--ease-interactive),
+                  border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+      justify-self: end;
     }
 
-    .logo-pill:hover {
-      border-color: var(--ink);
+    .knowledge-link:hover {
+      background: var(--color-surface-canvas);
+      border-color: var(--color-ink-primary);
       transform: translateY(-1px);
     }
 
-    .logo-pill svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+    /* ICP vs Buyer Personas */
+    .icp-banner {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .icp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-6);
+    }
+
+    .icp-col-title {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-industrial);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-2);
+    }
+
+    .icp-item-text {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+    }
+
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .persona-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .persona-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .persona-role {
+      font-family: var(--font-family-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .persona-badge {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .persona-block {
+      margin-bottom: var(--space-3);
+    }
+
+    .persona-label {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .persona-content {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: 1.5;
+    }
+
+    .persona-quote {
+      font-size: var(--text-xs);
+      color: var(--color-ink-primary);
+      font-style: italic;
+      background: var(--color-surface-card-inset);
+      padding: var(--space-3);
+      border-radius: var(--radius-xs);
+      border-left: 2px solid var(--color-border-medium);
+      margin-top: auto;
+    }
+
+    /* Metodología & Test Ácido */
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .step-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-2);
+    }
+
+    .step-title {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .step-text {
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      line-height: 1.5;
+    }
+
+    .acid-box {
+      background: var(--color-surface-dark);
+      color: var(--color-ink-inverse);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+    }
+
+    .acid-header {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5b974;
+      margin-bottom: var(--space-2);
+    }
+
+    .acid-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-4);
+    }
+
+    .acid-desc {
+      font-size: var(--text-sm);
+      color: #c5c0b2;
+      max-width: var(--container-reading-width);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+
+    .acid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .acid-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xs);
+      padding: var(--space-4);
+    }
+
+    .acid-item-title {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-semibold);
+      color: #f7f6f2;
+      margin-bottom: var(--space-1);
+    }
+
+    .acid-item-desc {
+      font-size: var(--text-2xs);
+      color: #a3aba5;
+      line-height: 1.5;
+    }
+
+    /* Modelos de Contratación B2B */
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .engagement-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--duration-fast) var(--ease-interactive),
+                  transform var(--duration-fast) var(--ease-interactive);
+    }
+
+    .engagement-card:hover {
+      border-color: var(--color-border-medium);
+      transform: translateY(-2px);
+    }
+
+    .engagement-card.featured {
+      border: 2px solid var(--color-ink-primary);
+      position: relative;
+    }
+
+    .engagement-eyebrow {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+
+    .engagement-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .engagement-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-6);
+    }
+
+    .engagement-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+      flex-grow: 1;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-border-hairline);
+    }
+
+    .deliverable-item {
+      display: flex;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--color-ink-primary);
+      line-height: 1.5;
+    }
+
+    .deliverable-item::before {
+      content: "✓";
+      color: var(--color-status-success);
+      font-weight: bold;
       flex-shrink: 0;
     }
 
-    /* Thinking System Highlight Pill */
-    .thinking-system-highlight {
-      margin: 0.75rem 0 1rem;
-      background: #faf6eb;
-      border: 1px solid #d4c29c;
-      border-radius: 4px;
-      padding: 0.4rem 0.7rem;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
+    .disclaimer-footnote {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+      line-height: 1.5;
+      margin-top: var(--space-4);
     }
 
-    .thinking-system-highlight a {
-      color: #78581e;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
+    /* Habilitación Corporativa On-Demand */
+    .training-box {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-8);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-8);
       align-items: center;
-      gap: 0.35rem;
+      box-shadow: var(--shadow-sm);
     }
 
-    .thinking-system-highlight a:hover {
-      text-decoration: underline;
+    .training-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-3);
     }
 
-    /* FAQ Section (Interactive Dropdown List) */
-    .faq-accordion-list {
+    .training-desc {
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      margin-bottom: var(--space-4);
+    }
+
+    .training-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .training-chip {
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-xs);
+      padding: 0.25rem 0.5rem;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-secondary);
+    }
+
+    /* FAQs Accordion */
+    .faq-list {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      max-width: 820px;
-      margin: 0 auto;
+      gap: var(--space-4);
+      max-width: 860px;
     }
 
-    .faq-accordion {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+    .faq-item {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
       overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color var(--duration-fast) var(--ease-interactive);
     }
 
-    .faq-accordion[open] {
-      border-color: var(--border-dark);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    .faq-item:hover {
+      border-color: var(--color-border-medium);
     }
 
     .faq-summary {
-      padding: 1.15rem 1.4rem;
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 700;
+      padding: var(--space-5) var(--space-6);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
       cursor: pointer;
-      list-style: none;
+      user-select: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
-      color: var(--ink);
-    }
-
-    .faq-summary::-webkit-details-marker {
-      display: none;
+      outline: none;
     }
 
     .faq-summary::after {
       content: "+";
-      font-family: var(--font-mono);
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--gold-subtle);
-      transition: transform 0.2s ease;
-      line-height: 1;
+      font-family: var(--font-family-mono);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-accent-gold);
+      transition: transform var(--duration-fast) var(--ease-interactive);
+      margin-left: var(--space-4);
     }
 
-    .faq-accordion[open] .faq-summary::after {
+    .faq-item[open] .faq-summary::after {
       content: "−";
     }
 
     .faq-content {
-      padding: 0.25rem 1.4rem 1.25rem;
-      font-size: 0.9rem;
-      color: #3b423e;
-      line-height: 1.6;
-      border-top: 1px solid rgba(0,0,0,0.04);
+      padding: 0 var(--space-6) var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-ink-secondary);
+      line-height: var(--line-height-body);
+      border-top: 1px solid var(--color-surface-subtle);
+      padding-top: var(--space-4);
     }
 
-    /* Final High-Urgency CTA Section (Closing Funnel) */
-    .section-cta-final {
-      padding: 4.5rem 0 5rem;
-      background: linear-gradient(180deg, var(--bg) 0%, #edeae2 100%);
-      border-bottom: 1px solid var(--border-dark);
+    /* Cierre de Conversión */
+    .cta-final-section {
+      padding: var(--space-20) 0;
+      background: var(--color-surface-card-inset);
+      border-bottom: 1px solid var(--color-border-hairline);
     }
 
     .cta-final-card {
-      background: var(--card-bg);
-      border: 2px solid var(--ink);
-      border-radius: 12px;
-      padding: 3.5rem 2.5rem;
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-lg);
+      padding: var(--space-12);
       text-align: center;
-      max-width: 860px;
+      box-shadow: var(--shadow-md);
+      max-width: 840px;
       margin: 0 auto;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-final-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold-subtle), var(--ink), var(--gold-subtle));
-    }
-
-    .cta-final-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold-subtle);
-      background: var(--accent-soft);
-      padding: 0.3rem 0.8rem;
-      border-radius: 30px;
-      margin-bottom: 1.25rem;
     }
 
     .cta-final-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3.8vw, 2.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      margin-bottom: 1rem;
-      color: var(--ink);
-      text-wrap: balance;
+      font-family: var(--font-family-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+      color: var(--color-ink-primary);
+      margin-bottom: var(--space-4);
+      font-optical-sizing: auto;
     }
 
-    .cta-final-lead {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 620px;
-      margin: 0 auto 2.25rem;
-      line-height: 1.6;
+    .cta-final-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-ink-secondary);
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      line-height: var(--line-height-body);
     }
 
     .cta-final-actions {
       display: flex;
       justify-content: center;
-      gap: 1.15rem;
+      gap: var(--space-4);
       flex-wrap: wrap;
-      margin-bottom: 2rem;
     }
 
-    .btn-cta-pulse {
-      position: relative;
-      background: var(--ink);
-      color: #ffffff !important;
-      animation: pulseBtn 3s infinite;
+    /* Footer */
+    .site-footer {
+      padding: var(--space-12) 0 var(--space-8);
+      background: var(--color-surface-canvas);
     }
 
-    @keyframes pulseBtn {
-      0% { box-shadow: 0 0 0 0 rgba(18, 22, 20, 0.4); }
-      70% { box-shadow: 0 0 0 12px rgba(18, 22, 20, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(18, 22, 20, 0); }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
     }
 
-    .cta-final-guarantees {
+    .footer-brand-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-2);
+    }
+
+    .footer-brand-desc {
+      font-size: var(--text-xs);
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .footer-links {
+      list-style: none;
       display: flex;
-      justify-content: center;
-      gap: 1.75rem;
-      flex-wrap: wrap;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
+      flex-direction: column;
+      gap: var(--space-2);
     }
 
-    /* Floating WhatsApp Conversion Pill */
-    .floating-whatsapp-pill {
-      position: fixed;
-      bottom: 1.75rem;
-      right: 1.75rem;
-      background: var(--ink);
-      color: #ffffff !important;
-      padding: 0.68rem 1.15rem;
-      border-radius: 50px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 600;
+    .footer-links a {
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
       text-decoration: none;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
-      z-index: 999;
-      transition: all 0.25s ease;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: color var(--duration-fast) var(--ease-interactive);
     }
 
-    .floating-whatsapp-pill:hover {
-      transform: translateY(-2px);
-      background: #252e28;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    .footer-links a:hover {
+      color: var(--color-ink-primary);
+      text-decoration: underline;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #25d366;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-      animation: pulseDot 2s infinite;
+    .footer-bottom {
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
     }
 
-    @keyframes pulseDot {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-    }
-
-    .pill-arrow {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      transition: transform 0.2s ease;
-    }
-
-    .floating-whatsapp-pill:hover .pill-arrow {
-      transform: translate(2px, -2px);
-    }
-
-    /* Subtle Scroll-Reveal Animation */
+    /* Scroll Reveal (Emil Kowalski <= 280ms) */
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+      transform: translateY(12px);
+      transition: opacity var(--duration-entrance) var(--ease-entrance),
+                  transform var(--duration-entrance) var(--ease-entrance);
     }
 
     .reveal-on-scroll.is-revealed {
@@ -1031,962 +1191,706 @@
       transform: translateY(0);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .reveal-on-scroll {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .marquee-track {
-        animation: none;
-      }
-      .btn-cta-pulse, .pulse-dot, .pricing-card.featured {
-        animation: none;
-      }
-    }
-
-    /* Chips and Scannable Badges */
-    .chip-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-
-    .chip-tag.green {
-      background: #eef6f1;
-      color: var(--green-status);
-      border: 1px solid #cce5d6;
-    }
-
-    .chip-tag.red {
-      background: #fdf2f2;
-      color: #9c4040;
-      border: 1px solid #f4d0d0;
-    }
-
-    .guarantee-ribbon {
-      background: #fcf9f2;
-      border: 1px dashed var(--gold-subtle);
-      border-radius: 6px;
-      padding: 0.75rem 1.25rem;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--ink);
-      margin-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    /* Footer & Legal */
-    footer {
-      background: #edeae2;
-      border-top: 1px solid var(--border-dark);
-      padding: 3.5rem 0 2.5rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .footer-brand h4 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-links h5 {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--ink);
-      margin-bottom: 0.85rem;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 0.45rem;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--ink);
-      text-decoration: underline;
-    }
-
-    .footer-legal-bar {
-      border-top: 1px solid var(--border);
-      padding-top: 1.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.78rem;
-    }
-
-    .canonical-watermark {
-      font-size: 0.72rem;
-      opacity: 0.75;
-      margin-top: 1.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-      line-height: 1.6;
-    }
-
-    .canonical-watermark a {
-      color: inherit;
-      text-decoration: underline;
-    }
-
-    /* Responsive Mobile & Tablet Rules */
-    @media (max-width: 992px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      .module-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1.5rem;
-      }
-      .footer-top {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .section {
-        padding: 3.25rem 0;
-      }
-      .hero {
-        padding: 3.25rem 0 2.5rem;
-        text-align: center;
-      }
-      .hero .eyebrow {
-        margin: 0 auto 1.25rem;
-      }
-      .hero-title {
-        font-size: clamp(1.95rem, 7.2vw, 2.45rem);
-        line-height: 1.22;
-        letter-spacing: -0.025em;
-        text-align: center;
-        text-wrap: balance;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-lead {
-        font-size: 1.02rem;
-        line-height: 1.6;
-        text-align: center;
-        text-wrap: pretty;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2rem;
-      }
-      .trust-badges {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-        text-align: left;
-      }
-      .audience-grid, .faq-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-primary, .btn-secondary {
-        width: 100%;
-      }
-      .nav-links {
-        display: none;
-      }
-      .nav-cta {
-        display: none; /* Elimina la compresión y persistencia fija en mobile */
-      }
-      .nav-wrapper {
-        height: auto;
-        padding: 1.25rem 0 1rem;
-        justify-content: center;
-        text-align: center;
-      }
-      .brand {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .brand-title {
-        font-size: 1.22rem;
-        line-height: 1.25;
-        letter-spacing: -0.015em;
-        text-align: center;
-      }
-      .brand-sub {
-        font-size: 0.64rem;
-        letter-spacing: 0.06em;
-        margin-top: 0.25rem;
-        line-height: 1.35;
-        text-align: center;
-      }
-      .section-eyebrow {
-        text-align: center;
-      }
-      .section-title {
-        text-align: center;
-        text-wrap: balance;
-      }
-      .section-desc {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        text-wrap: pretty;
-      }
-    }
-  
-    /* Accessibility: Complete Focus-Visible States (Anti-Slop Constraint 9 & WCAG 2.1 AA) */
+    /* Accesibilidad: Complete Focus-Visible States (Anti-Slop Constraint 9 & WCAG 2.1 AA) */
     a:focus-visible,
     button:focus-visible,
     summary:focus-visible,
     input:focus-visible,
-    .btn-pricing:focus-visible,
+    .btn-action:focus-visible,
     .nav-cta:focus-visible,
-    .btn-primary:focus-visible,
-    .btn-secondary:focus-visible,
-    .whatsapp-btn-float:focus-visible {
-      outline: 2px solid var(--gold-subtle);
+    .lang-switch:focus-visible,
+    .knowledge-link:focus-visible {
+      outline: 2px solid var(--color-accent-gold);
       outline-offset: 3px;
-      box-shadow: 0 0 0 4px rgba(138, 106, 53, 0.18);
+      box-shadow: 0 0 0 4px rgba(116, 84, 35, 0.18);
+    }
+
+    /* Modo Movimiento Reducido */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 120ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-on-scroll {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: opacity 120ms ease-out !important;
+      }
+      .btn-action:active, .nav-cta:active {
+        transform: none !important;
+      }
+    }
+
+    /* Responsividad Móvil */
+    @media (max-width: 860px) {
+      .nav-menu {
+        display: none;
+      }
+      .triad-card-main {
+        grid-column: span 12;
+      }
+      .knowledge-layout {
+        grid-template-columns: 1fr;
+      }
+      .knowledge-link {
+        justify-self: start;
+      }
+      .icp-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      .training-box {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .hero-title {
+        font-size: 2.15rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-wrapper {
+        height: 64px;
+      }
+      .brand-title {
+        font-size: 1.1rem;
+      }
+      .brand-sub {
+        display: none;
+      }
+      .nav-cta {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.7rem;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-action {
+        width: 100%;
+      }
     }
   </style>
-
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "EducationalOccupationalProgram",
-        "@id": "https://willkwolf.github.io/automatizar-con-ia-/#program",
-        "name": "AI Builder y Automatización con IA para Usuarios No Técnicos",
-        "description": "Programa práctico de 5 semanas para aprender a construir automatizaciones, miniaplicaciones y asistentes con IA sin programar.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Boutique Digital",
-          "url": "https://willkwolf.github.io/automatizar-con-ia-/",
-          "sameAs": [
-            "https://github.com/willkwolf/automatizar-con-ia-",
-            "https://willkwolf.github.io/Thinking-as-a-Service/"
-          ]
-        },
-        "timeToComplete": "P5W",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Taller Práctico Base — Preventa",
-            "price": "690000",
-            "priceCurrency": "COP",
-            "availability": "https://schema.org/PreOrder",
-            "url": "https://willkwolf.github.io/automatizar-con-ia-/#pricing"
-          },
-          {
-            "@type": "Offer",
-            "name": "Entrenamiento Guiado — Preventa",
-            "price": "1490000",
-            "priceCurrency": "COP",
-            "availability": "https://schema.org/PreOrder",
-            "url": "https://willkwolf.github.io/automatizar-con-ia-/#pricing"
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
+  <!-- Enlace de salto accesible -->
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 
-  <!-- Navigation -->
-  <header>
+  <!-- Header y Navegación Principal -->
+  <header class="nav-header">
     <div class="container nav-wrapper">
-      <a href="#" class="brand">
-        <span class="brand-title">Automatización e IA Aplicada</span>
-        <span class="brand-sub">Boutique Digital para Profesionales No Técnicos</span>
+      <a href="./" class="brand" aria-label="Boutique Digital - Inicio">
+        <span class="brand-title">Boutique Digital</span>
+        <span class="brand-sub">Consultoría de Software & Operaciones</span>
       </a>
-      <nav class="nav-links">
-        <a href="#perfil">Perfil</a>
-        <a href="#metodologia">Metodología</a>
-        <a href="#programa">Programa</a>
-        <a href="#pricing">Planes</a>
-        <a href="#faqs">Preguntas</a>
-        <a href="#legal">Legal</a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu">
+          <li><a href="#triada">Tríada de Capacidades</a></li>
+          <li><a href="#icp">Perfil & Roles</a></li>
+          <li><a href="#metodologia">Metodología</a></li>
+          <li><a href="#modelos">Modelos B2B</a></li>
+          <li><a href="#habilitacion">Habilitación</a></li>
+          <li><a href="#faqs">Preguntas</a></li>
+        </ul>
       </nav>
-      <a href="https://wa.me/573002976815?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="nav-cta" target="_blank" rel="noopener">
-        <span>WhatsApp</span> ↗
-      </a>
+
+      <div class="nav-actions">
+        <!-- Selector de idioma accesible -->
+        <nav class="lang-nav" aria-label="Selector de idioma">
+          <span class="lang-current" aria-current="page" lang="es">ES</span>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <a href="en/" class="lang-switch" hreflang="en" lang="en" aria-label="Switch to English version">EN</a>
+        </nav>
+
+        <!-- CTA Persistente Válido en Desktop y Móvil (Sin display:none en mobile) -->
+        <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20solicitar%20un%20Diagn%C3%B3stico%20Operativo%20para%20mi%20agencia" class="nav-cta" target="_blank" rel="noopener">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Diagnóstico</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero reveal-on-scroll">
-    <div class="container">
-      <div class="eyebrow">
-        <span class="pulse-dot"></span> Formación Práctica · Convocatoria Noviembre 2026
-      </div>
-      <h1 class="hero-title">
-        De utilizar IA básica a <em>construir soluciones operativas</em> para tu trabajo o negocio.
-      </h1>
-      <p class="hero-lead">
-        Aprende a automatizar procesos repetitivos, conectar aplicaciones y crear herramientas funcionales paso a paso, sin saber programar.
-      </p>
-      <div class="hero-actions">
-        <a href="#pricing" class="btn-primary btn-cta-pulse">Ver Planes e Inversión ↓</a>
-        <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-secondary" target="_blank" rel="noopener">
-          Soluciones para Empresas ↗
-        </a>
-      </div>
-      <div class="trust-badges">
-        <div class="badge-item">
-          <span class="badge-label">Formato</span>
-          <span class="badge-value">60% Práctica · 40% Teoría</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-label">Fundamento</span>
-          <span class="badge-value">ToC + Patrones de Automatización</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-label">Exclusividad</span>
-          <span class="badge-value">18 Plazas por Cohorte</span>
-        </div>
-        <div class="badge-item">
-          <span class="badge-label">Resultado</span>
-          <span class="badge-value">De Bases a Vibecoding Real</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Isla de Tecnologías (Logo Marquee Dinámico) -->
-  <section class="logo-marquee-section">
-    <div class="container">
-      <div class="logo-marquee-title">Pila Tecnológica y Ecosistema que Aprenderás a Orquestar</div>
-    </div>
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <!-- Primer set de logos -->
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-4-4A1.5 1.5 0 1 1 7.5 11 1.5 1.5 0 0 1 9 12.5zm8 0a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-5-4A1.5 1.5 0 1 1 10.5 7 1.5 1.5 0 0 1 12 8.5z"/></svg>
-          n8n
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.4v3.5c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          GitHub
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.7 10.5 3 11.2 3 12s.7 1.5 1.5 1.5h3.6l-2.6 2.6c-.6.6-.6 1.5 0 2.1s1.5.6 2.1 0l2.6-2.6v3.6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-3.6l2.6 2.6c.6.6 1.5.6 2.1 0s.6-1.5 0-2.1l-2.6-2.6h3.6c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5h-3.6l2.6-2.6c.6-.6.6-1.5 0-2.1s-1.5-.6-2.1 0l-2.6 2.6V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v3.6l-2.6-2.6c-.6-.6-1.5-.6-2.1 0s-.6 1.5 0 2.1l2.6 2.6H4.5z"/></svg>
-          Claude (Anthropic)
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z"/></svg>
-          Google Gemini
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M22.3 9.4a5.9 5.9 0 0 0-.5-4.8 6 6 0 0 0-6.1-2.9 6 6 0 0 0-4.6-2 5.9 5.9 0 0 0-5.6 4A6 6 0 0 0 1.9 6.8a6 6 0 0 0 .5 6.7 5.9 5.9 0 0 0 .5 4.8 6 6 0 0 0 6.1 2.9A5.9 5.9 0 0 0 13.6 23a6 6 0 0 0 5.6-4 6 6 0 0 0 3.6-3.1 6 6 0 0 0-.5-6.5zm-8.8 12.3c-1.4 0-2.7-.5-3.8-1.3l.2-.1 3.8-2.2a1 1 0 0 0 .5-.9v-5.3l1.8 1v4.3a4.7 4.7 0 0 1-2.5 4.5zm-9.3-4.1a4.7 4.7 0 0 1-.6-2.7V10l.2.1 3.8 2.2a1 1 0 0 0 1 0l4.6-2.6v2.1l-3.7 2.1a4.7 4.7 0 0 1-5.3.8zm-1.8-8.2a4.7 4.7 0 0 1 2-2.1l.2.1 3.8 2.2a1 1 0 0 0 1 0L14 6.9V4.8l-3.7 2.2a4.7 4.7 0 0 1-6 1.8zm11.7-2.1L10.3 9.5a1 1 0 0 0-.5.9v5.3l-1.8-1V10.4a4.7 4.7 0 0 1 6.1-3.1zm4 9.4a4.7 4.7 0 0 1-.8 4.2l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L9.9 16.5v-2.1l3.7-2.2a4.7 4.7 0 0 1 6 1.6zm2.3-3.2a4.7 4.7 0 0 1-2 2.1l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L8 14.3v-2.1l3.7-2.1a4.7 4.7 0 0 1 6.1.2c.7.9 1 2 1 3.2z"/></svg>
-          ChatGPT (OpenAI)
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H7v-2h5zm5-4H7v-2h10zm0-4H7V7h10z"/></svg>
-          NotebookLM
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 3.6 1.9 6.8 4.8 8.5l-.8-2.5c2.4 1.3 5.1 1.7 7.8 1 3.8-1 6.7-4 7.7-7.8.9-3.4-.1-6.9-2.5-9.2C16.8 2.7 14.4 2 12 2zm3.5 12.5c-.8.8-2.2.8-3 0l-3-3a2.1 2.1 0 1 1 3-3l3 3c.8.8.8 2.2 0 3z"/></svg>
-          DeepSeek
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M3 3h3v3H3zm15 0h3v3h-3zM3 6h9v3H3zm12 0h6v3h-6zM3 9h18v3H3zm3 3h12v3H6zm3 3h6v3H9zm3 3h3v3h-3z"/></svg>
-          Mistral AI
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          Lovable
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 19.5h20L12 2zm0 4.5l6.5 11.5H5.5L12 6.5z"/></svg>
-          Google Antigravity
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
-          OpenWorker
-        </span>
-
-        <!-- Duplicado para loop continuo -->
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-4-4A1.5 1.5 0 1 1 7.5 11 1.5 1.5 0 0 1 9 12.5zm8 0a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5zm-5-4A1.5 1.5 0 1 1 10.5 7 1.5 1.5 0 0 1 12 8.5z"/></svg>
-          n8n
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.4v3.5c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          GitHub
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M4.5 10.5C3.7 10.5 3 11.2 3 12s.7 1.5 1.5 1.5h3.6l-2.6 2.6c-.6.6-.6 1.5 0 2.1s1.5.6 2.1 0l2.6-2.6v3.6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-3.6l2.6 2.6c.6.6 1.5.6 2.1 0s.6-1.5 0-2.1l-2.6-2.6h3.6c.8 0 1.5-.7 1.5-1.5s-.7-1.5-1.5-1.5h-3.6l2.6-2.6c.6-.6.6-1.5 0-2.1s-1.5-.6-2.1 0l-2.6 2.6V4.5c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v3.6l-2.6-2.6c-.6-.6-1.5-.6-2.1 0s-.6 1.5 0 2.1l2.6 2.6H4.5z"/></svg>
-          Claude (Anthropic)
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z"/></svg>
-          Google Gemini
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M22.3 9.4a5.9 5.9 0 0 0-.5-4.8 6 6 0 0 0-6.1-2.9 6 6 0 0 0-4.6-2 5.9 5.9 0 0 0-5.6 4A6 6 0 0 0 1.9 6.8a6 6 0 0 0 .5 6.7 5.9 5.9 0 0 0 .5 4.8 6 6 0 0 0 6.1 2.9A5.9 5.9 0 0 0 13.6 23a6 6 0 0 0 5.6-4 6 6 0 0 0 3.6-3.1 6 6 0 0 0-.5-6.5zm-8.8 12.3c-1.4 0-2.7-.5-3.8-1.3l.2-.1 3.8-2.2a1 1 0 0 0 .5-.9v-5.3l1.8 1v4.3a4.7 4.7 0 0 1-2.5 4.5zm-9.3-4.1a4.7 4.7 0 0 1-.6-2.7V10l.2.1 3.8 2.2a1 1 0 0 0 1 0l4.6-2.6v2.1l-3.7 2.1a4.7 4.7 0 0 1-5.3.8zm-1.8-8.2a4.7 4.7 0 0 1 2-2.1l.2.1 3.8 2.2a1 1 0 0 0 1 0L14 6.9V4.8l-3.7 2.2a4.7 4.7 0 0 1-6 1.8zm11.7-2.1L10.3 9.5a1 1 0 0 0-.5.9v5.3l-1.8-1V10.4a4.7 4.7 0 0 1 6.1-3.1zm4 9.4a4.7 4.7 0 0 1-.8 4.2l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L9.9 16.5v-2.1l3.7-2.2a4.7 4.7 0 0 1 6 1.6zm2.3-3.2a4.7 4.7 0 0 1-2 2.1l-.2-.1-3.8-2.2a1 1 0 0 0-1 0L8 14.3v-2.1l3.7-2.1a4.7 4.7 0 0 1 6.1.2c.7.9 1 2 1 3.2z"/></svg>
-          ChatGPT (OpenAI)
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H7v-2h5zm5-4H7v-2h10zm0-4H7V7h10z"/></svg>
-          NotebookLM
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 3.6 1.9 6.8 4.8 8.5l-.8-2.5c2.4 1.3 5.1 1.7 7.8 1 3.8-1 6.7-4 7.7-7.8.9-3.4-.1-6.9-2.5-9.2C16.8 2.7 14.4 2 12 2zm3.5 12.5c-.8.8-2.2.8-3 0l-3-3a2.1 2.1 0 1 1 3-3l3 3c.8.8.8 2.2 0 3z"/></svg>
-          DeepSeek
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M3 3h3v3H3zm15 0h3v3h-3zM3 6h9v3H3zm12 0h6v3h-6zM3 9h18v3H3zm3 3h12v3H6zm3 3h6v3H9zm3 3h3v3h-3z"/></svg>
-          Mistral AI
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          Lovable
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2L2 19.5h20L12 2zm0 4.5l6.5 11.5H5.5L12 6.5z"/></svg>
-          Google Antigravity
-        </span>
-        <span class="logo-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
-          OpenWorker
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Audience Profile Section -->
-  <section class="section reveal-on-scroll" id="perfil">
-    <div class="container">
-      <span class="section-eyebrow">Criterio de Admisión y Enfoque</span>
-      <h2 class="section-title">De Cero Técnico a Vibe Coder Profesional</h2>
-      <p class="section-desc">
-        Formación intensiva para profesionales y líderes no técnicos. Aprende a construir herramientas operativas con rigor de ingeniería y elimina de raíz el <em>AI Slop</em> (chatarra sintética y pifias).
-      </p>
-      <div class="audience-grid">
-        <div class="audience-card positive">
-          <span class="chip-tag green">✔ Perfil Idóneo</span>
-          <h3>Para quién es este programa:</h3>
-          <ul class="audience-list">
-            <li><strong>Líderes y Contribuidores No Técnicos:</strong> Profesionales en operaciones, logística, finanzas, salud o servicios que buscan eliminar cuellos de botella manuales.</li>
-            <li><strong>De Copiar Prompts a Construir (Vibe Coder):</strong> Dirige herramientas visuales para crear soluciones que sí corren y aportan valor comercial real.</li>
-            <li><strong>Cero AI Slop (Spec-Driven):</strong> Metodología guiada por especificaciones para erradicar alucinaciones, código roto y automatizaciones de juguete.</li>
-            <li><strong>Consultores y Fundadores:</strong> Construye recepcionistas, CRM invisible y flujos autónomos con tus manos sin depender de agencias costosas.</li>
-          </ul>
-        </div>
-        <div class="audience-card negative">
-          <span class="chip-tag red">✕ Perfil Excluido</span>
-          <h3>Cuándo no recomendamos inscribirte:</h3>
-          <ul class="audience-list">
-            <li><strong>Programadores o Developers Consolidados:</strong> Si ya dominas código tradicional o arquitectura avanzada, este contenido práctico te resultará redundante.</li>
-            <li><strong>Entrenamiento de Modelos o Fine-Tuning:</strong> No ajustamos pesos matemáticos de redes neuronales; orquestamos modelos fundacionales vía APIs y herramientas visuales.</li>
-            <li><strong>Complejidad Empresarial Multiequipo:</strong> Si tu corporación requiere gobernanza a gran escala, ese alcance corresponde a nuestra consultoría matriz: <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Moat Metodológico: 60% Práctica / 40% Teoría -->
-  <section class="section reveal-on-scroll" id="metodologia">
-    <div class="container">
-      <span class="section-eyebrow">Arquitectura de Formación y Foso Competitivo</span>
-      <h2 class="section-title">60% Práctica Hands-on · 40% Teoría Arquitectónica</h2>
-      <p class="section-desc">
-        La teoría no es relleno escolar: es tu mayor ventaja competitiva. Conectar nodos en una herramienta visual sin fundamentos es automatizar el caos. Aquí aprendes la arquitectura para diseñar sistemas que no fallen, y te ensucias las manos construyéndolos.
-      </p>
-
-      <div class="moat-grid">
-        <div class="moat-card">
-          <span class="moat-tag">Pilar 01 · Estrategia</span>
-          <h3>Teoría de Restricciones (ToC)</h3>
-          <p>
-            <strong>Encuentra el cuello de botella antes de mover una sola línea.</strong> Si automatizas un paso que no es la restricción del sistema, creas inventario oculto y estrés operativo. Aplicamos la ToC de Goldratt para identificar exactamente dónde intervenir para liberar EBITDA y horas hombre reales.
-          </p>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="eyebrow">
+          <span>Consultoría de Software & Operaciones · Empresas Livianas</span>
         </div>
 
-        <div class="moat-card">
-          <span class="moat-tag">Pilar 02 · Arquitectura</span>
-          <h3>Patrones de Automatización e Idempotencia</h3>
-          <p>
-            <strong>Sistemas confiables que no se caen a ciegas.</strong> Herramientas como n8n o Make son solo vehículos de práctica; lo que perdura son los patrones: orquestación dirigida por eventos (<em>Event-driven</em>), reintentos idempotentes, manejo de límites de tasa y supervisión humana obligatoria (<em>Human-in-the-Loop</em>).
-          </p>
-        </div>
+        <h1 class="hero-title">
+          Ingeniería de software y optimización de flujos para agencias que escalan sin inflar su nómina.
+        </h1>
 
-        <div class="moat-card">
-          <span class="moat-tag">Pilar 03 · De Bases a Código</span>
-          <h3>De Fundamentos de LLMs a Vibecoding</h3>
-          <p>
-            <strong>Domina los entornos para dirigir la IA con criterio.</strong> Comprende la latencia, ventanas de contexto y modelos locales offline para privacidad estricta. Con esas bases, dominas el <em>Vibecoding</em>: crear software, mini-apps y portales en horas dirigiendo IAs generativas sin generar código roto ni <em>AI Slop</em>.
-          </p>
-        </div>
-      </div>
+        <p class="hero-subtitle">
+          Ayudamos a agencias digitales y firmas de servicios profesionales a desatar su productividad resolviendo cuellos de botella reales con software a medida, pipelines de datos robustos y agentes supervisados con gobernanza Human-in-the-Loop.
+        </p>
 
-      <div class="moat-ratio-banner">
-        <div class="moat-ratio-text">
-          <strong>El equilibrio exacto:</strong> Ni teoría académica sin código, ni tutoriales superficiales de "copiar y pegar sin entender". Aprenderás a pensar como arquitecto de sistemas y a ejecutar como constructor.
-        </div>
-        <div class="moat-ratio-badge">
-          Ratio: 60% Práctica / 40% Teoría
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Curriculum / Modules Section -->
-  <section class="section reveal-on-scroll" id="programa">
-    <div class="container">
-      <span class="section-eyebrow">Plan de Aprendizaje</span>
-      <h2 class="section-title">5 Semanas. 5 Soluciones Funcionales.</h2>
-      <p class="section-desc">
-        Cada semana resuelves un cuello de botella operativo real y concluyes con una herramienta funcional lista para usar en tu actividad profesional.
-      </p>
-      
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 01</span>
-            <span class="module-time">Fundamentos</span>
-          </div>
-          <div class="module-main">
-            <h3>Asistente con Conocimiento Propio</h3>
-            <p>Estructura instrucciones y bases documentales para que la IA responda sin alucinar y conozca las reglas exactas de tu negocio.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Asistente consultivo entrenado con la documentación de tu empresa y criterio de respuesta verificable.</span>
-          </div>
-        </div>
-
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 02</span>
-            <span class="module-time">Productividad</span>
-          </div>
-          <div class="module-main">
-            <h3>CRM Invisible y Captura de Contactos</h3>
-            <p>Organiza automáticamente prospectos y acuerdos bajo el protocolo OpenWiki de gestión documental, centralizando datos sin digitación manual.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Flujo que extrae y registra clientes desde conversaciones y formularios sin tareas manuales.</span>
-          </div>
-        </div>
-
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 03</span>
-            <span class="module-time">Interfaces</span>
-          </div>
-          <div class="module-main">
-            <h3>Interfaces y Soluciones Visuales</h3>
-            <p>Despliega miniaplicaciones visuales y formularios inteligentes para capturar prospectos y clientes sin programar interfaces complejas.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Portal web interactivo publicado para captación, calificación y agendamiento comercial.</span>
-          </div>
-        </div>
-
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 04</span>
-            <span class="module-time">Automatización</span>
-          </div>
-          <div class="module-main">
-            <h3>Automatización Confiable con Respaldo</h3>
-            <p>Construye flujos seguros con alertas tempranas, respaldo ante caídas y control humano para que nunca fallen a ciegas.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Sistema de automatización supervisado con notificación de excepciones y registro de auditoría.</span>
-          </div>
-        </div>
-
-        <div class="module-item">
-          <div class="module-meta">
-            <span class="module-number">Semana 05</span>
-            <span class="module-time">Integración</span>
-          </div>
-          <div class="module-main">
-            <h3>Equipo de Agentes en Google Antigravity</h3>
-            <p>Diseña y orquesta un equipo de agentes por roles funcionales en Google Antigravity (con OpenWorker como alternativa local y n8n para webhooks de WhatsApp), supervisados por humanos.</p>
-          </div>
-          <div class="module-deliverable">
-            <strong>Proyecto Tangible</strong>
-            <span>Sistema de agentes coordinados por rol ejecutados en Google Antigravity con derivación a WhatsApp o equipo humano (*Human-in-the-Loop*).</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section (Customer-Facing & Svelte) -->
-  <section class="section reveal-on-scroll" id="pricing">
-    <div class="container">
-      <span class="section-eyebrow">Inversión y Modalidades</span>
-      <h2 class="section-title">Elige el Nivel de Acompañamiento Adecuado</h2>
-      <p class="section-desc">
-        Tarifas transparentes en Pesos Colombianos (COP) por cada silla. Cohortes estrictamente reducidas a 18 plazas para garantizar resolución directa, acompañamiento y cero saturación.
-      </p>
-      
-      <div class="pricing-grid">
-        
-        <!-- Taller Base -->
-        <div class="pricing-card">
-          <h3 class="tier-name">Taller Práctico Base</h3>
-          <p class="tier-desc">Para profesionales que buscan aprender construyendo en vivo con acompañamiento interactivo y resolución directa de dudas.</p>
-          <div class="tier-price">
-            <span class="price-cop">$690.000 COP</span>
-            <span class="price-cop-regular">$980.000</span>
-            <div class="price-benchmark">Tarifa preventa por silla · Ahorro de $290.000 COP</div>
-          </div>
-          <ul class="tier-features">
-            <li><strong>Inversión por silla:</strong> Acceso nominal individual para 1 participante</li>
-            <li><strong>100% en vivo:</strong> 5 sesiones interactivas (15 horas) con resolución de preguntas en tiempo real</li>
-            <li><strong>Aprende construyendo:</strong> Arma 5 soluciones operativas funcionales paso a paso</li>
-            <li><strong>Sin AI Slop:</strong> Metodología guiada por especificaciones (<em>Spec-Driven</em>) para resultados robustos</li>
-            <li><strong>Grabación permitida:</strong> Se autoriza a cada participante grabar las sesiones para su estudio</li>
-            <li><strong>Portafolio funcional:</strong> 5 soluciones operativas listas para desplegar en tu actividad</li>
-          </ul>
-          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20inscribirme%20al%20Taller%20Base%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing secondary" target="_blank" rel="noopener">
-            Inscribirme al Taller Base →
+        <div class="hero-cta-group">
+          <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20solicitar%20un%20Diagn%C3%B3stico%20Operativo%20para%20mi%20agencia" class="btn-action btn-primary" target="_blank" rel="noopener">
+            <span>Agendar Diagnóstico Operativo (Sprint 2 semanas)</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="#triada" class="btn-action btn-secondary">
+            <span>Explorar Tríada de Capacidades</span>
           </a>
         </div>
 
-        <!-- Entrenamiento Guiado (Featured) -->
-        <div class="pricing-card featured">
-          <span class="pricing-badge">Mentoría & Auditoría 1-a-1</span>
-          <h3 class="tier-name">Entrenamiento Guiado</h3>
-          <p class="tier-desc">Para profesionales y consultores que buscan mentoría especializada y auditoría técnica individual para sus implementaciones de IA.</p>
-          <div class="tier-price">
-            <span class="price-cop">$1.490.000 COP</span>
-            <span class="price-cop-regular">$2.190.000</span>
-            <div class="price-benchmark">Tarifa preventa por silla · Ahorro de $700.000 COP</div>
+        <!-- 4 Atomic Trust Metrics -->
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-header">Soberanía Tecnológica</div>
+            <div class="trust-title">Código 100% Tuyo</div>
+            <div class="trust-desc">Repositorio propio, sin dependencias propietarias ni licencias cautivas.</div>
           </div>
-          <ul class="tier-features">
-            <li><strong>Inversión por silla:</strong> Mentoría especializada y auditoría directa para 1 participante</li>
-            <li><strong>Todo el Taller Base:</strong> 15 horas de entrenamiento en vivo, metodología Spec-Driven y las 5 soluciones operativas</li>
-            <li><strong>Cero Costos de Tokens:</strong> Consultas creativas, síntesis y transcripción de documentos ilimitadas sin pagar suscripciones recurrentes ni cobros por API a terceros</li>
-            <li><strong>Operación Local y Offline:</strong> Procesamiento seguro en el hardware de tu dispositivo con búsqueda semántica que funciona incluso sin conexión a internet</li>
-            <li><strong>1 Sesión de Auditoría 1-a-1 (45 min):</strong> Consultoría técnica privada para optimizar y validar en producción la arquitectura de automatización de tu negocio</li>
-          </ul>
-          <a href="https://wa.me/573002976815?text=Hola%2C%20me%20gustar%C3%ADa%20postular%20al%20Entrenamiento%20Guiado%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-pricing primary" target="_blank" rel="noopener">
-            Postular al Entrenamiento Guiado →
-          </a>
-        </div>
-
-        <!-- Soluciones para Empresas -->
-        <div class="pricing-card">
-          <h3 class="tier-name">Soluciones para Empresas</h3>
-          <p class="tier-desc">Intervención de consultoría boutique, agentes dedicados en infraestructura privada y desarrollo a medida.</p>
-          <div class="tier-price">
-            <span class="price-cop" style="font-size: 1.6rem;">A la Medida</span>
-            <div class="price-benchmark">Implementación Llave en Mano</div>
+          <div class="trust-card">
+            <div class="trust-header">Supervisión Determinista</div>
+            <div class="trust-title">Human-in-the-Loop</div>
+            <div class="trust-desc">Mecanismos de control donde las decisiones críticas requieren validación humana.</div>
           </div>
-          <div class="thinking-system-highlight">
-            <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener">
-              Respaldado por la arquitectura de Thinking System ↗
-            </a>
+          <div class="trust-card">
+            <div class="trust-header">Enfoque de Ingeniería</div>
+            <div class="trust-title">Teoría de Restricciones</div>
+            <div class="trust-desc">Descongestionamos el cuello de botella real de tu operación según la Ley de Amdahl.</div>
           </div>
-          <ul class="tier-features">
-            <li><strong>Diagnóstico sistémico:</strong> Auditoría de procesos y diseño de Empresa Liviana</li>
-            <li><strong>Desarrollo a medida:</strong> Creación y despliegue de agentes conectados a tu CRM o ERP</li>
-            <li><strong>Infraestructura privada:</strong> Servidores y bases de datos aisladas bajo estricta gobernanza</li>
-            <li><strong>Capacitación in-company:</strong> Entrenamiento para que tu equipo opere con total autonomía</li>
-            <li><strong>SLA y Soporte dedicado:</strong> Mantenimiento continuo y garantía de disponibilidad</li>
-          </ul>
-          <a href="https://wa.me/573002976815?text=Hola%2C%20quisiera%20agendar%20una%20sesi%C3%B3n%20para%20evaluar%20una%20soluci%C3%B3n%20Enterprise%20a%20medida" class="btn-pricing secondary" target="_blank" rel="noopener">
-            Conversar con un Consultor →
-          </a>
-        </div>
-
-      </div>
-
-      <div class="roi-comparison-banner">
-        <div>
-          <strong style="font-family: var(--font-display); font-size: 1.05rem; display: block; margin-bottom: 0.25rem; color: var(--ink);">Retorno Operativo Inmediato (Ecuación de Payback)</strong>
-          <span style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Un asistente administrativo o analista en Colombia devenga entre $2.2M y $3.5M COP/mes con prestaciones. Si la automatización construida le ahorra a tu equipo de 10 a 15 horas semanales en tareas mecánicas, el Taller Base ($690.000 COP) se recupera en las primeras 2 semanas de trabajo operativo.</span>
-        </div>
-        <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 600; color: var(--gold-subtle); background: var(--card-bg); padding: 0.5rem 0.85rem; border-radius: 4px; border: 1px solid var(--border); white-space: nowrap;">
-          Payback estimado: &lt; 15 días
+          <div class="trust-card">
+            <div class="trust-header">Privacidad Estricta</div>
+            <div class="trust-title">Doctrina Zero-Tracking</div>
+            <div class="trust-desc">Cero scripts analíticos de terceros ni fugas de datos (Ley 1581 / GDPR).</div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="guarantee-ribbon">
-        <span><svg class="icon-shield" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <strong>Garantía Total de Retracto (Ley 1480 Art. 47):</strong> 5 días hábiles para evaluar el programa sin riesgo. Reembolso del 100% de tu dinero sin objeciones.</span>
+    <!-- Ecosistema Tecnológico de Ejecución -->
+    <section class="ecosystem-section" aria-label="Tecnologías y Estándares">
+      <div class="container ecosystem-inner">
+        <div class="ecosystem-label">Pila de Ingeniería & Estándares de Integración</div>
+        <div class="ecosystem-badges">
+          <span class="tech-pill">Python & Pydantic</span>
+          <span class="tech-pill">TypeScript & Node</span>
+          <span class="tech-pill">n8n Auto-Hospedado</span>
+          <span class="tech-pill">PostgreSQL & Redis</span>
+          <span class="tech-pill">Google Antigravity</span>
+          <span class="tech-pill">OpenWorker Harness</span>
+          <span class="tech-pill">Jira & ClickUp APIs</span>
+          <span class="tech-pill">Linear & Slack Webhooks</span>
+          <span class="tech-pill">GitHub Actions CI/CD</span>
+        </div>
       </div>
+    </section>
 
-      <div style="margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted);">
-        * Equivalencia de referencia internacional: Taller Base ~$222 USD · Entrenamiento Guiado ~$480 USD (TRM $3.100 COP/USD). Inversión por cada silla · Cupos limitados estrictamente a 18 plazas.
-      </div>
-    </div>
-  </section>
+    <!-- Tríada de Capacidades -->
+    <section id="triada" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Arquitectura de Servicio</span>
+          <h2 class="section-title">La Tríada de Capacidades de Boutique Digital</h2>
+          <p class="section-subtitle">
+            No ofrecemos herramientas aisladas ni promesas vacías. Integramos ingeniería de software, excelencia operacional e investigación epistemológica en una estructura coordinada.
+          </p>
+        </div>
 
-  <!-- FAQs Section (Interactive Dropdown List) -->
-  <section class="section reveal-on-scroll" id="faqs">
-    <div class="container">
-      <span class="section-eyebrow">Resolución de Dudas</span>
-      <h2 class="section-title">Preguntas Frecuentes</h2>
-      <p class="section-desc">
-        Respuestas directas y transparentes. Haz clic en cada consulta para desplegar los detalles.
-      </p>
-      
-      <div class="faq-accordion-list">
-        
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Qué herramientas y metodologías aprenderé a lo largo de las 5 semanas?</summary>
-          <div class="faq-content">
-            El programa combina <strong>marcos de ingeniería operativa</strong> con una <strong>pila tecnológica agnóstica</strong>, diseñada para construir con criterio profesional y sin dependencia de un único proveedor:
-            <ul style="margin: 0.6rem 0 0.6rem 1.25rem; line-height: 1.65;">
-              <li><strong>Marcos Metodológicos (Cómo Pensar y Estructurar):</strong>
-                <ul style="margin: 0.35rem 0 0.35rem 1.2rem;">
-                  <li><em>Teoría de Restricciones (TOC):</em> Identificación del cuello de botella real de tu operación antes de automatizar, garantizando retorno antes de conectar flujos.</li>
-                  <li><em>Desarrollo Guiado por Especificaciones (Spec-Driven):</em> Uso del protocolo de gestión documental estructurada <strong>OpenWiki</strong> para definir requerimientos claros y erradicar el <em>AI Slop</em> (chatarra sintética y pifias).</li>
-                  <li><em>Heurística de Prompts Maestros:</em> Embudo de refinamiento en 3 fases para llevar cualquier idea en bruto a producción: 
-                    <strong>1. IA Socrática</strong> (clarificación recursiva) → 
-                    <strong>2. IA Arquitecta</strong> (modularidad y contratos) → 
-                    <strong>3. IA Abogado del Diablo</strong> (crítica adversaria y autocorrección).</li>
-                  <li><em>Supervisión Humana (Human-in-the-Loop):</em> Consenso multi-modelo y protocolos de aprobación humana en decisiones críticas.</li>
-                </ul>
+        <div class="triad-grid">
+          <!-- Capacidad 1: Software Consulting -->
+          <article class="triad-card triad-card-main reveal-on-scroll">
+            <div class="card-tag">Pilar 01 · Ejecución Técnica</div>
+            <h3 class="card-title">Consultoría de Software (Software Consulting)</h3>
+            <p class="card-desc">
+              Desarrollamos soluciones a medida, microservicios e integraciones deterministas sobre la infraestructura propia de tu empresa.
+            </p>
+            <ul class="capability-list">
+              <li class="capability-item">
+                <span class="capability-item-bullet">01</span>
+                <span>APIs robustas e integraciones bidireccionales con Jira, ClickUp, Linear, Slack y CRM.</span>
               </li>
-              <li><strong>Pila Tecnológica Agnóstica (Con Qué Construir):</strong>
-                <ul style="margin: 0.35rem 0 0.35rem 1.2rem;">
-                  <li><em>Modelos Fundacionales:</em> Criterio para seleccionar el modelo idóneo entre <strong>Claude</strong>, <strong>DeepSeek</strong>, <strong>Mistral AI</strong> y <strong>OpenAI</strong> según costo, ventana de contexto y latencia.</li>
-                  <li><em>Entornos de Google:</em> Curaduría y verdad operativa en <strong>Google NotebookLM</strong>, asistentes con <strong>Gems/Skills</strong> y desarrollo agéntico en <strong>Google Antigravity</strong>.</li>
-                  <li><em>Interfaces Rápidas:</em> Despliegue de herramientas y portales interactivos con <strong>Lovable</strong> y <strong>Google Stitch</strong> sin requerir desarrollo frontend.</li>
-                  <li><em>Orquestación y Agentes:</em> Flujos en <strong>n8n</strong> (en VPS propio), canales con <strong>WhatsApp Business API / Telegram</strong> y despliegue de agentes en <strong>Google Antigravity</strong> y <strong>OpenWorker</strong> (como alternativa local).</li>
-                </ul>
+              <li class="capability-item">
+                <span class="capability-item-bullet">02</span>
+                <span>Pipelines de datos estructurados con validación estricta de esquemas (JSON Schema / Pydantic).</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">03</span>
+                <span>Arneses agénticos soberanos con sandboxes de ejecución y principio de mínimo privilegio.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">04</span>
+                <span>Manejo de fallos parciales, colas de mensajes muertos (DLQ), idempotencia y backoff exponencial.</span>
               </li>
             </ul>
-          </div>
-        </details>
+          </article>
 
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Puedo aplicar esto en mi industria (logística, manufactura, salud, diseño de planta o servicios)?</summary>
-          <div class="faq-content">
-            <strong>Totalmente. El programa es 100% multidominio.</strong> No enseñamos recetas cerradas para un solo nicho, sino fundamentos universales de automatización, orquestación de datos y desarrollo guiado por especificaciones (<em>Spec-Driven Development</em>). Ya sea que operes en logística coordinando despachos y transportistas, en manufactura monitoreando inventarios y plantas, en una clínica agendando pacientes o en consultoría legal y financiera analizando expedientes, las soluciones que construyes se adaptan a cualquier flujo de trabajo. Tu rol como contribuidor individual es pasar de cero a convertirte en un <strong>Vibe Coder</strong> que resuelve problemas reales sin generar <em>AI Slop</em> (chatarra sintética ni pifias de código inservible).
-          </div>
-        </details>
+          <!-- Capacidad 2: Operations Consulting -->
+          <article class="triad-card triad-card-main reveal-on-scroll">
+            <div class="card-tag">Pilar 02 · Eficiencia & Flujo</div>
+            <h3 class="card-title">Consultoría de Operaciones (Operations Consulting)</h3>
+            <p class="card-desc">
+              Rediseñamos la cadena de valor de tu agencia para acortar tiempos de ciclo, eliminar retrabajo manual y blindar el margen bruto.
+            </p>
+            <ul class="capability-list">
+              <li class="capability-item">
+                <span class="capability-item-bullet">01</span>
+                <span>Mapeo AS-IS &rarr; TO-BE focalizado en el cuello de botella (Teoría de Restricciones).</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">02</span>
+                <span>Protocolos Human-in-the-Loop (HitL) con umbrales de certidumbre y detención humana.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">03</span>
+                <span>Estandarización de criterios de aceptación (Definition of Done) para entregas sin fricción.</span>
+              </li>
+              <li class="capability-item">
+                <span class="capability-item-bullet">04</span>
+                <span>Auditoría de capacidad y tiempos de entrega basada en la Ley de Little y Ley de Amdahl.</span>
+              </li>
+            </ul>
+          </article>
 
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Se puede pagar a cuotas o diferir el valor?</summary>
-          <div class="faq-content">
-            No. El valor publicado ya incluye el descuento especial directo por cada silla en tarifa de preventa. El pago se realiza en una sola transacción para garantizar la reserva del cupo dentro de las 18 plazas exclusivas disponibles por cohorte.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Cuáles son los horarios y la fecha de inicio del próximo batch?</summary>
-          <div class="faq-content">
-            Las sesiones en vivo se realizan los días <strong>miércoles de 7:00 PM a 10:00 PM (hora Bogotá / Colombia, GMT-5)</strong>, con 3 horas de intensidad práctica por encuentro. El nuevo batch de lanzamiento inicia el <strong>miércoles 25 de noviembre de 2026</strong>.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Entregan certificado o diploma de asistencia?</summary>
-          <div class="faq-content">
-            <strong>No.</strong> No entregamos certificados digitales ni diplomas de papel para colgar en LinkedIn. Este es un espacio 100% <em>hands-on</em>: vienes a ensuciarte las manos y construir con tus propias manos soluciones funcionales reales sin ser un programador experto. Tu verdadera credencial son tus herramientas operando en producción y habilidades prácticas de por vida que seguirás perfeccionando por tu cuenta.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Las sesiones son grabadas o en vivo?</summary>
-          <div class="faq-content">
-            Todo es <strong>100% en vivo e interactivo</strong>. Nada es pregrabado; resolvemos dudas y construimos en tiempo real durante cada sesión. Además, <strong>se permite a cada participante grabar las sesiones</strong> para su posterior consulta y estudio personal.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Necesito conocimientos previos de programación?</summary>
-          <div class="faq-content">
-            No. Aprenderás a utilizar lenguaje natural y herramientas visuales para estructurar automatizaciones y aplicaciones. El enfoque está en ensuciarse las manos con la lógica operativa y en saber dirigir las herramientas, sin memorizar código tradicional.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Cómo se maneja la privacidad y la confidencialidad de mis datos?</summary>
-          <div class="faq-content">
-            La privacidad y la soberanía de los datos son transversales en todo el programa. Para arrancar con velocidad y sin fricción de configuración, las primeras soluciones se construyen dentro de ecosistemas comerciales consolidados. Una vez afianzados los fundamentos operativos, compartimos y exploramos <strong>alternativas de código abierto y ejecución local</strong> (modelos y entornos en tu propio equipo o servidor privado) para garantizar que la información sensible de tu negocio o clientes nunca viaje a servidores de terceros ni entrene modelos ajenos.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Tendré que pagar suscripciones costosas a otras herramientas?</summary>
-          <div class="faq-content">
-            No es obligatorio. Todos los proyectos están diseñados para realizarse con las versiones gratuitas de las herramientas recomendadas. Si más adelante decides contratar planes de pago, será por conveniencia operativa y volumen de tu negocio.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Qué garantía de satisfacción ofrecen?</summary>
-          <div class="faq-content">
-            Cumplimos con el Artículo 47 de la Ley 1480 de 2011 (Estatuto del Consumidor en Colombia). Tienes <strong>cinco (5) días hábiles</strong> tras tu inscripción para evaluar el programa. Si no cumple tus expectativas, te reembolsamos el 100% de tu dinero sin objeciones.
-          </div>
-        </details>
-
-        <details class="faq-accordion">
-          <summary class="faq-summary">¿Cómo funcionan las soluciones e implementaciones para empresas?</summary>
-          <div class="faq-content">
-            Iniciamos con un diagnóstico operativo y un proyecto piloto de alto impacto y bajo riesgo. Una vez comprobado el retorno de inversión y la eficiencia operativa, integramos soluciones más complejas en los servidores o herramientas de tu empresa bajo la arquitectura sistémica de <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--gold-subtle); text-decoration: underline;">Thinking System</a>.
-          </div>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Final High-Urgency CTA Section (Closing Funnel) -->
-  <section class="section section-cta-final reveal-on-scroll" id="cierre">
-    <div class="container">
-      <div class="cta-final-card">
-        <span class="cta-final-eyebrow">● Convocatoria Noviembre 2026 · Cupos Limitados</span>
-        <h2 class="cta-final-title">¿Listo para transformar tareas manuales en sistemas autónomos?</h2>
-        <p class="cta-final-lead">
-          Pasa de usar chatbots sueltos a dirigir soluciones en producción con tus propias manos. 18 plazas exclusivas por cohorte con resolución interactiva en tiempo real.
-        </p>
-        <div class="cta-final-actions">
-          <a href="https://wa.me/573002976815?text=Hola%2C%20quiero%20asegurar%20mi%20cupo%20en%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="btn-primary btn-cta-pulse" target="_blank" rel="noopener">
-            Asegurar Mi Plaza por WhatsApp ↗
-          </a>
-          <a href="#pricing" class="btn-secondary">
-            Comparar Planes e Inversión ↓
-          </a>
-        </div>
-        <div class="cta-final-guarantees">
-          <span>✔ Inversión en COP sin cobros ocultos</span>
-          <span>✔ Garantía 100% devolución 5 días (Ley 1480)</span>
-          <span>✔ Cero cookies ni rastreo invasivo (Ley 1581)</span>
+          <!-- Capacidad 3: Knowledge (Reside en Casa Matriz) -->
+          <article class="triad-card triad-card-knowledge reveal-on-scroll">
+            <div class="knowledge-layout">
+              <div>
+                <div class="card-tag">Pilar 03 · Epistemología & Gobernanza Upstream</div>
+                <h3 class="card-title">Generación de Conocimiento (Knowledge / Research & Analytics)</h3>
+                <p class="card-desc" style="margin-bottom: 0;">
+                  Esta capacidad reside formalmente en nuestra Casa Matriz, <strong>Thinking-as-a-Service</strong>. Desde allí se investigan marcos de complejidad, evaluación de modelos de frontera (siguiendo publicaciones de Harvard HDSR/HBR 2026, Stanford y ACM) y protocolos adversariales que garantizan que las soluciones de Boutique Digital estén protegidas contra el hype y la obsolescencia.
+                </p>
+              </div>
+              <div>
+                <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" class="knowledge-link">
+                  <span>Explorar Casa Matriz: Thinking-as-a-Service</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer & Legal Center -->
-  <footer id="legal">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <h4>Thinking as a Service</h4>
-          <span style="display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-subtle); margin-bottom: 0.5rem;">Ecosistema Matriz de Simplicidad Sistémica</span>
-          <p style="margin-top: 0.5rem; line-height: 1.6;">
-            <strong>Thinking as a Service</strong> es la firma de consultoría y modelado de complejidad sistémica para comités de dirección y organizaciones de alto impacto. <strong>Automatización e IA Aplicada</strong> es su boutique digital formativa y operativa, creada para que profesionales, consultores y empresas livianas construyan flujos de trabajo autónomos sin requerir formación previa en programación.
+    <!-- Perfil de Cliente Ideal (ICP) vs Buyer Personas -->
+    <section id="icp" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Alineación de Negocio</span>
+          <h2 class="section-title">Para Quién Diseñamos: ICP & Roles Clave</h2>
+          <p class="section-subtitle">
+            Diferenciamos formalmente el tipo de organización al que servimos de los roles directivos y operativos que lideran la transformación.
           </p>
-          <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.75rem;">
-            Línea WhatsApp Directa: +57 300 297 6815 · Colombia
+        </div>
+
+        <!-- ICP Organizacional -->
+        <div class="icp-banner reveal-on-scroll">
+          <div class="card-tag">Perfil de Cliente Ideal (ICP Organizacional)</div>
+          <h3 class="card-title" style="font-size: 1.35rem;">Empresas Livianas & Agencias de Servicios Profesionales</h3>
+          <div class="icp-grid">
+            <div>
+              <div class="icp-col-title">Organizaciones Objetivo</div>
+              <p class="icp-item-text">
+                Agencias digitales de software, diseño de producto, UX/UI y marketing de <strong>15 a 150 colaboradores</strong>, así como consultoras y firmas profesionales intensivas en conocimiento que facturan por proyectos o retainers mensuales.
+              </p>
+            </div>
+            <div>
+              <div class="icp-col-title">El Problema Estructural</div>
+              <p class="icp-item-text">
+                Erosión de margen bruto porque los perfiles más calificados consumen entre el 30% y el 45% de sus horas en coordinación manual, reportes repetitivos y persecución de aprobaciones en lugar de trabajo facturable de alto valor.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="footer-links">
-          <h5>Marco Legal</h5>
-          <ul>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/privacidad.md" target="_blank" rel="noopener">Política de Privacidad (Cero Rastreo) ↗</a></li>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/terminos.md" target="_blank" rel="noopener">Términos y Condiciones ↗</a></li>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/exoneracion-responsabilidad.md" target="_blank" rel="noopener">Exoneración de Responsabilidad ↗</a></li>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/derechos-de-autor.md" target="_blank" rel="noopener">Derechos de Autor y Licencia ↗</a></li>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/LICENSE" target="_blank" rel="noopener">Licencia Oficial de Procedencia ↗</a></li>
+
+        <!-- Buyer Personas -->
+        <div class="personas-grid">
+          <!-- Persona 1: COO -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Director de Operaciones / COO</div>
+            <div class="persona-badge">Comprador Económico</div>
+            <div class="persona-block">
+              <div class="persona-label">Dolor Principal</div>
+              <div class="persona-content">Fricción en cronogramas, descontrol de horas y margen erosionado por retrabajo.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Métrica Clave</div>
+              <div class="persona-content">EBITDA por empleado, utilización facturable y cumplimiento de SLAs.</div>
+            </div>
+            <div class="persona-quote">
+              "Optimizamos el cuello de botella de tu flujo actual protegiendo el margen sin interrumpir tus cuentas activas."
+            </div>
+          </div>
+
+          <!-- Persona 2: DPM -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Digital Project Manager / Delivery Lead</div>
+            <div class="persona-badge">Campeón del Dolor Cotidiano</div>
+            <div class="persona-block">
+              <div class="persona-label">Dolor Principal</div>
+              <div class="persona-content">Sobrecarga de tareas manuales, persecución de aprobaciones por Slack y scope creep.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Métrica Clave</div>
+              <div class="persona-content">Entregas a tiempo, velocidad del equipo y reducción de horas de reporte.</div>
+            </div>
+            <div class="persona-quote">
+              "Sistemas supervisados con alertas tempranas y respaldo humano que jamás ejecutan acciones a ciegas."
+            </div>
+          </div>
+
+          <!-- Persona 3: Tech Lead -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Tech Lead / CTO</div>
+            <div class="persona-badge">Guardián Técnico</div>
+            <div class="persona-block">
+              <div class="persona-label">Dolor Principal</div>
+              <div class="persona-content">Deuda técnica por automatizaciones no-code frágiles, alucinaciones y fuga de datos.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Métrica Clave</div>
+              <div class="persona-content">Disponibilidad, idempotencia de APIs, seguridad y código auditable.</div>
+            </div>
+            <div class="persona-quote">
+              "Arquitectura guiada por especificación, código desacoplado y despliegue en tu propia infraestructura."
+            </div>
+          </div>
+
+          <!-- Persona 4: CEO -->
+          <div class="persona-card reveal-on-scroll">
+            <div class="persona-role">Managing Partner / CEO</div>
+            <div class="persona-badge">Aprobador Estratégico</div>
+            <div class="persona-block">
+              <div class="persona-label">Dolor Principal</div>
+              <div class="persona-content">Necesidad de contratar linealmente más personas para poder aumentar la facturación.</div>
+            </div>
+            <div class="persona-block">
+              <div class="persona-label">Métrica Clave</div>
+              <div class="persona-content">Crecimiento desacoplado de la nómina y reputación intachable de entrega.</div>
+            </div>
+            <div class="persona-quote">
+              "Te convertimos en una Empresa Liviana con la capacidad de entrega de una firma con el triple de tamaño."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metodología de Intervención & Test Ácido -->
+    <section id="metodologia" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Rigor de Ingeniería</span>
+          <h2 class="section-title">Cómo Trabajamos: Del Diagnóstico al Test Ácido</h2>
+          <p class="section-subtitle">
+            Un proceso disciplinado que sustituye la improvisación y el ensayo-error por especificaciones formales y validación adversarial.
+          </p>
+        </div>
+
+        <div class="method-steps">
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">FASE 01</div>
+            <div class="step-title">Sprint de Diagnóstico & ToC</div>
+            <div class="step-text">
+              2 semanas de auditoría operativa. Mapeo AS-IS, identificación del cuello de botella real y definición de contratos de solución.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">FASE 02</div>
+            <div class="step-title">Selección Proporcional</div>
+            <div class="step-text">
+              Elegimos la arquitectura mínima necesaria: reglas deterministas &rarr; pipelines &rarr; LLMs &rarr; agentes autónomos solo donde se justifica.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">FASE 03</div>
+            <div class="step-title">Construcción Supervisada</div>
+            <div class="step-text">
+              Implementación en tu propio repositorio con arnés controlado, manejo de fallos parciales y compuertas Human-in-the-Loop.
+            </div>
+          </div>
+          <div class="step-card reveal-on-scroll">
+            <div class="step-number">FASE 04</div>
+            <div class="step-title">Validación Adversarial</div>
+            <div class="step-text">
+              Sometemos el sistema al Test Ácido en 5 dimensiones antes de promover cualquier flujo a producción.
+            </div>
+          </div>
+        </div>
+
+        <!-- Protocolo del Test Ácido -->
+        <div class="acid-box reveal-on-scroll">
+          <div class="acid-header">Protocolo Transversal de Seguridad & Calidad</div>
+          <h3 class="acid-title">Las 5 Dimensiones del Test Ácido</h3>
+          <p class="acid-desc">
+            Antes de autorizar la entrega de cualquier desarrollo, el sistema debe superar una batería exhaustiva de desafíos adversariales:
+          </p>
+          <div class="acid-grid">
+            <div class="acid-item">
+              <div class="acid-item-title">1. Epistemológico</div>
+              <div class="acid-item-desc">¿Las afirmaciones están respaldadas por fuentes primarias verificables? Cero alucinaciones sin pruebas.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">2. Arquitectónico</div>
+              <div class="acid-item-desc">¿Cumple los límites de latencia, coste y throughput? Respeto a la Ley de Amdahl.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">3. Resiliencia & Fallos</div>
+              <div class="acid-item-desc">¿Qué ocurre ante caídas de API o webhooks duplicados? Idempotencia y colas de mensajes muertos.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">4. Gobernanza & HitL</div>
+              <div class="acid-item-desc">¿Quién asume la responsabilidad operativa? Mínimo privilegio y revisión humana obligatoria.</div>
+            </div>
+            <div class="acid-item">
+              <div class="acid-item-title">5. Anti-Outcome Bias</div>
+              <div class="acid-item-desc">Criterios de éxito registrados antes de las pruebas. Prohibido ajustar métricas a posteriori.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modelos de Contratación B2B -->
+    <section id="modelos" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Modalidades de Trabajo</span>
+          <h2 class="section-title">Modelos de Contratación B2B</h2>
+          <p class="section-subtitle">
+            Estructuras transparentes adaptadas a la madurez operativa de tu agencia, con entregables verificables y transferencia total.
+          </p>
+        </div>
+
+        <div class="engagement-grid">
+          <!-- Modelo 1 -->
+          <div class="engagement-card reveal-on-scroll">
+            <div class="engagement-eyebrow">Diagnóstico & Estrategia</div>
+            <h3 class="engagement-title">Sprint de Diagnóstico Operativo</h3>
+            <p class="engagement-desc">
+              Intervención intensiva de 2 semanas para radiografiar la fricción de entrega de tu agencia y diseñar la arquitectura TO-BE.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">Mapeo AS-IS de procesos y cuellos de botella con tiempos de ciclo.</li>
+              <li class="deliverable-item">Matriz de selección proporcional (Reglas vs. Pipelines vs. Agentes).</li>
+              <li class="deliverable-item">Documento de arquitectura (ADR) y contratos de especificación técnica.</li>
+              <li class="deliverable-item">Prototipo funcional supervisado para validar viabilidad en tu stack.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20solicitar%20un%20Sprint%20de%20Diagn%C3%B3stico%20Operativo" class="btn-action btn-secondary" target="_blank" rel="noopener">
+              Solicitar Sprint de 2 Semanas
+            </a>
+          </div>
+
+          <!-- Modelo 2 -->
+          <div class="engagement-card featured reveal-on-scroll">
+            <div class="engagement-eyebrow">Ingeniería Llave en Mano</div>
+            <h3 class="engagement-title">Implementación a Medida</h3>
+            <p class="engagement-desc">
+              Desarrollo completo de la solución agéntica o canalizaciones de software, desplegada en tu propia nube o infraestructura privada.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">Desarrollo de microservicios y conectores en Python / TypeScript.</li>
+              <li class="deliverable-item">Arnés agéntico con guardrails de seguridad y control Human-in-the-Loop.</li>
+              <li class="deliverable-item">Pruebas automatizadas y certificación con el Test Ácido.</li>
+              <li class="deliverable-item">Transferencia total de propiedad del código y documentación operativa.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20cotizar%20una%20Implementaci%C3%B3n%20a%20Medida%20para%20mi%20empresa" class="btn-action btn-primary" target="_blank" rel="noopener">
+              Cotizar Proyecto a Medida
+            </a>
+          </div>
+
+          <!-- Modelo 3 -->
+          <div class="engagement-card reveal-on-scroll">
+            <div class="engagement-eyebrow">Acompañamiento Continuo</div>
+            <h3 class="engagement-title">Retainer de Alianza & Kaizen</h3>
+            <p class="engagement-desc">
+              Soporte de ingeniería y optimización continua mes a mes para mantener, auditar y evolucionar tus sistemas en producción.
+            </p>
+            <ul class="engagement-deliverables">
+              <li class="deliverable-item">Monitoreo proactivo de estabilidad, SLAs y consumo de tokens.</li>
+              <li class="deliverable-item">Mantenimiento adaptativo ante actualizaciones de APIs y modelos.</li>
+              <li class="deliverable-item">Ciclos mensuales de mejora continua (Kaizen) de tiempos de ciclo.</li>
+              <li class="deliverable-item">Canal directo prioritario de ingeniería y resolución de incidencias.</li>
+            </ul>
+            <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20conversar%20sobre%20el%20Retainer%20de%20Alianza%20Kaizen" class="btn-action btn-secondary" target="_blank" rel="noopener">
+              Consultar Disponibilidad Retainer
+            </a>
+          </div>
+        </div>
+
+        <p class="disclaimer-footnote">
+          * Equivalencia de referencia internacional expresada con fines indicativos para contratos fuera de Colombia. Facturación oficial regulada bajo contratos de servicios profesionales con alcance acordado.
+        </p>
+      </div>
+    </section>
+
+    <!-- Habilitación Corporativa On-Demand -->
+    <section id="habilitacion" class="section">
+      <div class="container">
+        <div class="training-box reveal-on-scroll">
+          <div>
+            <div class="card-tag">Habilitación Corporativa In-Company</div>
+            <h2 class="training-title">Minería de Procesos con Agentes de IA</h2>
+            <p class="training-desc">
+              Ofrecemos formación corporativa on-demand y transferencia soberana de capacidades (*Capability Handover*) para que los equipos internos de tu agencia dominen el diseño, construcción y gobernanza de sus propios agentes.
+            </p>
+            <div class="training-features">
+              <span class="training-chip">Sprint in-company de 1 a 2 semanas</span>
+              <span class="training-chip">Enfocado en líderes de operaciones y desarrolladores</span>
+              <span class="training-chip">Basado en proyectos reales del cliente</span>
+              <span class="training-chip">Metodología derivada de Casa Matriz TaaS</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20solicitar%20informaci%C3%B3n%20sobre%20la%20Habilitaci%C3%B3n%20Corporativa%20In-Company" class="btn-action btn-secondary" style="width: 100%; text-align: center;" target="_blank" rel="noopener">
+              Solicitar Programa In-Company &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas Frecuentes (FAQs) -->
+    <section id="faqs" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-eyebrow">Claridad Sin Fricción</span>
+          <h2 class="section-title">Preguntas Frecuentes de Directores y Líderes</h2>
+          <p class="section-subtitle">
+            Respuestas directas a las dudas habituales de directores de operaciones y líderes tecnológicos antes de iniciar una colaboración.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">¿Quién es el dueño del código y las automatizaciones desarrolladas?</summary>
+            <div class="faq-content">
+              El cliente es el propietario absoluto y exclusivo del 100% del código fuente, configuraciones y documentación entregados. Todo se despliega en tus propios repositorios y en tu infraestructura de nube (AWS, GCP, servidores propios o plataformas auto-hospedadas). Cero licencias cautivas y cero vendor lock-in.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">¿Cómo aseguran que los agentes no cometan errores o alucinen en decisiones críticas?</summary>
+            <div class="faq-content">
+              Diseñamos bajo el principio estricto de Human-in-the-Loop (HitL). Los agentes ejecutan trabajo preparatorio (resúmenes, validaciones de esquemas, propuestas de asignación), pero cualquier acción irreversible, financiera o de entrega a clientes requiere la aprobación explícita de un operador humano mediante interfaces diseñadas para minimizar la carga cognitiva.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">¿Qué diferencia a Boutique Digital de agencias que ofrecen automatizaciones no-code?</summary>
+            <div class="faq-content">
+              Aplicamos rigor de ingeniería de software formal: tipado estricto, pruebas automatizadas, control de versiones, manejo de fallos parciales, idempotencia de APIs y sandboxes con mínimo privilegio. No construimos soluciones frágiles que se rompen con un cambio menor de interfaz; desarrollamos sistemas desacoplados y resilientes.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">¿Cómo se articula el trabajo con la Casa Matriz Thinking-as-a-Service?</summary>
+            <div class="faq-content">
+              Thinking-as-a-Service actúa como el hub epistemológico y de investigación de frontera. Provee a Boutique Digital los marcos conceptuales, políticas anti-slop, criterios de auditoría adversarial (Test Ácido) y evaluación de publicaciones de Harvard, Stanford y ACM, asegurando que cada implementación responda a fundamentos matemáticos y organizacionales sólidos.
+            </div>
+          </details>
+
+          <details class="faq-item reveal-on-scroll">
+            <summary class="faq-summary">¿Cuál es el primer paso para evaluar si nuestro flujo califica para una intervención?</summary>
+            <div class="faq-content">
+              El punto de entrada natural es nuestro Sprint de Diagnóstico Operativo (2 semanas). En él auditamos tu flujo actual de trabajo, identificamos la restricción principal y te entregamos un mapa TO-BE con la especificación técnica de la solución recomendada, permitiéndote tomar decisiones informadas antes de comprometer recursos de implementación mayores.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre de Conversión -->
+    <section class="cta-final-section">
+      <div class="container">
+        <div class="cta-final-card reveal-on-scroll">
+          <span class="section-eyebrow">Conversación Inicial</span>
+          <h2 class="cta-final-title">Diseñemos un flujo operativo que proteja tus márgenes</h2>
+          <p class="cta-final-subtitle">
+            Conversemos sobre las restricciones de tu agencia y evaluemos si un Sprint de Diagnóstico de 2 semanas es el paso indicado para tu equipo.
+          </p>
+          <div class="cta-final-actions">
+            <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20solicitar%20un%20Diagn%C3%B3stico%20Operativo%20para%20mi%20agencia" class="btn-action btn-primary" target="_blank" rel="noopener">
+              <span>Agendar Diagnóstico Operativo en WhatsApp</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Legal & Provenance -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">Boutique Digital</div>
+          <p class="footer-brand-desc">
+            Firma de consultoría de software y optimización de operaciones para agencias digitales y empresas livianas. Vinculada a la Casa Matriz <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" style="color: var(--color-ink-primary); font-weight: 600;">Thinking-as-a-Service</a> para investigación epistemológica y gobernanza de sistemas.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Capacidades</div>
+          <ul class="footer-links">
+            <li><a href="#triada">Consultoría de Software</a></li>
+            <li><a href="#triada">Consultoría de Operaciones</a></li>
+            <li><a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener">Knowledge (Thinking-as-a-Service)</a></li>
+            <li><a href="#habilitacion">Habilitación In-Company</a></li>
           </ul>
         </div>
-        <div class="footer-links">
-          <h5>Ecosistema</h5>
-          <ul>
-            <li><a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener">Thinking-as-a-Service (Matriz) ↗</a></li>
-            <li><a href="https://github.com/willkwolf/automatizar-con-ia-" target="_blank" rel="noopener">Repositorio Abierto en GitHub ↗</a></li>
-            <li><a href="#programa">Programa de 5 Semanas</a></li>
-            <li><a href="#faqs">Preguntas Frecuentes</a></li>
-            <li><a href="sitemap.xml">Mapa del Sitio XML</a></li>
+
+        <div>
+          <div class="footer-heading">Gobernanza & Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/privacidad.md" target="_blank" rel="noopener">Política de Privacidad</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/terminos.md" target="_blank" rel="noopener">Términos de Contratación</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/exoneracion-responsabilidad.md" target="_blank" rel="noopener">Exoneración de Responsabilidad</a></li>
+            <li><a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/derechos-de-autor.md" target="_blank" rel="noopener">Derechos de Autor</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-legal-bar">
+      <div class="footer-bottom">
         <div>
-          © 2026 Thinking as a Service / Boutique Digital · Todos los derechos reservados.
+          &copy; 2026 Boutique Digital · Todos los derechos reservados.
         </div>
         <div>
-          Cumplimiento Ley 1581 de 2012 (Habeas Data) y Ley 1480 de 2011 (Estatuto del Consumidor).
+          Doctrina Zero-Tracking · Privacidad por diseño (Ley 1581 de 2012 / GDPR)
         </div>
-      </div>
-
-      <!-- Formal Licensing & Provenance Notice -->
-      <div class="canonical-watermark" data-provenance="boutique-digital-authoritative">
-        <strong>Marco Legal, Licencia y Atribución Canónica:</strong> Este sitio web y sus componentes forman parte del repositorio oficial <a href="https://github.com/willkwolf/automatizar-con-ia-" rel="canonical author" target="_blank" rel="noopener">willkwolf/automatizar-con-ia-</a> bajo los términos de la <a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/LICENSE" target="_blank" rel="noopener">Licencia Oficial de Atribución</a> y la gobernanza de <a href="https://willkwolf.github.io/Thinking-as-a-Service/" rel="parent-origin" target="_blank" rel="noopener">Thinking-as-a-Service</a>. Consulta el <a href="https://github.com/willkwolf/automatizar-con-ia-/blob/main/legal/derechos-de-autor.md" target="_blank" rel="noopener">Aviso de Derechos de Autor y Procedencia</a> para detalles sobre uso permitido y restricciones.
       </div>
     </div>
   </footer>
 
-  <!-- Floating Sticky WhatsApp Conversion Pill -->
-  <a href="https://wa.me/573002976815?text=Hola%2C%20tengo%20una%20consulta%20r%C3%A1pida%20sobre%20el%20programa%20de%20Automatizaci%C3%B3n%20con%20IA" class="floating-whatsapp-pill" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
-    <span class="pulse-dot"></span>
-    <span>WhatsApp Directo</span>
-    <span class="pill-arrow">↗</span>
-  </a>
-
-  <!-- Lightweight Vanilla Interaction Script (Zero external tracking, 100% native) -->
+  <!-- Script Minimalista de Scroll Reveal (Emil Kowalski <= 280ms) -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // IntersectionObserver for progressive scroll reveal
+    (function () {
       if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
             if (entry.isIntersecting) {
               entry.target.classList.add('is-revealed');
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
 
-        document.querySelectorAll('.reveal-on-scroll').forEach(function(el) {
+        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
           observer.observe(el);
         });
       } else {
-        // Fallback for older browsers
-        document.querySelectorAll('.reveal-on-scroll').forEach(function(el) {
+        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
           el.classList.add('is-revealed');
         });
       }
-    });
+    })();
   </script>
-
 </body>
 </html>
