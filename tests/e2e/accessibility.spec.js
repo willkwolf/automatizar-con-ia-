@@ -141,21 +141,21 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
 
   test('Dedicated B2B Enterprise Training Section - 2-Div Architecture & Sales CTA', async ({ page }) => {
     await page.goto('/');
-    const b2bSection = page.locator('.b2b-training-section');
+    const b2bSection = page.locator('#habilitacion .b2b-training-section');
     await expect(b2bSection).toBeVisible();
 
-    const container = page.locator('.b2b-training-container');
+    const container = page.locator('#habilitacion .b2b-training-container');
     const directDivs = container.locator('> div');
     expect(await directDivs.count()).toBe(2);
 
     // Div 1: Overview
-    const overview = page.locator('.b2b-training-overview');
+    const overview = page.locator('#habilitacion .b2b-training-overview');
     await expect(overview).toBeVisible();
-    await expect(overview).toContainText('Programa Ejecutivo');
+    await expect(overview).toContainText('Formación Directiva');
     await expect(overview).toContainText('Audiencia Objetivo');
 
     // Div 2: Curriculum & CTA
-    const curriculum = page.locator('.b2b-training-curriculum');
+    const curriculum = page.locator('#habilitacion .b2b-training-curriculum');
     await expect(curriculum).toBeVisible();
     await expect(curriculum).toContainText('Fase 01');
     await expect(curriculum).toContainText('Fase 04');
@@ -183,15 +183,16 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     const figHeaders = section.locator('.showcase-visual-header');
     expect(await figHeaders.count()).toBe(3);
 
-    // Verify NO button fatigue inside methodology (CTAs are preserved in #modelos)
+    // Verify NO button fatigue inside methodology
     const methodBtns = section.locator('.btn-action');
     expect(await methodBtns.count()).toBe(0);
 
-    // Verify subsequent #modelos section has the commercial B2B contract vehicles with buttons
-    const modelosSection = page.locator('#modelos');
-    await expect(modelosSection).toBeVisible();
-    const engagementBtns = modelosSection.locator('.btn-action');
-    expect(await engagementBtns.count()).toBe(3);
+    // Verify dedicated #habilitacion section has the corporate B2B enablement CTA
+    const habilitacionSection = page.locator('#habilitacion');
+    await expect(habilitacionSection).toBeVisible();
+    const trainingBtn = habilitacionSection.locator('.btn-action');
+    await expect(trainingBtn).toBeVisible();
+    await expect(trainingBtn).toHaveAttribute('href', /wa\.me\/573002976815/);
 
     // Verify EN page
     await page.goto('/en/');
@@ -201,5 +202,8 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     expect(await enItems.count()).toBe(3);
     const enSvgs = enSection.locator('.showcase-duotone-svg');
     expect(await enSvgs.count()).toBe(3);
+
+    const enEnablement = page.locator('#enablement');
+    await expect(enEnablement).toBeVisible();
   });
 });

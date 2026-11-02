@@ -105,7 +105,7 @@ async function runVibiumSuite() {
     // Test 6: All Buttons Geometry and Non-Truncation
     await it('All .btn-action buttons meet min-height (>=44px) and non-truncation', async () => {
       const buttons = await page.findAll('.btn-action');
-      assert(buttons.length >= 7, 'Expected at least 7 action buttons including B2B sales');
+      assert(buttons.length >= 3, 'Expected at least 3 action buttons (hero + B2B sales)');
       for (const btn of buttons) {
         const bounds = await btn.bounds();
         assert(bounds.height >= 44, `A .btn-action button height ${bounds.height}px is below 44px`);
@@ -127,33 +127,33 @@ async function runVibiumSuite() {
       assert(!bodyText.includes('+            <svg viewBox='), 'Found diff plus lines in HTML');
     })({ page });
 
-    // Test 8: Dedicated B2B Enterprise Training Section
+    // Test 8: Dedicated B2B Enterprise Training Section (#habilitacion)
     await it('B2B Enterprise Training block has exactly 2 direct container divs with sales CTA', async () => {
-      const b2bSection = await page.find('.b2b-training-section');
-      assert(b2bSection, 'Missing .b2b-training-section');
+      const b2bSection = await page.find('#habilitacion .b2b-training-section');
+      assert(b2bSection, 'Missing .b2b-training-section in #habilitacion');
 
       const containerChildren = await page.evaluate(
-        "(() => document.querySelector('.b2b-training-container').children.length)()"
+        "(() => document.querySelector('#habilitacion .b2b-training-container').children.length)()"
       );
       assert.strictEqual(containerChildren, 2, `Expected exactly 2 direct divs in B2B training block, found ${containerChildren}`);
 
       const overviewText = await page.evaluate(
-        "(() => document.querySelector('.b2b-training-overview').textContent)()"
+        "(() => document.querySelector('#habilitacion .b2b-training-overview').textContent)()"
       );
-      assert(overviewText.includes('Programa Ejecutivo'), 'Missing executive program heading');
+      assert(overviewText.includes('Formación Directiva'), 'Missing training heading');
       assert(overviewText.includes('Audiencia Objetivo'), 'Missing target audience');
-      assert(overviewText.includes('Objetivos Centrales'), 'Missing core learning objectives');
+      assert(overviewText.includes('Criterio de Supervisión'), 'Missing supervision criteria');
       assert(overviewText.includes('Formato'), 'Missing format / seats specification');
 
       const curriculumText = await page.evaluate(
-        "(() => document.querySelector('.b2b-training-curriculum').textContent)()"
+        "(() => document.querySelector('#habilitacion .b2b-training-curriculum').textContent)()"
       );
       assert(curriculumText.includes('Fase 01'), 'Missing Phase 1');
       assert(curriculumText.includes('Fase 02'), 'Missing Phase 2');
       assert(curriculumText.includes('Fase 03'), 'Missing Phase 3');
       assert(curriculumText.includes('Fase 04'), 'Missing Phase 4');
 
-      const salesBtn = await page.find('.b2b-sales-cta-wrap .btn-action');
+      const salesBtn = await page.find('#habilitacion .b2b-sales-cta-wrap .btn-action');
       const href = await salesBtn.getAttribute('href');
       assert(href.includes('wa.me/573002976815'), 'Sales CTA must connect to institutional WhatsApp');
     })({ page });
@@ -201,7 +201,7 @@ async function runVibiumSuite() {
       assert.strictEqual(accordions.length, 13, 'Expected 13 EN accordions');
 
       const b2bChildren = await page.evaluate(
-        "(() => document.querySelector('.b2b-training-container').children.length)()"
+        "(() => document.querySelector('#enablement .b2b-training-container').children.length)()"
       );
       assert.strictEqual(b2bChildren, 2, 'Expected exactly 2 divs in EN B2B training container');
 
