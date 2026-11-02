@@ -167,35 +167,39 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     expect(box.height).toBeGreaterThanOrEqual(44);
   });
 
-  test('Delivery Models Section - 3 Duotone Cards & Visual Analogies (ES & EN)', async ({ page }) => {
+  test('Delivery Models Section - 3 Separated Showcase Divs & Visual Protagonism (ES & EN)', async ({ page }) => {
     await page.goto('/');
     const section = page.locator('#metodologia');
     await expect(section).toBeVisible();
 
-    const cards = section.locator('.delivery-model-card');
-    expect(await cards.count()).toBe(3);
+    const items = section.locator('.delivery-showcase-item');
+    expect(await items.count()).toBe(3);
 
-    // Verify 3 Duotone SVGs
-    const svgs = section.locator('.delivery-duotone-svg');
+    // Verify 3 Prominent Duotone SVGs
+    const svgs = section.locator('.showcase-duotone-svg');
     expect(await svgs.count()).toBe(3);
 
-    // Verify CTA buttons meet minimum touch target and link to WhatsApp
-    const btns = section.locator('.btn-action');
-    expect(await btns.count()).toBe(3);
-    for (let i = 0; i < 3; i++) {
-      const btn = btns.nth(i);
-      await expect(btn).toHaveAttribute('href', /wa\.me\/573002976815/);
-      const box = await btn.boundingBox();
-      expect(box.height).toBeGreaterThanOrEqual(44);
-    }
+    // Verify visual card structure and technical headers
+    const figHeaders = section.locator('.showcase-visual-header');
+    expect(await figHeaders.count()).toBe(3);
+
+    // Verify NO button fatigue inside methodology (CTAs are preserved in #modelos)
+    const methodBtns = section.locator('.btn-action');
+    expect(await methodBtns.count()).toBe(0);
+
+    // Verify subsequent #modelos section has the commercial B2B contract vehicles with buttons
+    const modelosSection = page.locator('#modelos');
+    await expect(modelosSection).toBeVisible();
+    const engagementBtns = modelosSection.locator('.btn-action');
+    expect(await engagementBtns.count()).toBe(3);
 
     // Verify EN page
     await page.goto('/en/');
     const enSection = page.locator('#methodology');
     await expect(enSection).toBeVisible();
-    const enCards = enSection.locator('.delivery-model-card');
-    expect(await enCards.count()).toBe(3);
-    const enSvgs = enSection.locator('.delivery-duotone-svg');
+    const enItems = enSection.locator('.delivery-showcase-item');
+    expect(await enItems.count()).toBe(3);
+    const enSvgs = enSection.locator('.showcase-duotone-svg');
     expect(await enSvgs.count()).toBe(3);
   });
 });

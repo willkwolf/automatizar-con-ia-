@@ -158,32 +158,32 @@ async function runVibiumSuite() {
       assert(href.includes('wa.me/573002976815'), 'Sales CTA must connect to institutional WhatsApp');
     })({ page });
 
-    // Test 9: Spanish Delivery Models with Visual Duotone Analogies
-    await it('Spanish #metodologia renders 3 delivery models with duotone visual analogies', async () => {
-      const cards = await page.findAll('#metodologia .delivery-model-card');
-      assert.strictEqual(cards.length, 3, 'Expected exactly 3 delivery model cards');
+    // Test 9: Spanish Delivery Models with Separated Showcase Divs & Duotone Figures
+    await it('Spanish #metodologia renders 3 separated showcase divs with prominent duotones', async () => {
+      const items = await page.findAll('#metodologia .delivery-showcase-item');
+      assert.strictEqual(items.length, 3, 'Expected exactly 3 delivery showcase items');
 
-      // Card 1: El Viaje del Héroe
-      const card1Text = await cards[0].text();
-      assert(card1Text.includes('ANALOGÍA 01 · EL VIAJE DEL HÉROE'), 'Missing analogy 1 tag');
-      assert(card1Text.includes('Staff Augmentation'), 'Missing staff aug industry term');
-      assert(card1Text.includes('Mayor CAPEX que OPEX'), 'Missing Capex/Opex profile');
+      // Item 1: El Viaje del Héroe
+      const item1Text = await items[0].text();
+      assert(item1Text.includes('ANALOGÍA 01 · EL VIAJE DEL HÉROE'), 'Missing analogy 1 tag');
+      assert(item1Text.includes('Staff Augmentation'), 'Missing staff aug industry term');
+      assert(item1Text.includes('CAPEX'), 'Missing Capex profile');
 
-      // Card 2: Sondas Digitales
-      const card2Text = await cards[1].text();
-      assert(card2Text.includes('ANALOGÍA 02 · SONDAS DIGITALES'), 'Missing analogy 2 tag');
-      assert(card2Text.includes('Fixed-Scope Discovery'), 'Missing turnkey discovery industry term');
-      assert(card2Text.includes('Alto OPEX, Bajo CAPEX'), 'Missing Opex/Capex profile');
+      // Item 2: Sondas Digitales
+      const item2Text = await items[1].text();
+      assert(item2Text.includes('ANALOGÍA 02 · SONDAS DIGITALES'), 'Missing analogy 2 tag');
+      assert(item2Text.includes('Fixed-Scope Discovery'), 'Missing turnkey discovery industry term');
+      assert(item2Text.includes('OPEX'), 'Missing Opex profile');
 
-      // Card 3: Integración Híbrida
-      const card3Text = await cards[2].text();
-      assert(card3Text.includes('ANALOGÍA 03 · INTEGRACIÓN HÍBRIDA'), 'Missing analogy 3 tag');
-      assert(card3Text.includes('Strategic Retainer'), 'Missing retainer industry term');
-      assert(card3Text.includes('Alto CAPEX y Alto OPEX'), 'Missing hybrid Capex/Opex profile');
+      // Item 3: Integración Híbrida
+      const item3Text = await items[2].text();
+      assert(item3Text.includes('ANALOGÍA 03 · INTEGRACIÓN HÍBRIDA'), 'Missing analogy 3 tag');
+      assert(item3Text.includes('Strategic Retainer'), 'Missing retainer industry term');
+      assert(item3Text.includes('Asignación Mixta'), 'Missing hybrid allocation profile');
 
-      // Check Duotone SVGs
-      const svgs = await page.findAll('#metodologia .delivery-duotone-svg');
-      assert.strictEqual(svgs.length, 3, 'Expected 3 duotone SVGs in methodology section');
+      // Check Duotone SVGs prominence
+      const svgs = await page.findAll('#metodologia .showcase-duotone-svg');
+      assert.strictEqual(svgs.length, 3, 'Expected 3 prominent duotone SVGs in methodology section');
     })({ page });
 
     console.log('\n[Suite 2: English Landing Page (en/index.html)]');
@@ -209,25 +209,25 @@ async function runVibiumSuite() {
       assert.strictEqual(logos.length, 3, 'Expected exactly 3 static logos in EN version');
     })({ page });
 
-    // Test 11: English Delivery Models with Visual Duotone Analogies
-    await it('English #methodology renders 3 delivery models with duotone visual analogies', async () => {
-      const cards = await page.findAll('#methodology .delivery-model-card');
-      assert.strictEqual(cards.length, 3, 'Expected exactly 3 EN delivery model cards');
+    // Test 11: English Delivery Models with Separated Showcase Divs & Duotone Figures
+    await it('English #methodology renders 3 separated showcase divs with prominent duotones', async () => {
+      const items = await page.findAll('#methodology .delivery-showcase-item');
+      assert.strictEqual(items.length, 3, 'Expected exactly 3 EN delivery showcase items');
 
-      const card1Text = await cards[0].text();
-      assert(card1Text.includes("ANALOGY 01 · THE HERO'S JOURNEY"), 'Missing EN analogy 1');
-      assert(card1Text.includes('Higher CAPEX than OPEX'), 'Missing EN Capex profile');
+      const item1Text = await items[0].text();
+      assert(item1Text.includes("ANALOGY 01 · THE HERO'S JOURNEY"), 'Missing EN analogy 1');
+      assert(item1Text.includes('CAPEX Focus'), 'Missing EN Capex profile');
 
-      const card2Text = await cards[1].text();
-      assert(card2Text.includes('ANALOGY 02 · DIGITAL PROBES'), 'Missing EN analogy 2');
-      assert(card2Text.includes('High OPEX, Low CAPEX'), 'Missing EN Opex profile');
+      const item2Text = await items[1].text();
+      assert(item2Text.includes('ANALOGY 02 · DIGITAL PROBES'), 'Missing EN analogy 2');
+      assert(item2Text.includes('OPEX Focus'), 'Missing EN Opex profile');
 
-      const card3Text = await cards[2].text();
-      assert(card3Text.includes('ANALOGY 03 · HYBRID INTEGRATION'), 'Missing EN analogy 3');
-      assert(card3Text.includes('High CAPEX and High OPEX'), 'Missing EN hybrid profile');
+      const item3Text = await items[2].text();
+      assert(item3Text.includes('ANALOGY 03 · HYBRID INTEGRATION'), 'Missing EN analogy 3');
+      assert(item3Text.includes('Balanced Allocation'), 'Missing EN hybrid profile');
 
-      const svgs = await page.findAll('#methodology .delivery-duotone-svg');
-      assert.strictEqual(svgs.length, 3, 'Expected 3 duotone SVGs in EN methodology section');
+      const svgs = await page.findAll('#methodology .showcase-duotone-svg');
+      assert.strictEqual(svgs.length, 3, 'Expected 3 prominent duotone SVGs in EN methodology section');
     })({ page });
 
   } finally {
