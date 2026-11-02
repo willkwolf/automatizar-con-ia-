@@ -166,4 +166,36 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     const box = await salesBtn.boundingBox();
     expect(box.height).toBeGreaterThanOrEqual(44);
   });
+
+  test('Delivery Models Section - 3 Duotone Cards & Visual Analogies (ES & EN)', async ({ page }) => {
+    await page.goto('/');
+    const section = page.locator('#metodologia');
+    await expect(section).toBeVisible();
+
+    const cards = section.locator('.delivery-model-card');
+    expect(await cards.count()).toBe(3);
+
+    // Verify 3 Duotone SVGs
+    const svgs = section.locator('.delivery-duotone-svg');
+    expect(await svgs.count()).toBe(3);
+
+    // Verify CTA buttons meet minimum touch target and link to WhatsApp
+    const btns = section.locator('.btn-action');
+    expect(await btns.count()).toBe(3);
+    for (let i = 0; i < 3; i++) {
+      const btn = btns.nth(i);
+      await expect(btn).toHaveAttribute('href', /wa\.me\/573002976815/);
+      const box = await btn.boundingBox();
+      expect(box.height).toBeGreaterThanOrEqual(44);
+    }
+
+    // Verify EN page
+    await page.goto('/en/');
+    const enSection = page.locator('#methodology');
+    await expect(enSection).toBeVisible();
+    const enCards = enSection.locator('.delivery-model-card');
+    expect(await enCards.count()).toBe(3);
+    const enSvgs = enSection.locator('.delivery-duotone-svg');
+    expect(await enSvgs.count()).toBe(3);
+  });
 });

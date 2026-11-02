@@ -158,10 +158,38 @@ async function runVibiumSuite() {
       assert(href.includes('wa.me/573002976815'), 'Sales CTA must connect to institutional WhatsApp');
     })({ page });
 
+    // Test 9: Spanish Delivery Models with Visual Duotone Analogies
+    await it('Spanish #metodologia renders 3 delivery models with duotone visual analogies', async () => {
+      const cards = await page.findAll('#metodologia .delivery-model-card');
+      assert.strictEqual(cards.length, 3, 'Expected exactly 3 delivery model cards');
+
+      // Card 1: El Viaje del Héroe
+      const card1Text = await cards[0].text();
+      assert(card1Text.includes('ANALOGÍA 01 · EL VIAJE DEL HÉROE'), 'Missing analogy 1 tag');
+      assert(card1Text.includes('Staff Augmentation'), 'Missing staff aug industry term');
+      assert(card1Text.includes('Mayor CAPEX que OPEX'), 'Missing Capex/Opex profile');
+
+      // Card 2: Sondas Digitales
+      const card2Text = await cards[1].text();
+      assert(card2Text.includes('ANALOGÍA 02 · SONDAS DIGITALES'), 'Missing analogy 2 tag');
+      assert(card2Text.includes('Fixed-Scope Discovery'), 'Missing turnkey discovery industry term');
+      assert(card2Text.includes('Alto OPEX, Bajo CAPEX'), 'Missing Opex/Capex profile');
+
+      // Card 3: Integración Híbrida
+      const card3Text = await cards[2].text();
+      assert(card3Text.includes('ANALOGÍA 03 · INTEGRACIÓN HÍBRIDA'), 'Missing analogy 3 tag');
+      assert(card3Text.includes('Strategic Retainer'), 'Missing retainer industry term');
+      assert(card3Text.includes('Alto CAPEX y Alto OPEX'), 'Missing hybrid Capex/Opex profile');
+
+      // Check Duotone SVGs
+      const svgs = await page.findAll('#metodologia .delivery-duotone-svg');
+      assert.strictEqual(svgs.length, 3, 'Expected 3 duotone SVGs in methodology section');
+    })({ page });
+
     console.log('\n[Suite 2: English Landing Page (en/index.html)]');
     await page.go(enUrl);
 
-    // Test 9: English Capabilities & Accordions
+    // Test 10: English Capabilities & Accordions
     await it('English Triad has reverse-engineered capabilities, accordions and B2B block', async () => {
       const pilar1 = await page.find('#triada article:nth-of-type(1)');
       const text1 = await pilar1.text();
@@ -179,6 +207,27 @@ async function runVibiumSuite() {
 
       const logos = await page.findAll('.mfeLogosSectionLogo');
       assert.strictEqual(logos.length, 3, 'Expected exactly 3 static logos in EN version');
+    })({ page });
+
+    // Test 11: English Delivery Models with Visual Duotone Analogies
+    await it('English #methodology renders 3 delivery models with duotone visual analogies', async () => {
+      const cards = await page.findAll('#methodology .delivery-model-card');
+      assert.strictEqual(cards.length, 3, 'Expected exactly 3 EN delivery model cards');
+
+      const card1Text = await cards[0].text();
+      assert(card1Text.includes("ANALOGY 01 · THE HERO'S JOURNEY"), 'Missing EN analogy 1');
+      assert(card1Text.includes('Higher CAPEX than OPEX'), 'Missing EN Capex profile');
+
+      const card2Text = await cards[1].text();
+      assert(card2Text.includes('ANALOGY 02 · DIGITAL PROBES'), 'Missing EN analogy 2');
+      assert(card2Text.includes('High OPEX, Low CAPEX'), 'Missing EN Opex profile');
+
+      const card3Text = await cards[2].text();
+      assert(card3Text.includes('ANALOGY 03 · HYBRID INTEGRATION'), 'Missing EN analogy 3');
+      assert(card3Text.includes('High CAPEX and High OPEX'), 'Missing EN hybrid profile');
+
+      const svgs = await page.findAll('#methodology .delivery-duotone-svg');
+      assert.strictEqual(svgs.length, 3, 'Expected 3 duotone SVGs in EN methodology section');
     })({ page });
 
   } finally {
