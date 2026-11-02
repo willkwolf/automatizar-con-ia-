@@ -528,24 +528,27 @@
       line-height: var(--line-height-body);
     }
 
-    /* Capabilities Triad */
+    /* Capabilities Triad (Service Architecture - Separated Showcase Left / Right / Left) */
     .triad-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-10);
+      margin-top: var(--space-8);
     }
 
     .triad-card {
       background: var(--color-surface-card);
       border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       padding: var(--space-8);
       box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: var(--space-8);
+      align-items: flex-start;
       transition: border-color var(--duration-fast) var(--ease-interactive),
                   box-shadow var(--duration-fast) var(--ease-interactive),
                   transform var(--duration-fast) var(--ease-interactive);
-      display: flex;
-      flex-direction: column;
     }
 
     .triad-card:hover {
@@ -554,15 +557,171 @@
       transform: translateY(-2px);
     }
 
-    .triad-card-main {
-      grid-column: span 6;
+    /* Alternating Direction: Left, Right, Left */
+    .triad-card.showcase-reverse {
+      grid-template-columns: 1fr 1.15fr;
+    }
+
+    .triad-card.showcase-reverse .showcase-visual-pane {
+      order: 2;
+    }
+
+    .triad-card.showcase-reverse .showcase-content-pane {
+      order: 1;
+    }
+
+    .triad-card-main,
+    .triad-card-knowledge {
+      grid-column: auto;
     }
 
     .triad-card-knowledge {
-      grid-column: span 12;
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+    }
+
+    @media (max-width: 991px) {
+      .triad-card,
+      .triad-card.showcase-reverse {
+        grid-template-columns: 1fr;
+        padding: var(--space-6);
+        gap: var(--space-6);
+      }
+      .triad-card.showcase-reverse .showcase-visual-pane {
+        order: 1;
+      }
+      .triad-card.showcase-reverse .showcase-content-pane {
+        order: 2;
+      }
+    }
+
+    /* Special Section: Parent Company Invitation (Deep Pillar 03) */
+    .casa-matriz-section {
+      padding: var(--space-10) 0 var(--space-6);
+    }
+
+    .casa-matriz-card {
       background: var(--color-surface-card-inset);
       border: 1px solid var(--color-border-medium);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-10);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .casa-matriz-meta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .casa-matriz-tag {
+      font-family: var(--font-family-mono);
+      font-size: 0.6875rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent-gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .casa-matriz-badge {
+      font-family: var(--font-family-mono);
+      font-size: 0.625rem;
+      color: var(--color-ink-muted);
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border-hairline);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .casa-matriz-title {
+      font-family: var(--font-family-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-ink-primary);
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .casa-matriz-desc {
+      font-size: 0.9375rem;
+      color: var(--color-ink-secondary);
+      line-height: 1.65;
+      margin: 0;
+      max-width: 820px;
+    }
+
+    .casa-matriz-action {
+      display: flex;
+      align-items: center;
+      margin-top: var(--space-2);
+    }
+
+    /* Final Direct Contact Section (Sole Commercial Operational Button) */
+    .direct-contact-section {
+      padding: var(--space-6) 0 var(--space-12);
+    }
+
+    .direct-contact-card {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-lg);
       padding: var(--space-8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-8);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .direct-contact-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      max-width: 650px;
+    }
+
+    .direct-contact-title {
+      font-family: var(--font-family-display);
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .direct-contact-desc {
+      font-size: 0.875rem;
+      color: var(--color-ink-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .direct-contact-action {
+      flex-shrink: 0;
+    }
+
+    .btn-unique-contact {
+      min-height: 48px;
+      padding: var(--space-3) var(--space-6);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .direct-contact-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--space-6);
+      }
+      .direct-contact-action .btn-action {
+        width: 100%;
+      }
     }
 
     .card-tag {
@@ -1688,11 +1847,7 @@
           <span class="lang-current" aria-current="page" lang="en">EN</span>
         </nav>
 
-        <!-- Persistent CTA (Preserved on Desktop and Mobile) -->
-        <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="nav-cta" target="_blank" rel="noopener">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span>Diagnostic</span>
-        </a>
+
       </div>
     </div>
   </header>
@@ -1713,15 +1868,7 @@
           We help digital agencies and professional services firms unlock throughput by resolving real delivery bottlenecks with custom software, robust data pipelines, and supervised agents governed by Human-in-the-Loop controls.
         </p>
 
-        <div class="hero-cta-group">
-          <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="btn-action btn-primary" target="_blank" rel="noopener">
-            <span>Schedule Operational Diagnostic (2-Week Sprint)</span>
-            <span aria-hidden="true">&rarr;</span>
-          </a>
-          <a href="#triad" class="btn-action btn-secondary">
-            <span>Explore Capabilities Triad</span>
-          </a>
-        </div>
+
 
       </div>
     </section>
@@ -1818,7 +1965,7 @@
       </div>
     </section>
 
-        <!-- Capabilities Triad (Reverse-Engineered Specialized Studios) -->
+        <!-- Capabilities Triad (Separated Showcase: Left · Right · Left) -->
     <section id="triada" class="section">
       <div class="container">
         <div class="section-header reveal-on-scroll">
@@ -1830,302 +1977,535 @@
         </div>
 
         <div class="triad-grid">
-          <!-- Capability 1: Software Consulting -->
+          <!-- Capability 1: Software Consulting (Left: Visual Pane / Right: Content Pane) -->
           <article class="triad-card triad-card-main reveal-on-scroll">
-            <div class="card-tag">Pillar 01 · Fast Code &amp; Software Engineering</div>
-            <h3 class="card-title">Software Consulting</h3>
-            <p class="card-desc">
-              We accelerate software lifecycles and modernize digital architectures through model-driven development, lean agile engineering, and embedded enterprise AI components.
-            </p>
-            <ul class="capability-list">
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">01</span>
-                      <span class="capability-title">Custom Enterprise Application Engineering</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Agile design and construction of web, mobile, and core platforms modeling business logic to accelerate delivery and minimize technical debt.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">02</span>
-                      <span class="capability-title">Legacy Modernization &amp; Cloud Evolution</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Controlled migration and modernization of legacy systems with minimal operational downtime, optimized for high concurrency and resilience.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">03</span>
-                      <span class="capability-title">Embedded Enterprise AI</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Infusing AI into business applications through multi-LLM orchestration, contextual assistants, and deterministic automations in secure runtime environments.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">04</span>
-                      <span class="capability-title">Modular Architecture &amp; Ecosystem Enablement</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Decoupling core capabilities into microservices and standardized APIs that enable decentralized velocity without altering transaction engines.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">05</span>
-                      <span class="capability-title">Lean-Agile Acceleration &amp; TCO Optimization</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Platform engineering and automated CI/CD practices designed to radically shorten Time-to-Value while reducing Total Cost of Ownership.</p>
-                  </div>
-                </details>
-              </li>
-            </ul>
-          </article>
+            <div class="showcase-visual-pane">
+              <div class="showcase-visual-card">
+                <div class="showcase-visual-header">
+                  <span class="showcase-fig-num">FIG. 04 · MODULAR ARCHITECTURE &amp; FAST CODE</span>
+                  <span class="showcase-fig-status">
+                    <span class="showcase-status-dot"></span>
+                    DETERMINISTIC PIPELINE
+                  </span>
+                </div>
+                <svg viewBox="0 0 560 320" class="showcase-duotone-svg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technical diagram of modular architecture and fast code">
+                  <rect width="560" height="320" fill="#fbfbf9"/>
+                  <rect x="1" y="1" width="558" height="318" fill="none" stroke="#e5e3d8" stroke-width="1"/>
+                  <path d="M 40 40 L 520 40 M 40 100 L 520 100 M 40 160 L 520 160 M 40 220 L 520 220 M 40 280 L 520 280" stroke="#e5e3d8" stroke-width="0.7" stroke-dasharray="3 3"/>
+                  
+                  <!-- Client Layer -->
+                  <g transform="translate(60, 20)">
+                    <rect width="440" height="42" rx="4" fill="#ffffff" stroke="#745423" stroke-width="1.4"/>
+                    <text x="16" y="24" font-family="monospace" font-size="9" font-weight="bold" fill="#745423" letter-spacing="0.05em">CLIENT LAYER // WEB · MOBILE · HEADLESS APIS</text>
+                    <text x="16" y="35" font-family="monospace" font-size="7" fill="#5e6661">SECURE CONSUMPTION · REST &amp; GRAPHQL PROTOCOLS · ZERO LATENCY</text>
+                    <circle cx="420" cy="21" r="4" fill="#22c55e"/>
+                  </g>
 
-          <!-- Capability 2: Operations Consulting -->
-          <article class="triad-card triad-card-main reveal-on-scroll">
-            <div class="card-tag">Pillar 02 · Business, Cultural &amp; Sustainable Operations</div>
-            <h3 class="card-title">Operations Consulting</h3>
-            <p class="card-desc">
-              We redesign operating models, accelerate enterprise technology adoption, and transform workplace culture to maximize efficiency, defend gross margins, and secure sustainable operations.
-            </p>
-            <ul class="capability-list">
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">01</span>
-                      <span class="capability-title">Core Business Reinvention &amp; Operational Efficiency</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Rigorous diagnostics and workflow redesign to eliminate throughput constraints, reduce cycle times, and maximize team efficiency.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">02</span>
-                      <span class="capability-title">AI-Driven Cultures &amp; Change Management</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Building organizational capability and systemic change adoption to successfully absorb AI disruptions across day-to-day teams.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">03</span>
-                      <span class="capability-title">Enterprise Technology Adoption</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Methodical onboarding and management frameworks ensuring actual, friction-free adoption of enterprise tools (CRM, ERP, ticketing, and pipelines).</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">04</span>
-                      <span class="capability-title">High-Performance Teams &amp; Agile Leadership</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Executive coaching, cross-functional collaboration frameworks, and standardized Definition of Done for high-autonomy teams.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">05</span>
-                      <span class="capability-title">Sustainable Operations &amp; Green IT</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Resource efficiency, carbon footprint monitoring, and sustainable-by-design processes to safeguard long-term corporate legitimacy.</p>
-                  </div>
-                </details>
-              </li>
-            </ul>
-          </article>
+                  <!-- Connectors -->
+                  <path d="M 140 62 L 140 85 M 280 62 L 280 85 M 420 62 L 420 85" stroke="#745423" stroke-width="1.3"/>
+                  <polygon points="140,85 137,80 143,80" fill="#745423"/>
+                  <polygon points="280,85 277,80 283,80" fill="#745423"/>
+                  <polygon points="420,85 417,80 423,80" fill="#745423"/>
 
-          <!-- Capability 3: Knowledge (Resides in Parent Hub) -->
-          <article class="triad-card triad-card-knowledge reveal-on-scroll">
-            <div class="card-tag">Pillar 03 · Applied Research &amp; Systemic Thinking</div>
-            <h3 class="card-title">Knowledge Generation (Research &amp; Analytics)</h3>
-            <p class="card-desc">
-              This capability is formally anchored in our Parent Think-Tank, <strong>Thinking-as-a-Service</strong>. From there, we research frontier models, complex system dynamics, and empirical evaluation protocols to insulate enterprise technology decisions from marketing hype and premature obsolescence.
-            </p>
-            <ul class="capability-list">
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">01</span>
-                      <span class="capability-title">Systemic Complexity Modeling</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Formal diagnosis and dependency mapping using nonlinear systems theory and Theory of Constraints for high-certainty architecture decisions.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">02</span>
-                      <span class="capability-title">Empirical Evaluation &amp; Anti-Slop Protocols</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Adversarial testing frameworks and rigorous empirical benchmarks before committing capital, infrastructure, or brand equity.</p>
-                  </div>
-                </details>
-              </li>
-                            <li class="capability-item">
-                <details class="capability-accordion">
-                  <summary class="capability-summary">
-                    <span class="capability-title-wrap">
-                      <span class="capability-item-bullet">03</span>
-                      <span class="capability-title">AI Frontier Research &amp; Ethics Governance</span>
-                    </span>
-                    <span class="capability-toggle" aria-hidden="true">
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="6" y1="2" x2="6" y2="10"></line>
-                        <line x1="2" y1="6" x2="10" y2="6"></line>
-                      </svg>
-                    </span>
-                  </summary>
-                  <div class="capability-body">
-                    <p>Continuous tracking of frontier model capabilities, operational risk taxonomies, zero-tracking data sovereignty, and compliance.</p>
-                  </div>
-                </details>
-              </li>
-            </ul>
+                  <!-- API Gateway -->
+                  <g transform="translate(60, 85)">
+                    <rect width="440" height="38" rx="4" fill="#f5f3ed" stroke="#121614" stroke-width="1.2"/>
+                    <text x="16" y="22" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614" letter-spacing="0.04em">DETERMINISTIC API GATEWAY · ZERO-TRUST AUTH &amp; RATE LIMITING</text>
+                    <text x="16" y="32" font-family="monospace" font-size="7" fill="#5e6661">INBOUND SCHEMA VALIDATION // DEFENSIVE PAYLOAD SANITIZATION</text>
+                  </g>
 
-            <div class="knowledge-action-bar">
-              <div class="knowledge-action-meta">
-                <span class="knowledge-hub-badge">UPSTREAM PARENT HUB</span>
-                <p class="knowledge-action-text">
-                  Explore canonical publications, organizational complexity frameworks, and open applied research led by our parent think-tank.
-                </p>
-              </div>
-              <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" class="btn-casa-matriz knowledge-link" aria-label="Explore Parent Hub Thinking-as-a-Service (opens in new tab)">
-                <span>Explore Parent Hub: Thinking-as-a-Service</span>
-                <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4"/>
+                  <!-- Connectors to Core -->
+                  <path d="M 165 123 L 165 145 M 395 123 L 395 145" stroke="#121614" stroke-width="1.2"/>
+                  <polygon points="165,145 162,140 168,140" fill="#121614"/>
+                  <polygon points="395,145 392,140 398,140" fill="#121614"/>
+
+                  <!-- Dual Core Modules -->
+                  <g transform="translate(60, 145)">
+                    <rect width="210" height="92" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.2"/>
+                    <text x="12" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614">DOMAIN MODEL ENGINE (FAST CODE)</text>
+                    <line x1="12" y1="26" x2="198" y2="26" stroke="#e5e3d8" stroke-width="1"/>
+                    <text x="12" y="42" font-family="monospace" font-size="7.5" fill="#5e6661">• Formal entity &amp; domain modeling</text>
+                    <text x="12" y="58" font-family="monospace" font-size="7.5" fill="#5e6661">• Typed interface contracts</text>
+                    <text x="12" y="74" font-family="monospace" font-size="7.5" fill="#5e6661">• Finite state machine routing</text>
+                    <text x="12" y="86" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423">PROPRIETARY CODE // ZERO DEBT</text>
+                  </g>
+
+                  <path d="M 270 191 L 290 191" stroke="#745423" stroke-width="1.5" stroke-dasharray="2 2"/>
+                  <polygon points="270,191 274,188 274,194" fill="#745423"/>
+                  <polygon points="290,191 286,188 286,194" fill="#745423"/>
+
+                  <g transform="translate(290, 145)">
+                    <rect width="210" height="92" rx="4" fill="#ffffff" stroke="#745423" stroke-width="1.3"/>
+                    <text x="12" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#745423">EMBEDDED ENTERPRISE AI</text>
+                    <line x1="12" y1="26" x2="198" y2="26" stroke="#e5e3d8" stroke-width="1"/>
+                    <text x="12" y="42" font-family="monospace" font-size="7.5" fill="#5e6661">• Multi-LLM router orchestration</text>
+                    <text x="12" y="58" font-family="monospace" font-size="7.5" fill="#5e6661">• Secure context broker &amp; sandbox</text>
+                    <text x="12" y="74" font-family="monospace" font-size="7.5" fill="#5e6661">• Deterministic tooling execution</text>
+                    <text x="12" y="86" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423">SUPERVISED HitL // ZERO SLOP</text>
+                  </g>
+
+                  <!-- Connectors to Persistence -->
+                  <path d="M 165 237 L 165 255 M 395 237 L 395 255" stroke="#121614" stroke-width="1.2"/>
+                  <polygon points="165,255 162,250 168,250" fill="#121614"/>
+                  <polygon points="395,255 392,250 398,250" fill="#121614"/>
+
+                  <!-- Cloud Infrastructure -->
+                  <g transform="translate(60, 255)">
+                    <rect width="440" height="48" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.4"/>
+                    <text x="16" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614">CLOUD INFRASTRUCTURE · HIGH AVAILABILITY &amp; SOVEREIGNTY</text>
+                    <text x="16" y="34" font-family="monospace" font-size="7" fill="#5e6661">PostgreSQL · Distributed Event Bus · Self-Hosted On-Premise / Cloud Deployment</text>
+                    <text x="16" y="44" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423">99.9% SLA · FULL IDEMPOTENCY · ZERO VENDOR LOCK-IN</text>
+                  </g>
                 </svg>
-              </a>
+              </div>
+            </div>
+
+            <div class="showcase-content-pane">
+              <div class="card-tag">Pillar 01 · Fast Code &amp; Software Engineering</div>
+              <h3 class="card-title">Software Consulting</h3>
+              <p class="card-desc">
+                We accelerate software lifecycles and modernize digital architectures through model-driven development, lean agile engineering, and embedded enterprise AI components.
+              </p>
+              <ul class="capability-list">
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">01</span>
+                        <span class="capability-title">Custom Enterprise Application Engineering</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Agile design and construction of web, mobile, and core platforms modeling business logic to accelerate delivery and minimize technical debt.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">02</span>
+                        <span class="capability-title">Legacy Modernization &amp; Cloud Evolution</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Controlled upgrades and gradual migration of legacy software with zero business disruption, optimizing for high concurrency and resilience.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">03</span>
+                        <span class="capability-title">Embedded Enterprise Artificial Intelligence</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Native integration of AI within enterprise flows through multi-LLM orchestration, secure context brokers, and deterministic sandboxed automation.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">04</span>
+                        <span class="capability-title">Modular Architectures &amp; Ecosystem Enablement</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Decoupling monoliths into scalable microservices and standardized APIs enabling decentralized engineering without breaking transactional integrity.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">05</span>
+                        <span class="capability-title">Lean-Agile Acceleration &amp; TCO Optimization</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Platform engineering and automated DevOps pipelines designed to slash Time-to-Value while optimizing total cost of technology ownership.</p>
+                    </div>
+                  </details>
+                </li>
+              </ul>
             </div>
           </article>
+
+          <!-- Capability 2: Operations Consulting (Right: Visual Pane / Left: Content Pane) -->
+          <article class="triad-card triad-card-main showcase-reverse reveal-on-scroll">
+            <div class="showcase-visual-pane">
+              <div class="showcase-visual-card">
+                <div class="showcase-visual-header">
+                  <span class="showcase-fig-num">FIG. 05 · OPERATIONAL RE-ENGINEERING &amp; AGILE CULTURE</span>
+                  <span class="showcase-fig-status">
+                    <span class="showcase-status-dot"></span>
+                    BOTTLENECK OPTIMIZED
+                  </span>
+                </div>
+                <svg viewBox="0 0 560 320" class="showcase-duotone-svg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technical diagram of operational re-engineering and theory of constraints">
+                  <rect width="560" height="320" fill="#fbfbf9"/>
+                  <rect x="1" y="1" width="558" height="318" fill="none" stroke="#e5e3d8" stroke-width="1"/>
+                  
+                  <!-- Top Kaizen Arc -->
+                  <path d="M 470 95 C 470 35, 230 35, 90 95" stroke="#745423" stroke-width="1.5" stroke-dasharray="4 4"/>
+                  <polygon points="90,95 97,93 94,101" fill="#745423"/>
+                  <rect x="175" y="24" width="210" height="20" rx="3" fill="#ffffff" stroke="#745423" stroke-width="1"/>
+                  <text x="280" y="38" font-family="monospace" font-size="7.5" font-weight="bold" fill="#745423" text-anchor="middle">CONTINUOUS KAIZEN CYCLE · DoD STANDARDIZATION</text>
+
+                  <!-- Node 1: Intake -->
+                  <g transform="translate(45, 95)">
+                    <rect width="90" height="95" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.2"/>
+                    <text x="45" y="22" font-family="monospace" font-size="8" font-weight="bold" fill="#121614" text-anchor="middle">INTAKE</text>
+                    <line x1="10" y1="28" x2="80" y2="28" stroke="#e5e3d8" stroke-width="1"/>
+                    <text x="45" y="44" font-family="monospace" font-size="7" fill="#5e6661" text-anchor="middle">Inbound Demand</text>
+                    <text x="45" y="58" font-family="monospace" font-size="7" font-weight="bold" fill="#121614" text-anchor="middle">Rate λ = Const.</text>
+                    <text x="45" y="76" font-family="monospace" font-size="6.5" fill="#5e6661" text-anchor="middle">Scope Boundary</text>
+                    <text x="45" y="88" font-family="monospace" font-size="6" fill="#745423" text-anchor="middle">Anti-Scope Creep</text>
+                  </g>
+
+                  <!-- Connector -->
+                  <path d="M 135 142 L 165 142" stroke="#121614" stroke-width="1.5"/>
+                  <polygon points="165,142 160,139 160,145" fill="#121614"/>
+
+                  <!-- Node 2: Triage & Flow -->
+                  <g transform="translate(165, 95)">
+                    <rect width="105" height="95" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.2"/>
+                    <text x="52" y="22" font-family="monospace" font-size="8" font-weight="bold" fill="#121614" text-anchor="middle">TRIAGE &amp; FLOW</text>
+                    <line x1="10" y1="28" x2="95" y2="28" stroke="#e5e3d8" stroke-width="1"/>
+                    <text x="52" y="44" font-family="monospace" font-size="7" fill="#5e6661" text-anchor="middle">Sequencing</text>
+                    <text x="52" y="58" font-family="monospace" font-size="7" font-weight="bold" fill="#121614" text-anchor="middle">Little's Law</text>
+                    <text x="52" y="72" font-family="monospace" font-size="6.5" fill="#5e6661" text-anchor="middle">L = λ · W</text>
+                    <text x="52" y="86" font-family="monospace" font-size="6.5" fill="#745423" text-anchor="middle">WIP Governance</text>
+                  </g>
+
+                  <!-- Connector -->
+                  <path d="M 270 142 L 295 142" stroke="#745423" stroke-width="2"/>
+                  <polygon points="295,142 289,138 289,146" fill="#745423"/>
+
+                  <!-- Node 3: Constraint (TOC) -->
+                  <g transform="translate(295, 82)">
+                    <rect width="125" height="120" rx="4" fill="#f7f4ea" stroke="#745423" stroke-width="2"/>
+                    <text x="62" y="22" font-family="monospace" font-size="8.5" font-weight="bold" fill="#745423" text-anchor="middle">CONSTRAINT (TOC)</text>
+                    <line x1="10" y1="28" x2="115" y2="28" stroke="#745423" stroke-width="1"/>
+                    <text x="62" y="44" font-family="monospace" font-size="7" font-weight="bold" fill="#121614" text-anchor="middle">Mapped Bottleneck</text>
+                    <text x="62" y="58" font-family="monospace" font-size="6.5" fill="#5e6661" text-anchor="middle">Dynamic Buffer</text>
+                    <rect x="15" y="66" width="95" height="22" rx="2" fill="#ffffff" stroke="#745423" stroke-width="1"/>
+                    <text x="62" y="80" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423" text-anchor="middle">AUTOMATED RELIEF</text>
+                    <text x="62" y="102" font-family="monospace" font-size="6.5" fill="#134427" font-weight="bold" text-anchor="middle">Throughput x2.4</text>
+                    <text x="62" y="114" font-family="monospace" font-size="6" fill="#5e6661" text-anchor="middle">Balanced Capacity</text>
+                  </g>
+
+                  <!-- Connector -->
+                  <path d="M 420 142 L 445 142" stroke="#745423" stroke-width="1.5"/>
+                  <polygon points="445,142 440,139 440,145" fill="#745423"/>
+
+                  <!-- Node 4: Value Output -->
+                  <g transform="translate(445, 95)">
+                    <rect width="75" height="95" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.2"/>
+                    <text x="37" y="22" font-family="monospace" font-size="8" font-weight="bold" fill="#121614" text-anchor="middle">VALUE</text>
+                    <line x1="8" y1="28" x2="67" y2="28" stroke="#e5e3d8" stroke-width="1"/>
+                    <text x="37" y="44" font-family="monospace" font-size="7" fill="#5e6661" text-anchor="middle">Lead Time</text>
+                    <text x="37" y="58" font-family="monospace" font-size="7" font-weight="bold" fill="#134427" text-anchor="middle">-45% Cycle</text>
+                    <text x="37" y="74" font-family="monospace" font-size="6.5" fill="#5e6661" text-anchor="middle">Margin</text>
+                    <text x="37" y="88" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423" text-anchor="middle">PROTECTED</text>
+                  </g>
+
+                  <!-- Governance Base -->
+                  <g transform="translate(45, 230)">
+                    <rect width="475" height="65" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.3"/>
+                    <text x="20" y="22" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614">EXECUTIVE GOVERNANCE, CULTURE &amp; HUMAN-IN-THE-LOOP</text>
+                    <text x="20" y="38" font-family="monospace" font-size="7" fill="#5e6661">High-performing autonomous squads · Cultural change management for AI adoption</text>
+                    <text x="20" y="52" font-family="monospace" font-size="7" fill="#5e6661">Mandatory human supervision gates for critical or irreversible operational steps</text>
+                    <rect x="365" y="14" width="95" height="20" rx="3" fill="#f5f3ed" stroke="#745423" stroke-width="1"/>
+                    <text x="412" y="27" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423" text-anchor="middle">GREEN IT &amp; ESG</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="showcase-content-pane">
+              <div class="card-tag">Pillar 02 · Business, Cultural &amp; Sustainable Operations</div>
+              <h3 class="card-title">Operations Consulting</h3>
+              <p class="card-desc">
+                We redesign operating models, accelerate digital adoption, and transform workplace culture to drive enterprise efficiency, safeguard gross margins, and secure sustainable practices.
+              </p>
+              <ul class="capability-list">
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">01</span>
+                        <span class="capability-title">Core Business Reinvention &amp; Operational Efficiency</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Rigorous diagnosis and restructuring of core workflows to eliminate bottlenecks, compress cycle times, and maximize operational throughput.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">02</span>
+                        <span class="capability-title">AI-Driven Cultures &amp; Organizational Change Management</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Systemic skill building and change leadership to help existing teams successfully integrate and leverage AI disruptions without friction.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">03</span>
+                        <span class="capability-title">Technology Adoption &amp; Platform Enablement</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Hands-on change enablement ensuring actual daily adoption of enterprise software (CRMs, ERPs, ticketing, and automated delivery pipelines).</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">04</span>
+                        <span class="capability-title">High-Performance Teams &amp; Agile Leadership</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Leadership upskilling, cross-functional collaboration frameworks, and strict Definition of Done (DoD) criteria for high-autonomy teams.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">05</span>
+                        <span class="capability-title">Sustainable Operations &amp; Digital Sobriety (Green IT)</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Resource optimization, carbon footprint tracking in computing, and sustainable workflow engineering for long-term corporate viability.</p>
+                    </div>
+                  </details>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Capability 3: Knowledge / Parent Think-Tank (Left: Visual Pane / Right: Content Pane) -->
+          <article class="triad-card triad-card-knowledge reveal-on-scroll">
+            <div class="showcase-visual-pane">
+              <div class="showcase-visual-card">
+                <div class="showcase-visual-header">
+                  <span class="showcase-fig-num">FIG. 06 · SYSTEM DYNAMICS &amp; EMPIRICAL EVALUATION</span>
+                  <span class="showcase-fig-status">
+                    <span class="showcase-status-dot"></span>
+                    UPSTREAM RESEARCH
+                  </span>
+                </div>
+                <svg viewBox="0 0 560 320" class="showcase-duotone-svg" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technical diagram of system dynamics and empirical evaluation">
+                  <rect width="560" height="320" fill="#fbfbf9"/>
+                  <rect x="1" y="1" width="558" height="318" fill="none" stroke="#e5e3d8" stroke-width="1"/>
+                  
+                  <!-- Upstream Banner -->
+                  <g transform="translate(45, 18)">
+                    <rect width="470" height="46" rx="4" fill="#f5f3ed" stroke="#745423" stroke-width="1.4"/>
+                    <text x="18" y="20" font-family="monospace" font-size="9" font-weight="bold" fill="#745423">PARENT COMPANY: THINKING-AS-A-SERVICE // KNOWLEDGE LEDGER</text>
+                    <text x="18" y="34" font-family="monospace" font-size="7" fill="#5e6661">Epistemological Research · Complex Systems Dynamics · Graph Theory Foundations</text>
+                    <circle cx="445" cy="23" r="5" fill="#745423"/>
+                    <circle cx="445" cy="23" r="2" fill="#ffffff"/>
+                  </g>
+
+                  <!-- Connectors -->
+                  <path d="M 160 64 L 160 95 M 400 64 L 400 95" stroke="#745423" stroke-width="1.3"/>
+                  <polygon points="160,95 157,90 163,90" fill="#745423"/>
+                  <polygon points="400,95 397,90 403,90" fill="#745423"/>
+
+                  <!-- Loop R1 -->
+                  <g transform="translate(65, 95)">
+                    <rect width="190" height="135" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.2"/>
+                    <text x="95" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614" text-anchor="middle">LOOP R1 · EVIDENCE</text>
+                    <circle cx="95" cy="65" r="32" stroke="#121614" stroke-width="1" stroke-dasharray="3 3"/>
+                    <text x="95" y="69" font-family="monospace" font-size="12" font-weight="bold" fill="#121614" text-anchor="middle">R1</text>
+                    <text x="95" y="112" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423" text-anchor="middle">HYPOTHESIS → SANDBOX RUN</text>
+                    <text x="95" y="124" font-family="monospace" font-size="6" fill="#5e6661" text-anchor="middle">Strict Claim-Proof Invariant</text>
+                  </g>
+
+                  <!-- Center Axis -->
+                  <g transform="translate(255, 140)">
+                    <path d="M 0 20 L 50 20" stroke="#745423" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <polygon points="0,20 4,17 4,23" fill="#745423"/>
+                    <polygon points="50,20 46,17 46,23" fill="#745423"/>
+                    <rect x="6" y="8" width="38" height="24" rx="2" fill="#f7f4ea" stroke="#745423" stroke-width="1"/>
+                    <text x="25" y="22" font-family="monospace" font-size="6" font-weight="bold" fill="#745423" text-anchor="middle">AUDIT</text>
+                  </g>
+
+                  <!-- Loop B1 -->
+                  <g transform="translate(305, 95)">
+                    <rect width="190" height="135" rx="4" fill="#ffffff" stroke="#745423" stroke-width="1.3"/>
+                    <text x="95" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#745423" text-anchor="middle">LOOP B1 · ANTI-SLOP</text>
+                    <circle cx="95" cy="65" r="32" stroke="#745423" stroke-width="1.2"/>
+                    <text x="95" y="69" font-family="monospace" font-size="12" font-weight="bold" fill="#745423" text-anchor="middle">B1</text>
+                    <text x="95" y="112" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423" text-anchor="middle">ACID TEST &amp; FAILURE MODES</text>
+                    <text x="95" y="124" font-family="monospace" font-size="6" fill="#5e6661" text-anchor="middle">Protection Against Tech Hype</text>
+                  </g>
+
+                  <!-- Connectors Downstream -->
+                  <path d="M 160 230 L 160 250 M 400 230 L 400 250" stroke="#121614" stroke-width="1.2"/>
+                  <polygon points="160,250 157,245 163,245" fill="#121614"/>
+                  <polygon points="400,250 397,245 403,245" fill="#121614"/>
+
+                  <!-- Downstream Banner -->
+                  <g transform="translate(45, 250)">
+                    <rect width="470" height="52" rx="4" fill="#ffffff" stroke="#121614" stroke-width="1.4"/>
+                    <text x="18" y="20" font-family="monospace" font-size="8.5" font-weight="bold" fill="#121614">DOWNSTREAM: BOUTIQUE DIGITAL // OPERATIONAL TRANSFER</text>
+                    <text x="18" y="34" font-family="monospace" font-size="7" fill="#5e6661">Validated models transferred into production workflows without technical debt</text>
+                    <text x="18" y="44" font-family="monospace" font-size="6.5" font-weight="bold" fill="#745423">ZERO LEAKS · ZERO TELEMETRY · CONTINUOUS SURFACE GOVERNANCE</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <div class="showcase-content-pane">
+              <div class="card-tag">Pillar 03 · Applied Research &amp; Systems Thinking</div>
+              <h3 class="card-title">Knowledge Generation (Knowledge / Research &amp; Analytics)</h3>
+              <p class="card-desc">
+                This capability is formally anchored at our parent think-tank, <strong>Thinking-as-a-Service</strong>. There, we conduct frontier research, complex systems dynamics modeling, and empirical evaluation protocols to insulate client architectures against commercial hype and early obsolescence.
+              </p>
+              <ul class="capability-list">
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">01</span>
+                        <span class="capability-title">Systemic Complexity Modeling</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Formal mapping of organizational interdependencies through non-linear dynamics and Theory of Constraints for high-confidence structural decisions.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">02</span>
+                        <span class="capability-title">Empirical Evaluation Protocols &amp; Anti-Slop Governance</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Adversarial audit frameworks and rigorous stress-testing of emergent technologies before committing capital, infrastructure, or brand reputation.</p>
+                    </div>
+                  </details>
+                </li>
+                <li class="capability-item">
+                  <details class="capability-accordion">
+                    <summary class="capability-summary">
+                      <span class="capability-title-wrap">
+                        <span class="capability-item-bullet">03</span>
+                        <span class="capability-title">Frontier AI Research &amp; Ethical Governance</span>
+                      </span>
+                      <span class="capability-toggle" aria-hidden="true">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="6" y1="2" x2="6" y2="10"></line>
+                          <line x1="2" y1="6" x2="10" y2="6"></line>
+                        </svg>
+                      </span>
+                    </summary>
+                    <div class="capability-body">
+                      <p>Continuous tracking of frontier model capabilities, operational risk taxonomies, zero-tracking data sovereignty, and compliance.</p>
+                    </div>
+                  </details>
+                </li>
+              </ul></div>
+          </article>
         </div>
-        </div>
+      </div>
     </section>
 
     <!-- Delivery Models & Methodology -->
@@ -2492,18 +2872,44 @@
       </div>
     </section>
 
-    <!-- Final Conversion Call to Action -->
-    <section class="cta-final-section">
+    <!-- Special Section: Parent Company Invitation (Deep Pillar 03) -->
+    <section class="casa-matriz-section">
       <div class="container">
-        <div class="cta-final-card reveal-on-scroll">
-          <span class="section-eyebrow">Start the Conversation</span>
-          <h2 class="cta-final-title">Let's engineer an operational workflow that protects your margins</h2>
-          <p class="cta-final-subtitle">
-            Let's discuss your agency's delivery constraints and evaluate whether a 2-week Operational Diagnostic Sprint is the right next step for your team.
+        <div class="casa-matriz-card reveal-on-scroll">
+          <div class="casa-matriz-meta-header">
+            <span class="casa-matriz-tag">UPSTREAM PARENT HUB · SYSTEMS THINKING</span>
+            <span class="casa-matriz-badge">RESEARCH &amp; EPISTEMOLOGY</span>
+          </div>
+          <h2 class="casa-matriz-title">Thinking-as-a-Service: The Research Foundation of Our Practice</h2>
+          <p class="casa-matriz-desc">
+            <strong>Pillar 03 (Knowledge Generation)</strong> of our architecture is formally rooted and continuously developed at our parent think-tank. If your leadership team requires structural complexity diagnostics, Theory of Constraints frameworks, frontier model research, or independent technical audits free from vendor bias, explore open publications, papers, and methodologies at Thinking-as-a-Service.
           </p>
-          <div class="cta-final-actions">
-            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20schedule%20an%20Operational%20Diagnostic%20for%20our%20agency" class="btn-action btn-primary" target="_blank" rel="noopener">
-              <span>Schedule Diagnostic on WhatsApp</span>
+          <div class="casa-matriz-action">
+            <a href="https://willkwolf.github.io/Thinking-as-a-Service/" target="_blank" rel="noopener" class="btn-casa-matriz portal-link" aria-label="Explore Parent Hub Thinking-as-a-Service (opens in new tab)">
+              <span>Explore Parent Hub: Thinking-as-a-Service</span>
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Direct Contact Section (Sole Commercial Operational Button) -->
+    <section class="direct-contact-section">
+      <div class="container">
+        <div class="direct-contact-card reveal-on-scroll">
+          <div class="direct-contact-content">
+            <span class="section-eyebrow">Direct Contact with Engineering &amp; Operations</span>
+            <h2 class="direct-contact-title">Do you have a specific operational or technical challenge?</h2>
+            <p class="direct-contact-desc">
+              Speak directly with our engineering and operations team to evaluate architectural viability, delivery roadmaps, and custom allocation models without intermediation.
+            </p>
+          </div>
+          <div class="direct-contact-action">
+            <a href="https://wa.me/573002976815?text=Hello,%20I%20would%20like%20to%20speak%20with%20the%20Boutique%20Digital%20team%20about%20a%20project" class="btn-action btn-primary btn-unique-contact" target="_blank" rel="noopener" aria-label="Contact team via WhatsApp (opens in new tab)">
+              <span>Contact Team via WhatsApp</span>
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>

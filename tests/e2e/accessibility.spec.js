@@ -57,6 +57,14 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     await expect(pillar3).toContainText('Modelado de Complejidad Sistémica');
     await expect(pillar3).toContainText('Protocolos de Evaluación Empírica');
     await expect(pillar3).toContainText('Investigación de Frontera en IA');
+
+    // Check alternating Left-Right-Left layout and 3 duotone figures
+    expect(await page.locator('#triada .showcase-duotone-svg').count()).toBe(3);
+    await expect(pillar2).toHaveClass(/showcase-reverse/);
+
+    // Check bottom Casa Matriz portal and direct contact sections
+    await expect(page.locator('.casa-matriz-section')).toBeVisible();
+    await expect(page.locator('.direct-contact-section')).toBeVisible();
   });
 
   test('Collapsible Capability Accordions - Expand & Collapse Interaction', async ({ page }) => {
@@ -102,7 +110,11 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     await page.goto('/');
     const buttons = page.locator('.btn-action');
     const count = await buttons.count();
-    expect(count).toBeGreaterThan(0);
+    expect(count).toBe(2); // Exactly 2 operational action buttons (B2B sales + direct contact)
+
+    // Ensure zero button fatigue in header and hero
+    expect(await page.locator('.nav-header .nav-cta').count()).toBe(0);
+    expect(await page.locator('.hero-section .btn-action').count()).toBe(0);
 
     for (let i = 0; i < count; i++) {
       const btn = buttons.nth(i);

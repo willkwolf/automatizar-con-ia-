@@ -68,7 +68,39 @@ async function runVibiumSuite() {
       assert(text.includes('Investigación de Frontera en IA & Gobernanza Ética'), 'Missing AI frontier capability');
     })({ page });
 
-    // Test 4: Collapsible Accordions in Service Architecture
+    // Test 4: Triada Service Architecture Separated Showcase & Alternating Layout
+    await it('Spanish #triada renders 3 separated showcase articles with Left-Right-Left layout and duotones', async () => {
+      const triadItems = await page.findAll('#triada .triad-card');
+      assert.strictEqual(triadItems.length, 3, 'Expected exactly 3 triad showcase articles');
+
+      // Pillar 1: FIG. 04 (Left Visual, Right Content)
+      const p1Text = await triadItems[0].text();
+      assert(p1Text.includes('FIG. 04 · ARQUITECTURA MODULAR & FAST CODE'), 'Missing FIG. 04 header');
+      assert(p1Text.includes('PIPELINE DETERMINISTA'), 'Missing status in Fig 4');
+
+      // Pillar 2: FIG. 05 (showcase-reverse: Right Visual, Left Content)
+      const p2Class = await triadItems[1].getAttribute('class');
+      assert(p2Class.includes('showcase-reverse'), 'Pilar 02 must have showcase-reverse for alternating Z-pattern');
+      const p2Text = await triadItems[1].text();
+      assert(p2Text.includes('FIG. 05 · REINGENIERÍA OPERATIVA & CULTURA ÁGIL'), 'Missing FIG. 05 header');
+      assert(p2Text.includes('CUELLO DE BOTELLA OPTIMIZADO'), 'Missing status in Fig 5');
+
+      // Pillar 3: FIG. 06 (Left Visual, Right Content)
+      const p3Text = await triadItems[2].text();
+      assert(p3Text.includes('FIG. 06 · DINÁMICA DE SISTEMAS & EVALUACIÓN EMPÍRICA'), 'Missing FIG. 06 header');
+      assert(p3Text.includes('RESEARCH UPSTREAM'), 'Missing status in Fig 6');
+
+      const triadSvgs = await page.findAll('#triada .showcase-duotone-svg');
+      assert.strictEqual(triadSvgs.length, 3, 'Expected 3 duotone SVGs in #triada');
+
+      // Check Casa Matriz and Direct Contact sections
+      const casaMatrizSec = await page.find('.casa-matriz-section');
+      assert(casaMatrizSec, 'Missing .casa-matriz-section portal invitation');
+      const directSec = await page.find('.direct-contact-section');
+      assert(directSec, 'Missing .direct-contact-section');
+    })({ page });
+
+    // Test 5: Collapsible Accordions in Service Architecture
     await it('Capabilities are collapsible with <details> and <summary> saving cognitive load', async () => {
       const accordions = await page.findAll('.capability-accordion');
       assert.strictEqual(accordions.length, 13, `Expected 13 capability accordions, found ${accordions.length}`);
@@ -102,10 +134,10 @@ async function runVibiumSuite() {
       assert(bounds.height >= 44, `Button touch target height ${bounds.height}px is below 44px`);
     })({ page });
 
-    // Test 6: All Buttons Geometry and Non-Truncation
-    await it('All .btn-action buttons meet min-height (>=44px) and non-truncation', async () => {
+    // Test 6: Exactly 2 Operational Action Buttons (Non-Saturated UI & Geometry)
+    await it('Exactly 2 operational .btn-action buttons meet min-height (>=44px) and non-truncation', async () => {
       const buttons = await page.findAll('.btn-action');
-      assert(buttons.length >= 3, 'Expected at least 3 action buttons (hero + B2B sales)');
+      assert.strictEqual(buttons.length, 2, `Expected exactly 2 action buttons, found ${buttons.length}`);
       for (const btn of buttons) {
         const bounds = await btn.bounds();
         assert(bounds.height >= 44, `A .btn-action button height ${bounds.height}px is below 44px`);
@@ -114,6 +146,12 @@ async function runVibiumSuite() {
         "(() => Array.from(document.querySelectorAll('.btn-action')).some(el => el.scrollWidth > el.clientWidth + 4))()"
       );
       assert(!hasOverflow, 'A .btn-action button text is horizontally clipped/overflowing');
+
+      // Assert header and hero have NO action buttons
+      const headerBtnsCount = await page.evaluate("(() => document.querySelectorAll('.nav-header .nav-cta').length)()");
+      assert.strictEqual(headerBtnsCount, 0, 'Header must have 0 CTA buttons to prevent visual fatigue');
+      const heroBtnsCount = await page.evaluate("(() => document.querySelectorAll('.hero-section .btn-action').length)()");
+      assert.strictEqual(heroBtnsCount, 0, 'Hero section must have 0 action buttons for clean editorial look');
     })({ page });
 
     // Test 7: Static Client Logos Island
@@ -199,6 +237,16 @@ async function runVibiumSuite() {
 
       const accordions = await page.findAll('.capability-accordion');
       assert.strictEqual(accordions.length, 13, 'Expected 13 EN accordions');
+
+      const enActionBtns = await page.findAll('.btn-action');
+      assert.strictEqual(enActionBtns.length, 2, `Expected exactly 2 EN action buttons, found ${enActionBtns.length}`);
+      const enHeaderBtnsCount = await page.evaluate("(() => document.querySelectorAll('.nav-header .nav-cta').length)()");
+      assert.strictEqual(enHeaderBtnsCount, 0, 'EN Header must have 0 CTA buttons');
+      const enHeroBtnsCount = await page.evaluate("(() => document.querySelectorAll('.hero-section .btn-action').length)()");
+      assert.strictEqual(enHeroBtnsCount, 0, 'EN Hero must have 0 action buttons');
+
+      const triadSvgs = await page.findAll('#triada .showcase-duotone-svg');
+      assert.strictEqual(triadSvgs.length, 3, 'Expected 3 duotone SVGs in EN #triada');
 
       const b2bChildren = await page.evaluate(
         "(() => document.querySelector('#enablement .b2b-training-container').children.length)()"
