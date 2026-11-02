@@ -611,20 +611,21 @@
       }
     }
 
-    /* Sección Especial: Invitación a Casa Matriz (Pilar 03 Profundo) */
+    /* Sección Especial: Invitación a Casa Matriz (Pilar 03 Profundo - SSOT) */
     .casa-matriz-section {
-      padding: var(--space-10) 0 var(--space-6);
+      padding: var(--space-12) 0 var(--space-8);
+      position: relative;
     }
 
     .casa-matriz-card {
       background: var(--color-surface-card-inset);
       border: 1px solid var(--color-border-medium);
       border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-10);
+      padding: var(--space-10) var(--space-12);
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: var(--space-5);
     }
 
     .casa-matriz-meta-header {
@@ -677,6 +678,16 @@
       display: flex;
       align-items: center;
       margin-top: var(--space-2);
+    }
+
+    @media (max-width: 768px) {
+      .casa-matriz-card {
+        padding: var(--space-6);
+        gap: var(--space-4);
+      }
+      .casa-matriz-section {
+        padding: var(--space-8) 0 var(--space-4);
+      }
     }
 
     /* Bloque Final de Contacto Directo (Único Botón Comercial de Operación) */
@@ -885,93 +896,113 @@
       margin: 0;
     }
 
-    /* B2B Enterprise Training Offer Section (Exact 2-Div Architecture) */
-    .b2b-training-section {
+    /* ==========================================================================
+       B2B Enablement: Dos Divisiones Separadas (Organismos y Moléculas Atómicas)
+       ========================================================================== */
+    .b2b-divisions-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
       margin-top: var(--space-6);
     }
 
-    .b2b-training-container {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: var(--space-6);
+    .b2b-overview-card,
+    .b2b-curriculum-card {
       background: var(--color-surface-card);
       border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-10);
       box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-
-    .b2b-training-overview {
-      grid-column: span 5;
-      padding: var(--space-8);
-      background: var(--color-surface-card-inset);
-      border-right: 1px solid var(--color-border-hairline);
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: var(--space-6);
     }
 
-    .b2b-training-title {
+    .b2b-overview-card {
+      background: var(--color-surface-card-inset);
+      border: 1px solid var(--color-border-medium);
+    }
+
+    .b2b-card-title {
       font-family: var(--font-family-display);
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-bold);
       color: var(--color-ink-primary);
       line-height: var(--line-height-heading);
+      margin-top: var(--space-2);
+      margin-bottom: var(--space-2);
     }
 
-    .b2b-training-summary {
-      font-size: var(--text-sm);
+    .b2b-card-lead {
+      font-size: var(--text-base);
       color: var(--color-ink-secondary);
       line-height: var(--line-height-body);
+      max-width: 840px;
+      margin: 0;
     }
 
+    /* Molécula: Tarjetas de Metadatos de la Formación */
     .b2b-meta-grid {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      margin-top: var(--space-2);
-      padding-top: var(--space-4);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      padding-top: var(--space-6);
       border-top: 1px dashed var(--color-border-hairline);
     }
 
+    .b2b-meta-card,
     .b2b-meta-item {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      font-size: var(--text-xs);
+      gap: var(--space-2);
     }
 
+    .b2b-meta-header-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .b2b-meta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      color: var(--color-accent-gold);
+      flex-shrink: 0;
+    }
+
+    .b2b-meta-title,
     .b2b-meta-label {
       font-family: var(--font-family-mono);
+      font-size: var(--text-xs);
       font-weight: var(--font-weight-semibold);
       color: var(--color-accent-gold);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      margin: 0;
     }
 
+    .b2b-meta-desc,
     .b2b-meta-value {
+      font-size: var(--text-sm);
       color: var(--color-ink-primary);
-      line-height: 1.4;
+      line-height: 1.5;
+      margin: 0;
     }
 
-    .b2b-training-curriculum {
-      grid-column: span 7;
-      padding: var(--space-8);
+    .b2b-curriculum-header {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: var(--space-6);
+      gap: var(--space-1);
     }
 
-    .b2b-curriculum-eyebrow {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      font-weight: var(--font-weight-semibold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-ink-muted);
-    }
-
+    /* Molécula: Tarjetas de Módulo y Criterios DoD */
     .b2b-modules-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -979,15 +1010,24 @@
     }
 
     .b2b-module-card {
-      padding: var(--space-4);
+      padding: var(--space-5);
       background: var(--color-surface-subtle);
       border: 1px solid var(--color-border-hairline);
       border-radius: var(--radius-sm);
       display: flex;
       flex-direction: column;
-      gap: var(--space-1);
+      gap: var(--space-2);
+      justify-content: space-between;
     }
 
+    .b2b-module-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+
+    .b2b-module-phase,
     .b2b-module-num {
       font-family: var(--font-family-mono);
       font-size: var(--text-2xs);
@@ -997,38 +1037,65 @@
       text-transform: uppercase;
     }
 
+    .b2b-module-duration {
+      font-family: var(--font-family-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-ink-muted);
+      letter-spacing: 0.04em;
+    }
+
     .b2b-module-heading {
       font-family: var(--font-family-display);
-      font-size: var(--text-sm);
+      font-size: var(--text-base);
       font-weight: var(--font-weight-bold);
       color: var(--color-ink-primary);
       line-height: 1.3;
+      margin: 0;
     }
 
     .b2b-module-desc {
       font-size: var(--text-xs);
       color: var(--color-ink-secondary);
-      line-height: 1.45;
+      line-height: 1.5;
       margin: 0;
+      flex-grow: 1;
     }
 
+    .b2b-dod-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-family: var(--font-family-mono);
+      font-size: 0.6875rem;
+      color: var(--color-ink-muted);
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-border-hairline);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.02em;
+      margin-top: var(--space-2);
+      width: fit-content;
+    }
+
+    /* Molécula: Bloque de Atención Comercial Corporativa */
     .b2b-sales-cta-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-6);
-      padding: var(--space-4) var(--space-6);
+      padding: var(--space-5) var(--space-6);
       background: var(--color-surface-card-inset);
       border: 1px solid var(--color-border-medium);
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
       flex-wrap: wrap;
+      margin-top: var(--space-4);
     }
 
     .b2b-sales-meta {
-      flex: 1 1 260px;
+      flex: 1 1 280px;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: var(--space-1);
     }
 
     .b2b-sales-tag {
@@ -1040,28 +1107,44 @@
       color: var(--color-accent-gold);
     }
 
-    .b2b-sales-desc {
-      font-size: var(--text-xs);
-      color: var(--color-ink-secondary);
-      line-height: 1.4;
+    .b2b-sales-title {
+      font-family: var(--font-family-display);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink-primary);
+      line-height: 1.3;
       margin: 0;
     }
 
-    @media (max-width: 991px) {
-      .b2b-training-overview {
-        grid-column: span 12;
-        border-right: none;
-        border-bottom: 1px solid var(--color-border-hairline);
+    .b2b-sales-desc {
+      font-size: var(--text-xs);
+      color: var(--color-ink-secondary);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .b2b-overview-card,
+      .b2b-curriculum-card {
+        padding: var(--space-6);
+        gap: var(--space-5);
       }
-      .b2b-training-curriculum {
-        grid-column: span 12;
-      }
+      .b2b-meta-grid,
       .b2b-modules-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-3);
+      }
+      .b2b-sales-cta-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        padding: var(--space-4);
+      }
+      .b2b-sales-cta-wrap .btn-action {
+        width: 100%;
       }
     }
 
-        /* Knowledge / Casa Matriz Bar & Editorial Button */
+    /* Knowledge / Casa Matriz Bar & Editorial Button */
     .knowledge-action-bar {
       display: flex;
       align-items: center;
@@ -2018,122 +2101,6 @@
       .scene-1 { opacity: 1 !important; transform: none !important; animation: none !important; position: relative !important; }
       .scene-2, .scene-3 { display: none !important; }
       .stage-pulse-dot { animation: none !important; }
-    }
-
-    /* ==========================================================================
-       B2B Enablement: Dos Divisiones Separadas (Organismos Independientes)
-       ========================================================================== */
-    .b2b-divisions-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-8);
-      margin-top: var(--space-6);
-    }
-
-    .b2b-overview-card,
-    .b2b-curriculum-card {
-      background: var(--color-surface-card);
-      border: 1px solid var(--color-border-hairline);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8) var(--space-10);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-6);
-    }
-
-    .b2b-overview-card {
-      background: var(--color-surface-card-inset);
-      border: 1px solid var(--color-border-medium);
-    }
-
-    .b2b-card-title {
-      font-family: var(--font-family-display);
-      font-size: var(--text-2xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-ink-primary);
-      line-height: var(--line-height-heading);
-      margin-top: var(--space-2);
-      margin-bottom: var(--space-2);
-    }
-
-    .b2b-card-lead {
-      font-size: var(--text-base);
-      color: var(--color-ink-secondary);
-      line-height: var(--line-height-body);
-      max-width: 840px;
-      margin: 0;
-    }
-
-    .b2b-meta-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-6);
-      padding-top: var(--space-6);
-      border-top: 1px dashed var(--color-border-hairline);
-    }
-
-    .b2b-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    .b2b-meta-label {
-      font-family: var(--font-family-mono);
-      font-size: var(--text-xs);
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-accent-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .b2b-meta-value {
-      font-size: var(--text-sm);
-      color: var(--color-ink-primary);
-      line-height: 1.5;
-    }
-
-    .b2b-curriculum-header {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    /* Corrección de Spacing & Bordes Casa Matriz */
-    .casa-matriz-section {
-      padding: var(--space-12) 0 var(--space-8);
-      position: relative;
-    }
-
-    .casa-matriz-card {
-      background: var(--color-surface-card-inset) !important;
-      border: 1px solid var(--color-border-medium) !important;
-      border-radius: var(--radius-lg);
-      padding: var(--space-10) var(--space-12) !important;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-5) !important;
-    }
-
-    @media (max-width: 768px) {
-      .b2b-overview-card,
-      .b2b-curriculum-card {
-        padding: var(--space-6);
-        gap: var(--space-4);
-      }
-      .b2b-meta-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-      }
-      .casa-matriz-card {
-        padding: var(--space-6) !important;
-        gap: var(--space-4) !important;
-      }
-      .casa-matriz-section {
-        padding: var(--space-8) 0 var(--space-4);
-      }
     }
 
   </style>
@@ -3189,21 +3156,65 @@
             </div>
 
             <div class="b2b-meta-grid">
-              <div class="b2b-meta-item">
-                <span class="b2b-meta-label">Audiencia Objetivo:</span>
-                <span class="b2b-meta-value">Gerentes de operaciones, product managers, tech leads y tomadores de decisiones mid-level que coordinan equipos asistidos por IA.</span>
+              <div class="b2b-meta-card b2b-meta-item">
+                <div class="b2b-meta-header-row">
+                  <svg class="b2b-meta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  <h4 class="b2b-meta-title b2b-meta-label">Audiencia Objetivo</h4>
+                </div>
+                <p class="b2b-meta-desc b2b-meta-value">
+                  Gerentes de operaciones, product managers, tech leads y tomadores de decisiones mid-level que coordinan equipos asistidos por IA.
+                </p>
               </div>
-              <div class="b2b-meta-item">
-                <span class="b2b-meta-label">Objetivos de Aprendizaje:</span>
-                <span class="b2b-meta-value">Criterio directivo para seleccionar entre reglas, flujos y agentes; diseño de compuertas HitL; auditoría de sesgos y modos de fallo.</span>
+
+              <div class="b2b-meta-card b2b-meta-item">
+                <div class="b2b-meta-header-row">
+                  <svg class="b2b-meta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                  </svg>
+                  <h4 class="b2b-meta-title b2b-meta-label">Objetivos de Aprendizaje</h4>
+                </div>
+                <p class="b2b-meta-desc b2b-meta-value">
+                  Criterio directivo para seleccionar entre reglas, flujos y agentes; diseño de compuertas HitL; auditoría de sesgos y modos de fallo.
+                </p>
               </div>
-              <div class="b2b-meta-item">
-                <span class="b2b-meta-label">Criterio de Supervisión (HitL):</span>
-                <span class="b2b-meta-value">Definición de compuertas obligatorias de intervención humana (*Human-in-the-Loop*) antes de autorizar acciones críticas o irreversibles.</span>
+
+              <div class="b2b-meta-card b2b-meta-item">
+                <div class="b2b-meta-header-row">
+                  <svg class="b2b-meta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                  <h4 class="b2b-meta-title b2b-meta-label">Criterio de Supervisión (HitL)</h4>
+                </div>
+                <p class="b2b-meta-desc b2b-meta-value">
+                  Definición de compuertas obligatorias de intervención humana (<em>Human-in-the-Loop</em>) antes de autorizar acciones críticas o irreversibles.
+                </p>
               </div>
-              <div class="b2b-meta-item">
-                <span class="b2b-meta-label">Formato &amp; Modalidad:</span>
-                <span class="b2b-meta-value">Programa intensivo de 8 semanas, 24 horas en vivo, cohortes privadas in-company o reserva de sillas corporativas por departamento.</span>
+
+              <div class="b2b-meta-card b2b-meta-item">
+                <div class="b2b-meta-header-row">
+                  <svg class="b2b-meta-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                    <line x1="16" x2="16" y1="2" y2="6"/>
+                    <line x1="8" x2="8" y1="2" y2="6"/>
+                    <line x1="3" x2="21" y1="10" y2="10"/>
+                    <path d="M8 14h.01"/>
+                    <path d="M12 14h.01"/>
+                    <path d="M16 14h.01"/>
+                    <path d="M8 18h.01"/>
+                    <path d="M12 18h.01"/>
+                  </svg>
+                  <h4 class="b2b-meta-title b2b-meta-label">Formato &amp; Modalidad</h4>
+                </div>
+                <p class="b2b-meta-desc b2b-meta-value">
+                  Programa intensivo de 8 semanas, 24 horas en vivo, cohortes privadas in-company o reserva de sillas corporativas por departamento.
+                </p>
               </div>
             </div>
           </div>
@@ -3220,30 +3231,58 @@
 
             <div class="b2b-modules-grid">
               <div class="b2b-module-card">
-                <span class="b2b-module-num">Fase 01 · Semanas 1-2</span>
+                <div class="b2b-module-header">
+                  <span class="b2b-module-phase b2b-module-num">Fase 01</span>
+                  <span class="b2b-module-duration">Semanas 1–2</span>
+                </div>
                 <h4 class="b2b-module-heading">Diagnóstico de Restricciones &amp; Contratos</h4>
                 <p class="b2b-module-desc">Mapeo AS-IS de procesos, identificación del cuello de botella operativo (TOC) y definición de contratos de entrada/salida y criterios DoD.</p>
+                <div class="b2b-dod-pill">
+                  <span>Entregable DoD: Mapeo AS-IS &amp; Contratos E/S</span>
+                </div>
               </div>
+
               <div class="b2b-module-card">
-                <span class="b2b-module-num">Fase 02 · Semanas 3-4</span>
+                <div class="b2b-module-header">
+                  <span class="b2b-module-phase b2b-module-num">Fase 02</span>
+                  <span class="b2b-module-duration">Semanas 3–4</span>
+                </div>
                 <h4 class="b2b-module-heading">Arquitectura Proporcional &amp; ADRs</h4>
                 <p class="b2b-module-desc">Criterios para seleccionar proporcionalmente entre reglas, flujos o agentes LLM. Registro formal de decisiones técnicas (ADR).</p>
+                <div class="b2b-dod-pill">
+                  <span>Entregable DoD: Registro ADR &amp; Proporcionalidad</span>
+                </div>
               </div>
+
               <div class="b2b-module-card">
-                <span class="b2b-module-num">Fase 03 · Semanas 5-6</span>
+                <div class="b2b-module-header">
+                  <span class="b2b-module-phase b2b-module-num">Fase 03</span>
+                  <span class="b2b-module-duration">Semanas 5–6</span>
+                </div>
                 <h4 class="b2b-module-heading">Supervisión Agéntica en Sandbox</h4>
                 <p class="b2b-module-desc">Monitoreo de agentes en arnés controlado, permisos mínimos, tratamiento defensivo de datos y protocolos kill-switch.</p>
+                <div class="b2b-dod-pill">
+                  <span>Entregable DoD: Sandbox, Permisos &amp; Kill-Switch</span>
+                </div>
               </div>
+
               <div class="b2b-module-card">
-                <span class="b2b-module-num">Fase 04 · Semanas 7-8</span>
+                <div class="b2b-module-header">
+                  <span class="b2b-module-phase b2b-module-num">Fase 04</span>
+                  <span class="b2b-module-duration">Semanas 7–8</span>
+                </div>
                 <h4 class="b2b-module-heading">Auditoría Adversarial &amp; Gobernanza</h4>
                 <p class="b2b-module-desc">Certificación con el Test Ácido, matriz de fallos, resiliencia distribuida y redacción de memos de adopción organizacional.</p>
+                <div class="b2b-dod-pill">
+                  <span>Entregable DoD: Certificación Test Ácido &amp; Adoption Memo</span>
+                </div>
               </div>
             </div>
 
             <div class="b2b-sales-cta-wrap">
               <div class="b2b-sales-meta">
                 <span class="b2b-sales-tag">Atención Comercial Corporativa</span>
+                <h4 class="b2b-sales-title">¿Interesado en capacitar a tus equipos técnicos o directivos?</h4>
                 <p class="b2b-sales-desc">Cotiza un paquete de sillas para tus managers o diseña una cohorte exclusiva adaptada a las restricciones técnicas de tu empresa.</p>
               </div>
               <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20cotizar%20el%20Programa%20de%20Capacitaci%C3%B3n%20In-Company%20en%20Supervisi%C3%B3n%20Ag%C3%A9ntica%20para%20mi%20equipo" target="_blank" rel="noopener" class="btn-action btn-primary" aria-label="Cotizar Capacitación In-Company por WhatsApp (abre en nueva pestaña)">
@@ -3300,13 +3339,15 @@
           <div class="direct-contact-action">
             <a href="https://wa.me/573002976815?text=Hola,%20quisiera%20conversar%20con%20el%20equipo%20de%20Boutique%20Digital%20sobre%20un%20proyecto" class="btn-action btn-primary btn-unique-contact" target="_blank" rel="noopener" aria-label="Contactar Equipo por WhatsApp (abre en nueva pestaña)">
               <span>Contactar Equipo por WhatsApp</span>
-              <span aria-hidden="true">&rarr;</span>
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
             </a>
           </div>
         </div>
       </div>
     </section>
-  </main>
+    </main>
 
   <footer class="site-footer">
     <div class="container">

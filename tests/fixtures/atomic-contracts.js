@@ -54,7 +54,8 @@ async function verifyAccordionsContract(page, expectedCount = 13) {
 
 /**
  * Validates Organism: B2B Enterprise Enablement Part 1 (Overview) & Part 2 (Curriculum)
- * Enforces two separate distinct divisions for breathing room and modularity.
+ * Enforces two separate distinct divisions for breathing room and modularity,
+ * along with atomic and molecular structural contracts (meta cards, module cards with DoD, CTA).
  */
 async function verifyB2BTwoDivisionsContract(page, sectionId = 'habilitacion') {
   const overviewCard = await page.find(`#${sectionId} .b2b-overview-card`);
@@ -76,13 +77,67 @@ async function verifyB2BTwoDivisionsContract(page, sectionId = 'habilitacion') {
     `[Organisms Contract] Expected exactly 2 distinct division cards in #${sectionId} .b2b-divisions-wrapper`
   );
 
-  // Validate module count in curriculum
+  // Validate atomic/molecular structure of Division 1 (Meta cards: icon, title, desc)
+  const metaItems = await page.findAll(`#${sectionId} .b2b-meta-item`);
+  assert.strictEqual(
+    metaItems.length,
+    4,
+    `[Molecules Contract] Expected exactly 4 meta cards in #${sectionId} .b2b-overview-card`
+  );
+
+  const metaHasStructure = await page.evaluate(
+    `(() => {
+      const items = Array.from(document.querySelectorAll('#${sectionId} .b2b-meta-item'));
+      return items.every(item => 
+        (item.querySelector('.b2b-meta-title') || item.querySelector('.b2b-meta-label')) &&
+        (item.querySelector('.b2b-meta-desc') || item.querySelector('.b2b-meta-value'))
+      );
+    })()`
+  );
+  assert(metaHasStructure, `[Molecules Contract] All meta cards in #${sectionId} must have title and description elements`);
+
+  // Validate module count and DoD pills in curriculum
   const moduleCards = await page.findAll(`#${sectionId} .b2b-module-card`);
   assert.strictEqual(
     moduleCards.length,
     4,
     `[Organisms Contract] Expected exactly 4 module cards in #${sectionId}`
   );
+
+  const dodPillCount = await page.evaluate(
+    `(() => document.querySelectorAll('#${sectionId} .b2b-dod-pill').length)()`
+  );
+  assert.strictEqual(
+    dodPillCount,
+    4,
+    `[Atoms Contract] Expected 4 verifiable .b2b-dod-pill elements in #${sectionId} curriculum`
+  );
+
+  // Validate B2B Sales CTA block
+  const salesBtn = await page.find(`#${sectionId} .b2b-sales-cta-wrap .btn-action`);
+  assert(salesBtn, `[Molecules Contract] Missing sales CTA .btn-action in #${sectionId}`);
+  const salesHref = await salesBtn.getAttribute('href');
+  assert(salesHref && salesHref.includes('wa.me/573002976815'), `[Atoms Contract] Sales CTA must route to WhatsApp`);
+}
+
+/**
+ * Validates Organism: Direct Contact Section & Icon Integrity
+ */
+async function verifyDirectContactContract(page) {
+  const section = await page.find('.direct-contact-section');
+  assert(section, '[Organisms Contract] Missing .direct-contact-section');
+
+  const card = await page.find('.direct-contact-card');
+  assert(card, '[Organisms Contract] Missing .direct-contact-card');
+
+  const btn = await page.find('.direct-contact-action .btn-action');
+  assert(btn, '[Atoms Contract] Missing direct contact .btn-action button');
+
+  // Ensure button uses inline SVG icon and not raw ASCII/HTML entity &rarr;
+  const hasSvgIcon = await page.evaluate(
+    "(() => !!document.querySelector('.direct-contact-action .btn-action svg.btn-icon'))()"
+  );
+  assert(hasSvgIcon, '[Atoms Contract] Direct contact button must use standardized SVG .btn-icon');
 }
 
 /**
@@ -127,5 +182,6 @@ module.exports = {
   verifyAccordionsContract,
   verifyB2BTwoDivisionsContract,
   verifyCasaMatrizContract,
+  verifyDirectContactContract,
   verifySkeletonIntegrity
 };

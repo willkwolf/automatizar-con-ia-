@@ -6,6 +6,7 @@ const {
   verifyAccordionsContract,
   verifyB2BTwoDivisionsContract,
   verifyCasaMatrizContract,
+  verifyDirectContactContract,
   verifySkeletonIntegrity
 } = require('../fixtures/atomic-contracts');
 
@@ -162,11 +163,7 @@ async function runVibiumSuite() {
     // Test 9: Atomic Contract - Casa Matriz Portal & Direct Contact Organisms
     await it('[Atomic Contract] Casa Matriz Upstream portal and Direct Contact section invariants', async () => {
       await verifyCasaMatrizContract(page);
-      
-      const directSec = await page.find('.direct-contact-section');
-      assert(directSec, 'Missing .direct-contact-section');
-      const directBtn = await page.find('.direct-contact-action .btn-action');
-      assert(directBtn, 'Missing direct contact action button');
+      await verifyDirectContactContract(page);
     })({ page });
 
     // Test 10: Spanish Delivery Models with Separated Showcase Divs & Duotone Figures (No FIG headers)
@@ -214,8 +211,9 @@ async function runVibiumSuite() {
       // Verify 2 B2B divisions
       await verifyB2BTwoDivisionsContract(page, 'enablement');
 
-      // Verify Casa Matriz
+      // Verify Casa Matriz & Direct Contact
       await verifyCasaMatrizContract(page);
+      await verifyDirectContactContract(page);
 
       // Verify static logos
       const logos = await page.findAll('.mfeLogosSectionLogo');
