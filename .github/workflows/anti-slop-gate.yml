@@ -1,0 +1,68 @@
+name: Anti-Slop Governance & Mobile Quality Gate
+
+on:
+  push:
+    branches: [ main, "feat/**", "fix/**" ]
+  pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  anti-slop-quality-gate:
+    name: Mandatory Anti-Slop, Security & Mobile Audit Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Gate 1 - Surface Security & Leak Linter (Zero-Tracking & Private Assets)
+        run: |
+          python scripts/verify_surface_security.py
+
+      - name: Gate 2 - Anti-Slop Policy Contract Linter (Hype, Tropes & Editorial Cream)
+        run: |
+          python scripts/verify_policy_contract.py
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Gate 3 - Vibium Unit & Component Test Suite (Atomic Contracts)
+        run: npm run test:unit
+
+      - name: Install Playwright Browsers (Chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Gate 4 - Playwright E2E, WCAG 2.2 AA Accessibility & Mobile Copywriting Audit
+        run: npm run test:e2e
+
+      - name: Upload Test Results & Mobile Screenshots (Artifacts)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-audit-and-screenshots
+          path: |
+            docs/kaizen-copywriting/screenshots/
+            test-results/
+            playwright-report/
+          retention-days: 14
