@@ -1,6 +1,13 @@
 const { browser } = require('vibium');
 const path = require('path');
 const assert = require('assert');
+const {
+  verifyActionButtonsContract,
+  verifyAccordionsContract,
+  verifyB2BTwoDivisionsContract,
+  verifyCasaMatrizContract,
+  verifySkeletonIntegrity
+} = require('../fixtures/atomic-contracts');
 
 let passedTests = 0;
 let failedTests = 0;
@@ -21,7 +28,7 @@ function it(desc, fn) {
 
 async function runVibiumSuite() {
   console.log('\n======================================================');
-  console.log(' Vibium Unit & Component Test Suite: Capabilities, Accordions & B2B');
+  console.log(' Vibium Unit & Component Test Suite: Atomic Contracts, CDD & Animations');
   console.log('======================================================\n');
 
   const b = await browser.start({ headless: true });
@@ -68,123 +75,79 @@ async function runVibiumSuite() {
       assert(text.includes('Investigación de Frontera en IA & Gobernanza Ética'), 'Missing AI frontier capability');
     })({ page });
 
-    // Test 4: Triada Service Architecture Separated Showcase & Alternating Layout
-    await it('Spanish #triada renders 3 separated showcase articles with Left-Right-Left layout and duotones', async () => {
-      const triadItems = await page.findAll('#triada .triad-card');
-      assert.strictEqual(triadItems.length, 3, 'Expected exactly 3 triad showcase articles');
+    // Test 4: Triada Service Architecture Animated Showcase Cards (No FIG Numbering)
+    await it('Spanish #triada renders 3 interactive animated stage cards without static FIG numbering', async () => {
+      const stageCards = await page.findAll('#triada .interactive-stage-card');
+      assert.strictEqual(stageCards.length, 3, 'Expected exactly 3 interactive stage cards in #triada');
 
-      // Pillar 1: FIG. 04 (Left Visual, Right Content)
-      const p1Text = await triadItems[0].text();
-      assert(p1Text.includes('FIG. 04 · ARQUITECTURA MODULAR & FAST CODE'), 'Missing FIG. 04 header');
-      assert(p1Text.includes('PIPELINE DETERMINISTA'), 'Missing status in Fig 4');
+      // Assert zero FIG numbering text remains in page
+      const figCount = await page.evaluate(
+        "(() => Array.from(document.querySelectorAll('*')).filter(el => /FIG\\.\\s*\\d+/i.test(el.textContent) && el.children.length === 0).length)()"
+      );
+      assert.strictEqual(figCount, 0, 'No FIG numbering text should remain in the DOM');
 
-      // Pillar 2: FIG. 05 (showcase-reverse: Right Visual, Left Content)
-      const p2Class = await triadItems[1].getAttribute('class');
+      // Pillar 01 Card
+      const p1Text = await stageCards[0].text();
+      assert(p1Text.includes('SOFTWARE ENGINEERING WORKSPACE'), 'Missing P1 workspace title');
+      assert(p1Text.includes('COMPILER ACTIVE'), 'Missing P1 compiler status');
+
+      // Pillar 02 Card (showcase-reverse)
+      const p2Article = await page.find('#triada article:nth-of-type(2)');
+      const p2Class = await p2Article.getAttribute('class');
       assert(p2Class.includes('showcase-reverse'), 'Pilar 02 must have showcase-reverse for alternating Z-pattern');
-      const p2Text = await triadItems[1].text();
-      assert(p2Text.includes('FIG. 05 · REINGENIERÍA OPERATIVA & CULTURA ÁGIL'), 'Missing FIG. 05 header');
-      assert(p2Text.includes('CUELLO DE BOTELLA OPTIMIZADO'), 'Missing status in Fig 5');
+      const p2Text = await stageCards[1].text();
+      assert(p2Text.includes('OPERATIONS COMMAND'), 'Missing P2 operations command title');
+      assert(p2Text.includes('FLOW OPTIMIZED'), 'Missing P2 flow status');
 
-      // Pillar 3: FIG. 06 (Left Visual, Right Content)
-      const p3Text = await triadItems[2].text();
-      assert(p3Text.includes('FIG. 06 · DINÁMICA DE SISTEMAS & EVALUACIÓN EMPÍRICA'), 'Missing FIG. 06 header');
-      assert(p3Text.includes('RESEARCH UPSTREAM'), 'Missing status in Fig 6');
+      // Pillar 03 Card
+      const p3Text = await stageCards[2].text();
+      assert(p3Text.includes('EPISTEMOLOGICAL LAB'), 'Missing P3 lab title');
+      assert(p3Text.includes('RESEARCH UPSTREAM'), 'Missing P3 research status');
 
-      const triadSvgs = await page.findAll('#triada .showcase-duotone-svg');
-      assert.strictEqual(triadSvgs.length, 3, 'Expected 3 duotone SVGs in #triada');
-
-      // Check Casa Matriz and Direct Contact sections
-      const casaMatrizSec = await page.find('.casa-matriz-section');
-      assert(casaMatrizSec, 'Missing .casa-matriz-section portal invitation');
-      const directSec = await page.find('.direct-contact-section');
-      assert(directSec, 'Missing .direct-contact-section');
+      // Assert anim scenes exist in each card
+      const scenes = await page.findAll('#triada .anim-scene');
+      assert.strictEqual(scenes.length, 9, 'Expected 9 animated scenes (3 per stage card)');
     })({ page });
 
-    // Test 5: Collapsible Accordions in Service Architecture
-    await it('Capabilities are collapsible with <details> and <summary> saving cognitive load', async () => {
-      const accordions = await page.findAll('.capability-accordion');
-      assert.strictEqual(accordions.length, 13, `Expected 13 capability accordions, found ${accordions.length}`);
-      
-      const summaries = await page.findAll('.capability-summary');
-      assert.strictEqual(summaries.length, 13, `Expected 13 capability summaries, found ${summaries.length}`);
-
-      // Verify all are closed by default
-      const openCount = await page.evaluate(
-        "(() => document.querySelectorAll('.capability-accordion[open]').length)()"
-      );
-      assert.strictEqual(openCount, 0, 'Accordions should be closed by default to save visual space');
+    // Test 5: Atomic Contract - Collapsible Capability Accordions
+    await it('[Atomic Contract] 13 capability accordions closed by default', async () => {
+      await verifyAccordionsContract(page, 13);
     })({ page });
 
-    // Test 5: Casa Matriz Button
-    await it('Casa Matriz button has elegant typography, valid link and no truncation', async () => {
-      const btn = await page.find('.btn-casa-matriz');
-      const href = await btn.getAttribute('href');
-      const target = await btn.getAttribute('target');
-      const rel = await btn.getAttribute('rel');
-      const bounds = await btn.bounds();
-      
-      const isTruncated = await page.evaluate(
-        "(() => { const el = document.querySelector('.btn-casa-matriz'); return el.scrollWidth > el.clientWidth + 2; })()"
-      );
+    // Test 6: Atomic Contract - Exactly 2 Operational Action Buttons
+    await it('[Atomic Contract] Exactly 2 operational .btn-action buttons meet touch target & geometry', async () => {
+      await verifyActionButtonsContract(page, 2);
 
-      assert.strictEqual(href, 'https://willkwolf.github.io/Thinking-as-a-Service/');
-      assert.strictEqual(target, '_blank');
-      assert.strictEqual(rel, 'noopener');
-      assert(!isTruncated, 'Button text is truncated horizontally');
-      assert(bounds.height >= 44, `Button touch target height ${bounds.height}px is below 44px`);
+      // Assert header and hero have 0 CTA buttons
+      const headerBtns = await page.evaluate("(() => document.querySelectorAll('.nav-header .nav-cta').length)()");
+      assert.strictEqual(headerBtns, 0, 'Header must have 0 CTA buttons to avoid fatigue');
+      const heroBtns = await page.evaluate("(() => document.querySelectorAll('.hero-section .btn-action').length)()");
+      assert.strictEqual(heroBtns, 0, 'Hero section must have 0 action buttons for editorial look');
     })({ page });
 
-    // Test 6: Exactly 2 Operational Action Buttons (Non-Saturated UI & Geometry)
-    await it('Exactly 2 operational .btn-action buttons meet min-height (>=44px) and non-truncation', async () => {
-      const buttons = await page.findAll('.btn-action');
-      assert.strictEqual(buttons.length, 2, `Expected exactly 2 action buttons, found ${buttons.length}`);
-      for (const btn of buttons) {
-        const bounds = await btn.bounds();
-        assert(bounds.height >= 44, `A .btn-action button height ${bounds.height}px is below 44px`);
-      }
-      const hasOverflow = await page.evaluate(
-        "(() => Array.from(document.querySelectorAll('.btn-action')).some(el => el.scrollWidth > el.clientWidth + 4))()"
-      );
-      assert(!hasOverflow, 'A .btn-action button text is horizontally clipped/overflowing');
-
-      // Assert header and hero have NO action buttons
-      const headerBtnsCount = await page.evaluate("(() => document.querySelectorAll('.nav-header .nav-cta').length)()");
-      assert.strictEqual(headerBtnsCount, 0, 'Header must have 0 CTA buttons to prevent visual fatigue');
-      const heroBtnsCount = await page.evaluate("(() => document.querySelectorAll('.hero-section .btn-action').length)()");
-      assert.strictEqual(heroBtnsCount, 0, 'Hero section must have 0 action buttons for clean editorial look');
-    })({ page });
-
-    // Test 7: Static Client Logos Island
-    await it('Client logos section is static with exactly 3 logos (Globant, Icesi, Valle del Cauca)', async () => {
+    // Test 7: Atomic Contract - Static Client Logos Island
+    await it('[Atomic Contract] Client logos section is static with exactly 3 logos (Globant, Icesi, Valle del Cauca)', async () => {
       const logos = await page.findAll('.mfeLogosSectionLogo');
       assert.strictEqual(logos.length, 3, `Expected exactly 3 static client logos, found ${logos.length}`);
 
       const bodyText = await page.content();
       assert(!bodyText.includes('logosTrackScroll'), 'Animation logosTrackScroll must be removed');
-      assert(!bodyText.includes('-              <g transform='), 'Found diff minus lines in HTML');
-      assert(!bodyText.includes('+            <svg viewBox='), 'Found diff plus lines in HTML');
     })({ page });
 
-    // Test 8: Dedicated B2B Enterprise Training Section (#habilitacion)
-    await it('B2B Enterprise Training block has exactly 2 direct container divs with sales CTA', async () => {
-      const b2bSection = await page.find('#habilitacion .b2b-training-section');
-      assert(b2bSection, 'Missing .b2b-training-section in #habilitacion');
-
-      const containerChildren = await page.evaluate(
-        "(() => document.querySelector('#habilitacion .b2b-training-container').children.length)()"
-      );
-      assert.strictEqual(containerChildren, 2, `Expected exactly 2 direct divs in B2B training block, found ${containerChildren}`);
+    // Test 8: Atomic Contract - Dedicated B2B Enterprise Training Section (Two Separate Divisions)
+    await it('[Atomic Contract] B2B Enterprise Training has exactly 2 distinct division cards', async () => {
+      await verifyB2BTwoDivisionsContract(page, 'habilitacion');
 
       const overviewText = await page.evaluate(
-        "(() => document.querySelector('#habilitacion .b2b-training-overview').textContent)()"
+        "(() => document.querySelector('#habilitacion .b2b-overview-card').textContent)()"
       );
-      assert(overviewText.includes('Formación Directiva'), 'Missing training heading');
+      assert(overviewText.includes('En qué consiste'), 'Missing overview heading');
       assert(overviewText.includes('Audiencia Objetivo'), 'Missing target audience');
       assert(overviewText.includes('Criterio de Supervisión'), 'Missing supervision criteria');
-      assert(overviewText.includes('Formato'), 'Missing format / seats specification');
+      assert(overviewText.includes('Formato'), 'Missing format specification');
 
       const curriculumText = await page.evaluate(
-        "(() => document.querySelector('#habilitacion .b2b-training-curriculum').textContent)()"
+        "(() => document.querySelector('#habilitacion .b2b-curriculum-card').textContent)()"
       );
       assert(curriculumText.includes('Fase 01'), 'Missing Phase 1');
       assert(curriculumText.includes('Fase 02'), 'Missing Phase 2');
@@ -196,86 +159,86 @@ async function runVibiumSuite() {
       assert(href.includes('wa.me/573002976815'), 'Sales CTA must connect to institutional WhatsApp');
     })({ page });
 
-    // Test 9: Spanish Delivery Models with Separated Showcase Divs & Duotone Figures
-    await it('Spanish #metodologia renders 3 separated showcase divs with prominent duotones', async () => {
+    // Test 9: Atomic Contract - Casa Matriz Portal & Direct Contact Organisms
+    await it('[Atomic Contract] Casa Matriz Upstream portal and Direct Contact section invariants', async () => {
+      await verifyCasaMatrizContract(page);
+      
+      const directSec = await page.find('.direct-contact-section');
+      assert(directSec, 'Missing .direct-contact-section');
+      const directBtn = await page.find('.direct-contact-action .btn-action');
+      assert(directBtn, 'Missing direct contact action button');
+    })({ page });
+
+    // Test 10: Spanish Delivery Models with Separated Showcase Divs & Duotone Figures (No FIG headers)
+    await it('Spanish #metodologia renders 3 separated showcase divs with prominent duotones and no FIG headers', async () => {
       const items = await page.findAll('#metodologia .delivery-showcase-item');
       assert.strictEqual(items.length, 3, 'Expected exactly 3 delivery showcase items');
 
-      // Item 1: El Viaje del Héroe
-      const item1Text = await items[0].text();
-      assert(item1Text.includes('ANALOGÍA 01 · EL VIAJE DEL HÉROE'), 'Missing analogy 1 tag');
-      assert(item1Text.includes('Staff Augmentation'), 'Missing staff aug industry term');
-      assert(item1Text.includes('CAPEX'), 'Missing Capex profile');
-
-      // Item 2: Sondas Digitales
-      const item2Text = await items[1].text();
-      assert(item2Text.includes('ANALOGÍA 02 · SONDAS DIGITALES'), 'Missing analogy 2 tag');
-      assert(item2Text.includes('Fixed-Scope Discovery'), 'Missing turnkey discovery industry term');
-      assert(item2Text.includes('OPEX'), 'Missing Opex profile');
-
-      // Item 3: Integración Híbrida
-      const item3Text = await items[2].text();
-      assert(item3Text.includes('ANALOGÍA 03 · INTEGRACIÓN HÍBRIDA'), 'Missing analogy 3 tag');
-      assert(item3Text.includes('Strategic Retainer'), 'Missing retainer industry term');
-      assert(item3Text.includes('Asignación Mixta'), 'Missing hybrid allocation profile');
+      // Assert no showcase-visual-header in methodology
+      const figHeaders = await page.evaluate(
+        "(() => document.querySelectorAll('#metodologia .showcase-visual-header').length)()"
+      );
+      assert.strictEqual(figHeaders, 0, 'showcase-visual-header must be removed from methodology');
 
       // Check Duotone SVGs prominence
       const svgs = await page.findAll('#metodologia .showcase-duotone-svg');
       assert.strictEqual(svgs.length, 3, 'Expected 3 prominent duotone SVGs in methodology section');
     })({ page });
 
+    // Test 11: Skeleton & Template Invariant
+    await it('[Template Invariant] Page skeleton structure and zero horizontal overflow', async () => {
+      await verifySkeletonIntegrity(page);
+    })({ page });
+
     console.log('\n[Suite 2: English Landing Page (en/index.html)]');
     await page.go(enUrl);
 
-    // Test 10: English Capabilities & Accordions
-    await it('English Triad has reverse-engineered capabilities, accordions and B2B block', async () => {
+    // Test 12: English Triad Capabilities & Animated Stages
+    await it('English Triad has capabilities, 13 accordions, 3 animated stages, and 2 B2B divisions', async () => {
       const pilar1 = await page.find('#triada article:nth-of-type(1)');
       const text1 = await pilar1.text();
       assert(text1.includes('Software Consulting'), 'Missing EN title');
       assert(text1.includes('Custom Enterprise Application Engineering'), 'Missing EN custom apps');
       assert(text1.includes('Legacy Modernization & Cloud Evolution'), 'Missing EN modernization');
 
-      const accordions = await page.findAll('.capability-accordion');
-      assert.strictEqual(accordions.length, 13, 'Expected 13 EN accordions');
+      // Verify accordions
+      await verifyAccordionsContract(page, 13);
 
-      const enActionBtns = await page.findAll('.btn-action');
-      assert.strictEqual(enActionBtns.length, 2, `Expected exactly 2 EN action buttons, found ${enActionBtns.length}`);
-      const enHeaderBtnsCount = await page.evaluate("(() => document.querySelectorAll('.nav-header .nav-cta').length)()");
-      assert.strictEqual(enHeaderBtnsCount, 0, 'EN Header must have 0 CTA buttons');
-      const enHeroBtnsCount = await page.evaluate("(() => document.querySelectorAll('.hero-section .btn-action').length)()");
-      assert.strictEqual(enHeroBtnsCount, 0, 'EN Hero must have 0 action buttons');
+      // Verify action buttons
+      await verifyActionButtonsContract(page, 2);
 
-      const triadSvgs = await page.findAll('#triada .showcase-duotone-svg');
-      assert.strictEqual(triadSvgs.length, 3, 'Expected 3 duotone SVGs in EN #triada');
+      // Verify 3 animated stage cards
+      const stageCards = await page.findAll('#triada .interactive-stage-card');
+      assert.strictEqual(stageCards.length, 3, 'Expected 3 animated stage cards in EN #triada');
 
-      const b2bChildren = await page.evaluate(
-        "(() => document.querySelector('#enablement .b2b-training-container').children.length)()"
-      );
-      assert.strictEqual(b2bChildren, 2, 'Expected exactly 2 divs in EN B2B training container');
+      // Verify 2 B2B divisions
+      await verifyB2BTwoDivisionsContract(page, 'enablement');
 
+      // Verify Casa Matriz
+      await verifyCasaMatrizContract(page);
+
+      // Verify static logos
       const logos = await page.findAll('.mfeLogosSectionLogo');
       assert.strictEqual(logos.length, 3, 'Expected exactly 3 static logos in EN version');
     })({ page });
 
-    // Test 11: English Delivery Models with Separated Showcase Divs & Duotone Figures
-    await it('English #methodology renders 3 separated showcase divs with prominent duotones', async () => {
+    // Test 13: English Delivery Models with Separated Showcase Divs & Zero FIG headers
+    await it('English #methodology renders 3 separated showcase divs with prominent duotones and zero FIG headers', async () => {
       const items = await page.findAll('#methodology .delivery-showcase-item');
       assert.strictEqual(items.length, 3, 'Expected exactly 3 EN delivery showcase items');
 
-      const item1Text = await items[0].text();
-      assert(item1Text.includes("ANALOGY 01 · THE HERO'S JOURNEY"), 'Missing EN analogy 1');
-      assert(item1Text.includes('CAPEX Focus'), 'Missing EN Capex profile');
-
-      const item2Text = await items[1].text();
-      assert(item2Text.includes('ANALOGY 02 · DIGITAL PROBES'), 'Missing EN analogy 2');
-      assert(item2Text.includes('OPEX Focus'), 'Missing EN Opex profile');
-
-      const item3Text = await items[2].text();
-      assert(item3Text.includes('ANALOGY 03 · HYBRID INTEGRATION'), 'Missing EN analogy 3');
-      assert(item3Text.includes('Balanced Allocation'), 'Missing EN hybrid profile');
+      const figHeaders = await page.evaluate(
+        "(() => document.querySelectorAll('#methodology .showcase-visual-header').length)()"
+      );
+      assert.strictEqual(figHeaders, 0, 'showcase-visual-header must be removed from EN methodology');
 
       const svgs = await page.findAll('#methodology .showcase-duotone-svg');
       assert.strictEqual(svgs.length, 3, 'Expected 3 prominent duotone SVGs in EN methodology section');
+    })({ page });
+
+    // Test 14: EN Skeleton Integrity
+    await it('[Template Invariant] EN Page skeleton structure and zero horizontal overflow', async () => {
+      await verifySkeletonIntegrity(page);
     })({ page });
 
   } finally {

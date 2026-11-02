@@ -58,8 +58,8 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     await expect(pillar3).toContainText('Protocolos de Evaluación Empírica');
     await expect(pillar3).toContainText('Investigación de Frontera en IA');
 
-    // Check alternating Left-Right-Left layout and 3 duotone figures
-    expect(await page.locator('#triada .showcase-duotone-svg').count()).toBe(3);
+    // Check alternating Left-Right-Left layout and 3 interactive animated stage cards
+    expect(await page.locator('#triada .interactive-stage-card').count()).toBe(3);
     await expect(pillar2).toHaveClass(/showcase-reverse/);
 
     // Check bottom Casa Matriz portal and direct contact sections
@@ -153,21 +153,20 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
 
   test('Dedicated B2B Enterprise Training Section - 2-Div Architecture & Sales CTA', async ({ page }) => {
     await page.goto('/');
-    const b2bSection = page.locator('#habilitacion .b2b-training-section');
+    const b2bSection = page.locator('#habilitacion .b2b-divisions-wrapper');
     await expect(b2bSection).toBeVisible();
 
-    const container = page.locator('#habilitacion .b2b-training-container');
-    const directDivs = container.locator('> div');
+    const directDivs = b2bSection.locator('> div');
     expect(await directDivs.count()).toBe(2);
 
     // Div 1: Overview
-    const overview = page.locator('#habilitacion .b2b-training-overview');
+    const overview = page.locator('#habilitacion .b2b-overview-card');
     await expect(overview).toBeVisible();
-    await expect(overview).toContainText('Formación Directiva');
+    await expect(overview).toContainText('En qué consiste');
     await expect(overview).toContainText('Audiencia Objetivo');
 
     // Div 2: Curriculum & CTA
-    const curriculum = page.locator('#habilitacion .b2b-training-curriculum');
+    const curriculum = page.locator('#habilitacion .b2b-curriculum-card');
     await expect(curriculum).toBeVisible();
     await expect(curriculum).toContainText('Fase 01');
     await expect(curriculum).toContainText('Fase 04');
@@ -191,9 +190,10 @@ test.describe('E2E Visual & Accessibility Suite (Playwright + Axe)', () => {
     const svgs = section.locator('.showcase-duotone-svg');
     expect(await svgs.count()).toBe(3);
 
-    // Verify visual card structure and technical headers
+    // Verify visual card structure has NO FIG numbering headers
     const figHeaders = section.locator('.showcase-visual-header');
-    expect(await figHeaders.count()).toBe(3);
+    expect(await figHeaders.count()).toBe(0);
+    expect(await page.locator('.showcase-fig-num').count()).toBe(0);
 
     // Verify NO button fatigue inside methodology
     const methodBtns = section.locator('.btn-action');
